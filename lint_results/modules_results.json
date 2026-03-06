@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "c1f4b51961bc421cb88e679405d19bc38e39c7c7",
+  "_repo_commit": "bd18299d809361f5b11c4de43029e43d643f7a1b",
   "ancestral_extract": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract",
     "errors": 0,
@@ -82,6 +82,12 @@
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/fastxalign/pyfastxindex",
     "errors": 0,
     "warnings": 0,
+    "parse_error": false
+  },
+  "gnk_fastasort": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/gnk/fastasort",
+    "errors": 0,
+    "warnings": 1,
     "parse_error": false
   },
   "longranger_align": {

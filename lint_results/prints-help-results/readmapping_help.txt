@@ -1,10 +1,9 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.01.1-edge
+ N E X T F L O W   ~  version 26.02.0-edge
 
-Downloading plugin nf-schema@2.5.1
-Launching `./main.nf` [tender_shockley] revision: 861ae59bc6
+Launching `./main.nf` [special_hodgkin] revision: 861ae59bc6
 
 WARN: Unrecognized config option 'timeline.fields'
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
@@ -29,19 +28,20 @@ help message of that parameter will be printed.
 or `--helpFull`.  
 
 Input/output options
-  --input                       [string]  Path to comma-separated file containing information about the samples in the experiment. 
-  --outdir                      [string]  The output directory where the results will be saved. You have to use absolute paths to storage on 
+  --input                       [string] Path to comma-separated file containing information about the samples in the experiment. 
+  --outdir                      [string] The output directory where the results will be saved. You have to use absolute paths to storage on 
 Cloud infrastructure.  
-  --outfmt                      [string]  Format for output alignment files. Accepts options: "bam" or "cram". [default: cram] 
-  --compression                 [string]  Output file compression type. Currently accepts: "none" or "crumble" [default: crumble] 
-  --merge_output                [boolean] Merge output alignment files by samples [default: true] 
-  --pacbio_adapter_fasta        [string]  Path to FASTA file contains adapter sequences for PacBio HiFi reads. [default: 
+  --outfmt                      [string] Format for output alignment files. Accepts options: "bam" or "cram". [default: cram] 
+  --compression                 [string] Output file compression type. Currently accepts: "none" or "crumble" [default: crumble] 
+  --merge_output                [string] Set to a non-empty string to merge output alignment files by specimens. The string is used to name 
+the output directory  
+  --pacbio_adapter_fasta        [string] Path to FASTA file contains adapter sequences for PacBio HiFi reads. [default: 
 ${projectDir}/assets/HiFi_adapter.fasta]  
-  --pacbio_adapter_yaml         [string]  Path to YAML file containing guide for trimming/filtering PacBio data. See hifi-trimmer docs for 
+  --pacbio_adapter_yaml         [string] Path to YAML file containing guide for trimming/filtering PacBio data. See hifi-trimmer docs for 
 details: https://github.com/sanger-tol/hifi-trimmer [default: 
 ${projectDir}/assets/HiFi_adapter.yaml]  
-  --pacbio_uli_adapter          [string]  Path to FASTA file containing the PacBio ULI adapter sequence. 
-  --email                       [string]  Email address for completion summary. 
+  --pacbio_uli_adapter          [string] Path to FASTA file containing the PacBio ULI adapter sequence. 
+  --email                       [string] Email address for completion summary. 
 
 Reference genome options
   --fasta                       [string] Path to FASTA genome file. 
