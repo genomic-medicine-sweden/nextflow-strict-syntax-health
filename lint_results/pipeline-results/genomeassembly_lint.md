@@ -1,21 +1,21 @@
 # Nextflow lint results
 
-- Generated: 2026-03-06T00:13:31.748498212Z
+- Generated: 2026-03-07T00:07:08.019268231Z
 - Nextflow version: 26.02.0-edge
 - Summary: 2 warnings
 
 ## :warning: Warnings
 
-- Warning: `subworkflows/local/organelle_assembly/main.nf:17:42`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `modules/nf-core/purgedups/purgedups/main.nf:24:9`: Variable was declared but not used
 
   ```nextflow
-          spec.stages.collect { stageName, stageData -> setupStage(spec, stageName) }
-                                           ^^^^^^^^^
+      def prefix = task.ext.prefix ?: "${meta.id}"
+          ^^^^^^
   ```
 
-- Warning: `subworkflows/local/polishing/main.nf:66:33`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/purging/main.nf:12:5`: Variable was declared but not used
 
   ```nextflow
-              .map { spec, fasta, bed_chunks, lr_bam, lr_bai, lr_csv, vcf, tbi ->
-                                  ^^^^^^^^^^
+      ch_versions = channel.empty()
+      ^^^^^^^^^^^
   ```
