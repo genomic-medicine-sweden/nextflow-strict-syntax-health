@@ -20,7 +20,7 @@
   "curationpretext": {
     "full_name": "sanger-tol/curationpretext",
     "html_url": "https://github.com/sanger-tol/curationpretext",
-    "commit": "0df2d62813e7d2b049db78e58e20aef9a9da5a1c",
+    "commit": "d7cf13c7ac99794e5c16a327a88c68e6fc90e1fb",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -65,7 +65,7 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "2703fc0c9895b6bfebbe92386757bef6eed41cc3",
+    "commit": "43729838eeff99c6d6fb1d64edadd45026be73e9",
     "errors": 0,
     "warnings": 2,
     "parse_error": false,
