@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "55f3dd54f274c9648207a82bf68d257945d27053",
+  "_repo_commit": "f939418f574cb80ae719e4f1e1478fccb947232e",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -68,6 +68,12 @@
   },
   "genome_statistics": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/genome_statistics",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "get_blobtk_plots": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/get_blobtk_plots",
     "errors": 0,
     "warnings": 0,
     "parse_error": false
