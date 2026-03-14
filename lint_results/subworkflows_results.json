@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "f939418f574cb80ae719e4f1e1478fccb947232e",
+  "_repo_commit": "011810f2fb5ee163076c0866d738f0addc240dde",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -60,6 +60,12 @@
     "warnings": 0,
     "parse_error": false
   },
+  "feature_density": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/feature_density",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
   "gap_finder": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/gap_finder",
     "errors": 0,
@@ -74,7 +80,7 @@
   },
   "get_blobtk_plots": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/get_blobtk_plots",
-    "errors": 0,
+    "errors": 1,
     "warnings": 0,
     "parse_error": false
   },
@@ -86,6 +92,18 @@
   },
   "pairs_create_contact_maps": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/pairs_create_contact_maps",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "repeat_density": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/repeat_density",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "repeat_masking": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/repeat_masking",
     "errors": 0,
     "warnings": 0,
     "parse_error": false
