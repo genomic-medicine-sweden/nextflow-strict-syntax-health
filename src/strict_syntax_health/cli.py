@@ -36,6 +36,9 @@ MODULES_LINT_RESULTS_DIR = LINT_RESULTS_DIR / "module-results"
 SUBWORKFLOWS_LINT_RESULTS_DIR = LINT_RESULTS_DIR / "subworkflow-results"
 PRINTS_HELP_RESULTS_DIR = LINT_RESULTS_DIR / "prints-help-results"
 
+# Base URL for linking to files in this repository (used in Slack reports)
+REPO_BASE_URL = "https://github.com/nf-core/strict-syntax-health/blob/main"
+
 console = Console()
 
 
@@ -136,8 +139,12 @@ def load_pipelines() -> list[dict]:
 
 
 def check_modules_repo_unchanged(
-    url: str, prefix: str = "", branch: str = "refs/heads/main",
-    no_cache: bool = False, check_modules: bool = True, check_subworkflows: bool = True
+    url: str,
+    prefix: str = "",
+    branch: str = "refs/heads/main",
+    no_cache: bool = False,
+    check_modules: bool = True,
+    check_subworkflows: bool = True,
 ) -> tuple[bool, str | None]:
     """Check if the repo is unchanged from cache (without cloning).
 
@@ -1610,9 +1617,7 @@ def generate_readme(
 
     if module_results:
         lines.extend(
-            _generate_results_section(
-                module_results, "modules", "module", MODULES_LINT_RESULTS_DIR, include_charts
-            )
+            _generate_results_section(module_results, "modules", "module", MODULES_LINT_RESULTS_DIR, include_charts)
         )
 
     if subworkflow_results:
@@ -1671,6 +1676,120 @@ def generate_readme(
     return "\n".join(lines)
 
 
+def send_slack_report(
+    module_results: list[dict] | None,
+    subworkflow_results: list[dict] | None,
+    slack_webhook_url: str,
+) -> None:
+    """Send a Slack report of lint errors and warnings for modules and subworkflows.
+
+    Uses a Slack Incoming Webhook URL, which is pre-configured for a specific channel
+    and does not require a separate channel parameter.
+
+    Args:
+        module_results: List of module lint result dicts (or None if not linted).
+        subworkflow_results: List of subworkflow lint result dicts (or None if not linted).
+        slack_webhook_url: Slack Incoming Webhook URL (pre-configured for the target channel).
+    """
+    components_with_errors: list[str] = []
+    components_with_warnings: list[str] = []
+    total_errors = 0
+    total_warnings = 0
+
+    lint_dirs = {
+        "module": MODULES_LINT_RESULTS_DIR,
+        "subworkflow": SUBWORKFLOWS_LINT_RESULTS_DIR,
+    }
+
+    for type_label, results in [("module", module_results or []), ("subworkflow", subworkflow_results or [])]:
+        lint_dir = lint_dirs[type_label]
+        for r in results:
+            lint_url = f"{REPO_BASE_URL}/{lint_dir}/{r['name']}_lint.md"
+            if r.get("parse_error"):
+                components_with_errors.append(f":x: [{type_label}] {r['name']} (parse error)")
+                continue
+            if r["errors"] > 0:
+                components_with_errors.append(
+                    f":x: [{type_label}] <{lint_url}|{r['name']}> — {r['errors']} error(s), {r['warnings']} warning(s)"
+                )
+                total_errors += r["errors"]
+                total_warnings += r["warnings"]
+            elif r["warnings"] > 0:
+                components_with_warnings.append(
+                    f":warning: [{type_label}] <{lint_url}|{r['name']}> — {r['warnings']} warning(s)"
+                )
+                total_warnings += r["warnings"]
+
+    # Build summary text
+    if total_errors == 0 and total_warnings == 0:
+        summary = ":white_check_mark: No errors or warnings in modules/subworkflows."
+    else:
+        parts = []
+        if total_errors:
+            parts.append(f"*{total_errors} error(s)*")
+        if total_warnings:
+            parts.append(f"*{total_warnings} warning(s)*")
+        summary = " | ".join(parts)
+
+    blocks: list[dict] = [
+        {
+            "type": "header",
+            "text": {
+                "type": "plain_text",
+                "text": ":mag: Strict Syntax Health — Modules & Subworkflows",
+                "emoji": True,
+            },
+        },
+        {
+            "type": "section",
+            "text": {"type": "mrkdwn", "text": summary},
+        },
+    ]
+
+    MAX_ITEMS = 20  # Slack block text limit is 3 000 chars; cap list length for safety
+
+    if components_with_errors:
+        blocks.append({"type": "divider"})
+        listed = "\n".join(components_with_errors[:MAX_ITEMS])
+        overflow = len(components_with_errors) - MAX_ITEMS
+        if overflow > 0:
+            listed += f"\n_…and {overflow} more_"
+        blocks.append({"type": "section", "text": {"type": "mrkdwn", "text": f"*Components with errors:*\n{listed}"}})
+
+    if components_with_warnings:
+        blocks.append({"type": "divider"})
+        listed = "\n".join(components_with_warnings[:MAX_ITEMS])
+        overflow = len(components_with_warnings) - MAX_ITEMS
+        if overflow > 0:
+            listed += f"\n_…and {overflow} more_"
+        blocks.append(
+            {"type": "section", "text": {"type": "mrkdwn", "text": f"*Components with warnings only:*\n{listed}"}}
+        )
+
+    fallback_text = (
+        f"Strict Syntax Health: {total_errors} error(s), {total_warnings} warning(s) in modules/subworkflows"
+    )
+    # Incoming Webhook payload: no channel field needed — it is baked into the webhook URL
+    payload = {"text": fallback_text, "blocks": blocks}
+
+    try:
+        response = httpx.post(
+            slack_webhook_url,
+            headers={"Content-Type": "application/json"},
+            json=payload,
+            timeout=30,
+        )
+        response.raise_for_status()
+        if response.text == "ok":
+            console.print("[green]Slack report sent successfully[/green]")
+        else:
+            console.print(f"[red]Unexpected Slack webhook response: {response.text}[/red]")
+    except httpx.HTTPStatusError as exc:
+        console.print(f"[red]Slack webhook returned HTTP {exc.response.status_code}[/red]")
+    except httpx.HTTPError as exc:
+        console.print(f"[red]HTTP error while sending Slack report: {exc}[/red]")
+
+
 @click.command()
 @click.option(
     "--update-readme",
@@ -1725,6 +1844,17 @@ def generate_readme(
     is_flag=True,
     help="Ignore commit cache and re-lint everything (by default, unchanged repos are skipped)",
 )
+@click.option(
+    "--slack-webhook",
+    envvar="SLACK_WEBHOOK_URL",
+    default=None,
+    show_envvar=True,
+    help=(
+        "Slack Incoming Webhook URL (pre-configured for the target channel). "
+        "Can also be set via the SLACK_WEBHOOK_URL env var — preferred in CI to avoid "
+        "the URL appearing in process lists or log output."
+    ),
+)
 def main(
     update_readme: bool,
     update_pipelines: bool,
@@ -1736,6 +1866,7 @@ def main(
     skip_subworkflows: bool,
     generate_charts_only: bool,
     no_cache: bool,
+    slack_webhook: str | None,
 ) -> None:
     """Check sanger-tol pipelines, modules, and subworkflows for Nextflow strict syntax linting issues."""
     if update_pipelines:
@@ -1916,6 +2047,13 @@ def main(
         )
         README_PATH.write_text(readme_content)
         console.print(f"\n[green]Updated {README_PATH}[/green]")
+
+    # Send Slack report for modules/subworkflows when a webhook URL is configured
+    if slack_webhook:
+        if module_results is not None or subworkflow_results is not None:
+            send_slack_report(module_results, subworkflow_results, slack_webhook)
+        else:
+            console.print("[dim]Slack report skipped: no module/subworkflow results to report.[/dim]")
 
 
 if __name__ == "__main__":

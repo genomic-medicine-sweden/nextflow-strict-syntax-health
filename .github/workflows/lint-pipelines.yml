@@ -182,6 +182,8 @@ jobs:
           echo "Running: $CMD"
 
       - name: Run linting
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: ${{ steps.build-cmd.outputs.cmd }}
 
       - name: Run prek on all files to fix formatting
