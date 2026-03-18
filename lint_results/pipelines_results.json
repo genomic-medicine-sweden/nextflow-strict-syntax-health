@@ -20,9 +20,9 @@
   "curationpretext": {
     "full_name": "sanger-tol/curationpretext",
     "html_url": "https://github.com/sanger-tol/curationpretext",
-    "commit": "d7cf13c7ac99794e5c16a327a88c68e6fc90e1fb",
+    "commit": "fcf49fd096828787c3bd8941aae0aa5fd43f2f0e",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 2,
     "parse_error": false,
     "prints_help": false
   },
@@ -155,7 +155,7 @@
   "variantcomposition": {
     "full_name": "sanger-tol/variantcomposition",
     "html_url": "https://github.com/sanger-tol/variantcomposition",
-    "commit": "f439615ce4d7715d1f2f65363ef83a7105b8159c",
+    "commit": "543de4d4d502e938e5fc33910a4335e4bd382333",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
