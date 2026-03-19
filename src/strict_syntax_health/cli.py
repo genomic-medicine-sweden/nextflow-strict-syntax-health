@@ -37,7 +37,7 @@ SUBWORKFLOWS_LINT_RESULTS_DIR = LINT_RESULTS_DIR / "subworkflow-results"
 PRINTS_HELP_RESULTS_DIR = LINT_RESULTS_DIR / "prints-help-results"
 
 # Base URL for linking to files in this repository (used in Slack reports)
-REPO_BASE_URL = "https://github.com/nf-core/strict-syntax-health/blob/main"
+REPO_BASE_URL = "https://github.com/sanger-tol/nextflow-strict-syntax-health/blob/main"
 
 # Saved meta.yml stats (reloaded in --generate-charts-only mode)
 MODULES_META_STATS_PATH = LINT_RESULTS_DIR / "modules_meta_stats.json"
