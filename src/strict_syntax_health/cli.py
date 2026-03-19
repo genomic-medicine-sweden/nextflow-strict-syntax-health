@@ -39,6 +39,9 @@ PRINTS_HELP_RESULTS_DIR = LINT_RESULTS_DIR / "prints-help-results"
 # Base URL for linking to files in this repository (used in Slack reports)
 REPO_BASE_URL = "https://github.com/nf-core/strict-syntax-health/blob/main"
 
+# Saved meta.yml stats (reloaded in --generate-charts-only mode)
+MODULES_META_STATS_PATH = LINT_RESULTS_DIR / "modules_meta_stats.json"
+
 console = Console()
 
 
@@ -302,6 +305,137 @@ def discover_modules() -> list[dict]:
 
     console.print(f"Found {len(modules)} modules")
     return modules
+
+
+def scan_modules_meta_yml_stats() -> dict:
+    """Scan sanger-tol modules and subworkflows for topic/version usage.
+
+    For **modules**: checks each ``meta.yml`` for the presence of both ``topics:`` and
+    ``versions:`` fields, mirroring the check performed by the nf-core stats pipeline.
+
+    For **subworkflows**: checks the ``main.nf`` for a ``versions`` output channel
+    (an emit assignment matching ``versions = …``).
+    Subworkflows do not support a ``topics`` field.
+
+    Returns:
+        Dict with keys:
+        - ``total``, ``with_topic_versions``, ``without_topic_versions``: combined counts
+          (modules only contribute to ``with_topic_versions`` because subworkflows have no topics).
+        - ``subworkflow_with_versions``, ``subworkflow_without_versions``: subworkflow-specific counts.
+        - ``details``: list of per-component dicts, each with ``type``, ``name``, ``html_url``,
+          ``has_topics`` (modules only), and ``has_versions``.
+    """
+    import re as _re
+
+    base_url_modules = "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol"
+    base_url_subworkflows = "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol"
+    total = 0
+    with_topic_versions = 0  # modules: topics + versions
+    swf_with_versions = 0
+    details: list[dict] = []
+
+    # Scan modules — meta.yml must have both topics: and versions:
+    modules_path = MODULES_DIR / "modules" / "sanger-tol"
+    if modules_path.exists():
+        for meta_yml in sorted(modules_path.rglob("meta.yml")):
+            total += 1
+            try:
+                content = meta_yml.read_text(errors="replace")
+            except OSError:
+                details.append(
+                    {
+                        "name": meta_yml.parent.name,
+                        "html_url": "",
+                        "has_topics": False,
+                        "has_versions": False,
+                        "type": "module",
+                    }
+                )
+                continue
+
+            has_topics = "topics:" in content
+            has_versions = "versions:" in content
+
+            # Derive module name (tool_subcommand) and URL from the path
+            parts = meta_yml.parts
+            try:
+                idx = list(parts).index("sanger-tol")
+                tool = parts[idx + 1]
+                subcommand = parts[idx + 2]
+                name = f"{tool}_{subcommand}"
+                html_url = f"{base_url_modules}/{tool}/{subcommand}/meta.yml"
+            except (ValueError, IndexError):
+                name = meta_yml.parent.name
+                html_url = ""
+
+            if has_topics and has_versions:
+                with_topic_versions += 1
+
+            details.append(
+                {
+                    "name": name,
+                    "html_url": html_url,
+                    "has_topics": has_topics,
+                    "has_versions": has_versions,
+                    "type": "module",
+                }
+            )
+
+    # Scan subworkflows — main.nf must emit a `versions` output channel
+    subworkflows_path = MODULES_DIR / "subworkflows" / "sanger-tol"
+    if subworkflows_path.exists():
+        for subworkflow_dir in sorted(subworkflows_path.iterdir()):
+            if not subworkflow_dir.is_dir() or subworkflow_dir.name.startswith("."):
+                continue
+            main_nf = subworkflow_dir / "main.nf"
+            total += 1
+            # Subworkflows are one level deep: subworkflows/sanger-tol/<name>/
+            name = subworkflow_dir.name
+            html_url = f"{base_url_subworkflows}/{name}/main.nf"
+
+            if not main_nf.exists():
+                details.append({"name": name, "html_url": html_url, "has_versions": False, "type": "subworkflow"})
+                continue
+
+            try:
+                content = main_nf.read_text(errors="replace")
+            except OSError:
+                details.append({"name": name, "html_url": html_url, "has_versions": False, "type": "subworkflow"})
+                continue
+
+            # A subworkflow passes if its emit block contains a `versions` channel:
+            # matches lines like "    versions = ch_versions"
+            has_versions = bool(_re.search(r"^\s+versions\s*=", content, _re.MULTILINE))
+
+            if has_versions:
+                swf_with_versions += 1
+
+            details.append({"name": name, "html_url": html_url, "has_versions": has_versions, "type": "subworkflow"})
+
+    if total == 0:
+        return {
+            "total": 0,
+            "with_topic_versions": 0,
+            "without_topic_versions": 0,
+            "subworkflow_with_versions": 0,
+            "subworkflow_without_versions": 0,
+            "details": [],
+        }
+
+    module_total = sum(1 for d in details if d["type"] == "module")
+    swf_total = sum(1 for d in details if d["type"] == "subworkflow")
+    console.print(
+        f"meta.yml scan: {with_topic_versions}/{module_total} modules have topics + versions; "
+        f"{swf_with_versions}/{swf_total} subworkflows emit versions"
+    )
+    return {
+        "total": total,
+        "with_topic_versions": with_topic_versions,
+        "without_topic_versions": module_total - with_topic_versions,
+        "subworkflow_with_versions": swf_with_versions,
+        "subworkflow_without_versions": swf_total - swf_with_versions,
+        "details": details,
+    }
 
 
 def discover_subworkflows() -> list[dict]:
@@ -1124,6 +1258,53 @@ def display_results(results: list[dict], type_name: str, show_prints_help: bool 
     )
 
 
+def display_meta_stats(meta_stats: dict) -> None:
+    """Display topic/version usage as two separate rich tables (modules and subworkflows)."""
+    details = meta_stats.get("details", [])
+
+    # --- Modules table (topics: + versions: in meta.yml) ---
+    mod_details = [d for d in details if d.get("type", "module") == "module"]
+    if mod_details:
+        mod_total = len(mod_details)
+        mod_pass = meta_stats.get("with_topic_versions", 0)
+        mod_fail = meta_stats.get("without_topic_versions", 0)
+        mod_pct = mod_pass / mod_total * 100 if mod_total else 0
+
+        mod_table = Table("sanger-tol Modules — topic + version usage (meta.yml)")
+        mod_table.add_column("Module", style="cyan")
+        mod_table.add_column("topics:", justify="center")
+        mod_table.add_column("versions:", justify="center")
+        for d in sorted(mod_details, key=lambda x: (x["has_topics"] and x["has_versions"], x["name"])):
+            t = "[green]Yes[/green]" if d["has_topics"] else "[red]No[/red]"
+            v = "[green]Yes[/green]" if d["has_versions"] else "[red]No[/red]"
+            mod_table.add_row(d["name"], t, v)
+        console.print(mod_table)
+        console.print(f"[bold]modules: {mod_pass}/{mod_total} ({mod_pct:.1f}%) passing, {mod_fail} missing[/bold]")
+
+    # --- Subworkflows table (main.nf must NOT emit a versions channel) ---
+    swf_details = [d for d in details if d.get("type") == "subworkflow"]
+    if swf_details:
+        swf_total = len(swf_details)
+        # passing = no versions channel (has_versions=False)
+        swf_pass = meta_stats.get("subworkflow_without_versions", 0)
+        swf_fail = meta_stats.get("subworkflow_with_versions", 0)
+        swf_pct = swf_pass / swf_total * 100 if swf_total else 0
+
+        swf_table = Table("sanger-tol Subworkflows — versions channel (main.nf emit)")
+        swf_table.add_column("versions channel")  # subworkflow name, coloured by status
+        # Bad ones (has versions) first, then good ones; within each group alphabetical
+        for d in sorted(swf_details, key=lambda x: (not x["has_versions"], x["name"])):
+            if d["has_versions"]:
+                swf_table.add_row(f"[red]{d['name']}[/red]")  # has versions = bad
+            else:
+                swf_table.add_row(f"[green]{d['name']}[/green]")  # no versions = good
+        console.print(swf_table)
+        console.print(
+            f"[bold]subworkflows: {swf_pass}/{swf_total} ({swf_pct:.1f}%) passing"
+            f" (no versions channel), {swf_fail} failing[/bold]"
+        )
+
+
 def _get_type_dir(type_name: str) -> Path:
     """Get the lint results directory for a specific type."""
     type_dirs = {
@@ -1233,12 +1414,17 @@ def load_history() -> dict:
     }
 
 
-def _create_history_entry(results: list[dict], include_prints_help: bool = False) -> dict:
+def _create_history_entry(
+    results: list[dict],
+    include_prints_help: bool = False,
+    meta_stats: dict | None = None,
+) -> dict:
     """Create a history entry from results.
 
     Args:
         results: List of lint results
         include_prints_help: If True, include prints_help statistics (for pipelines only)
+        meta_stats: Optional dict from scan_modules_meta_yml_stats (for modules only)
     """
     valid_results = [r for r in results if not r.get("parse_error", False)]
     parse_error_results = [r for r in results if r.get("parse_error", False)]
@@ -1261,6 +1447,10 @@ def _create_history_entry(results: list[dict], include_prints_help: bool = False
         entry["prints_help_pass"] = sum(1 for r in valid_results if r.get("prints_help") is True)
         entry["prints_help_fail"] = sum(1 for r in valid_results if r.get("prints_help") is False)
 
+    if meta_stats:
+        entry["meta_with_topic_versions"] = meta_stats.get("with_topic_versions", 0)
+        entry["meta_without_topic_versions"] = meta_stats.get("without_topic_versions", 0)
+
     return entry
 
 
@@ -1279,10 +1469,18 @@ def update_history(
     pipeline_results: list[dict] | None = None,
     module_results: list[dict] | None = None,
     subworkflow_results: list[dict] | None = None,
+    module_meta_stats: dict | None = None,
 ) -> dict:
     """Add current results to history and return updated history.
 
     Each type's history is stored in its own file to allow parallel updates.
+
+    Args:
+        pipeline_results: List of pipeline lint results.
+        module_results: List of module lint results.
+        subworkflow_results: List of subworkflow lint results.
+        module_meta_stats: Optional dict from scan_modules_meta_yml_stats to include
+            topics/versions coverage in the modules history entry.
     """
     history = {}
 
@@ -1295,7 +1493,7 @@ def update_history(
 
     if module_results is not None:
         modules_history = load_history_for_type("modules")
-        entry = _create_history_entry(module_results)
+        entry = _create_history_entry(module_results, meta_stats=module_meta_stats)
         modules_history = _update_history_for_type(modules_history, entry)
         save_history_for_type("modules", modules_history)
         history["modules"] = modules_history
@@ -1408,6 +1606,29 @@ def generate_charts_for_type(history: list[dict], output_dir: Path, type_name: s
         y_label,
     )
 
+    # For modules: generate an additional chart tracking topic version usage
+    if type_name == "modules" and any("meta_with_topic_versions" in h for h in history):
+        _create_stacked_chart(
+            dates,
+            [
+                (
+                    [h.get("meta_with_topic_versions", 0) for h in history],
+                    "Has topic version",
+                    "#2ecc71",
+                    "rgba(46, 204, 113, 0.7)",
+                ),
+                (
+                    [h.get("meta_without_topic_versions", 0) for h in history],
+                    "Missing topic version",
+                    "#e74c3c",
+                    "rgba(231, 76, 60, 0.7)",
+                ),
+            ],
+            "Module Topic Version Usage Over Time",
+            LINT_RESULTS_DIR / "modules_topic_versions.png",
+            y_label,
+        )
+
 
 def generate_all_charts(history: dict) -> None:
     """Generate charts for all types (pipelines, modules, subworkflows)."""
@@ -1427,6 +1648,7 @@ def _generate_results_section(
     include_charts: bool,
     show_only_errors: bool = False,
     show_prints_help: bool = False,
+    module_meta_stats: dict | None = None,
 ) -> list[str]:
     """Generate a results section for a specific type (pipelines, modules, subworkflows).
 
@@ -1438,6 +1660,7 @@ def _generate_results_section(
         include_charts: Whether to include chart images
         show_only_errors: If True, only show items with errors in the table (for modules/subworkflows)
         show_prints_help: If True, show the "Prints Help" column (for pipelines only)
+        module_meta_stats: Optional dict from scan_modules_meta_yml_stats (modules only)
     """
     if not results:
         return []
@@ -1456,8 +1679,33 @@ def _generate_results_section(
         f"- **Total:** {parse_error_count} parse errors, {total_errors} errors, "
         f"{total_warnings} warnings across {len(results)} {type_name}",
         f"- **Zero errors:** {zero_error_count} {type_name} ({zero_error_percentage:.1f}%)",
-        "",
     ]
+
+    if type_name == "modules" and module_meta_stats and module_meta_stats.get("details"):
+        _meta_mod = [d for d in module_meta_stats["details"] if d.get("type", "module") == "module"]
+        _tv_pass = sum(1 for d in _meta_mod if d["has_topics"] and d["has_versions"])
+        _tv_pct = _tv_pass / len(_meta_mod) * 100 if _meta_mod else 0
+        lines.append(
+            f"- **Topic + Version:** {_tv_pass}/{len(_meta_mod)} ({_tv_pct:.1f}%) modules have "
+            "`topics:` and `versions:` in meta.yml"
+        )
+
+    if type_name == "subworkflows" and module_meta_stats and module_meta_stats.get("details"):
+        _meta_swf = [d for d in module_meta_stats["details"] if d.get("type") == "subworkflow"]
+        _v_pass = sum(1 for d in _meta_swf if not d["has_versions"])
+        _v_pct = _v_pass / len(_meta_swf) * 100 if _meta_swf else 0
+        lines.append(
+            f"- **Versions channel:** {_v_pass}/{len(_meta_swf)} ({_v_pct:.1f}%) subworkflows "
+            "do not emit a `versions` output channel"
+        )
+
+    lines.append("")
+
+    # Build per-row meta lookup
+    meta_lookup: dict[str, dict] = {}
+    if module_meta_stats and module_meta_stats.get("details"):
+        for _d in module_meta_stats["details"]:
+            meta_lookup[_d["name"]] = _d
 
     # Add charts in a side-by-side table (charts are in LINT_RESULTS_DIR with type-prefixed names)
     errors_chart = LINT_RESULTS_DIR / f"{type_name}_errors.png"
@@ -1468,6 +1716,18 @@ def _generate_results_section(
                 "| Errors | Warnings |",
                 "|:------:|:--------:|",
                 f"| ![Errors]({errors_chart}) | ![Warnings]({warnings_chart}) |",
+                "",
+            ]
+        )
+
+    # For modules: add meta.yml topic version chart if it exists
+    meta_chart = LINT_RESULTS_DIR / "modules_topic_versions.png"
+    if include_charts and type_name == "modules" and meta_chart.exists():
+        lines.extend(
+            [
+                "| Module Topic Version Usage |",
+                "|:---------------------------:|",
+                f"| ![Topic Version Usage]({meta_chart}) |",
                 "",
             ]
         )
@@ -1488,6 +1748,14 @@ def _generate_results_section(
             f"| {type_singular.title()} | Parse Error | Errors | Warnings | Prints Help | Lint Output | Help Output |"
         )
         table_separator = "|----------|:-----------:|-------:|---------:|:-----------:|:-----------:|:-----------:|"
+    elif type_name == "modules":
+        table_header = (
+            f"| {type_singular.title()} | Parse Error | Errors | Warnings | `topics:` | `versions:` | Lint Output |"
+        )
+        table_separator = "|----------|:-----------:|-------:|---------:|:---------:|:----------:|:-----------:|"
+    elif type_name == "subworkflows":
+        table_header = f"| {type_singular.title()} | Parse Error | Errors | Warnings | versions channel | Lint Output |"
+        table_separator = "|----------|:-----------:|-------:|---------:|:----------------:|:-----------:|"
     else:
         table_header = f"| {type_singular.title()} | Parse Error | Errors | Warnings | Lint Output |"
         table_separator = "|----------|:-----------:|-------:|---------:|:-----------:|:-----------:|"
@@ -1542,6 +1810,20 @@ def _generate_results_section(
                 f"| {prints_help_str} | {lint_file_link} | {help_file_link} |"
             )
             lines.append(row)
+        elif type_name == "modules":
+            meta = meta_lookup.get(result["name"], {})
+            topics_str = ":white_check_mark:" if meta.get("has_topics") else ":x:"
+            versions_str = ":white_check_mark:" if meta.get("has_versions") else ":x:"
+            lines.append(
+                f"| {name_link} | {parse_error_str} | {error_str} | {warning_str} "
+                f"| {topics_str} | {versions_str} | {lint_file_link} |"
+            )
+        elif type_name == "subworkflows":
+            meta = meta_lookup.get(result["name"], {})
+            versions_str = ":x:" if meta.get("has_versions") else ":white_check_mark:"
+            lines.append(
+                f"| {name_link} | {parse_error_str} | {error_str} | {warning_str} | {versions_str} | {lint_file_link} |"
+            )
         else:
             lines.append(f"| {name_link} | {parse_error_str} | {error_str} | {warning_str} | {lint_file_link} |")
 
@@ -1573,6 +1855,7 @@ def generate_readme(
     subworkflow_results: list[dict] | None = None,
     include_charts: bool = False,
     nextflow_version: str = "unknown",
+    module_meta_stats: dict | None = None,
 ) -> str:
     """Generate README content with results for all types."""
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
@@ -1617,7 +1900,14 @@ def generate_readme(
 
     if module_results:
         lines.extend(
-            _generate_results_section(module_results, "modules", "module", MODULES_LINT_RESULTS_DIR, include_charts)
+            _generate_results_section(
+                module_results,
+                "modules",
+                "module",
+                MODULES_LINT_RESULTS_DIR,
+                include_charts,
+                module_meta_stats=module_meta_stats,
+            )
         )
 
     if subworkflow_results:
@@ -1628,6 +1918,7 @@ def generate_readme(
                 "subworkflow",
                 SUBWORKFLOWS_LINT_RESULTS_DIR,
                 include_charts,
+                module_meta_stats=module_meta_stats,
             )
         )
 
@@ -1680,6 +1971,7 @@ def send_slack_report(
     module_results: list[dict] | None,
     subworkflow_results: list[dict] | None,
     slack_webhook_url: str,
+    module_meta_stats: dict | None = None,
 ) -> None:
     """Send a Slack report of lint errors and warnings for modules and subworkflows.
 
@@ -1690,6 +1982,7 @@ def send_slack_report(
         module_results: List of module lint result dicts (or None if not linted).
         subworkflow_results: List of subworkflow lint result dicts (or None if not linted).
         slack_webhook_url: Slack Incoming Webhook URL (pre-configured for the target channel).
+        module_meta_stats: Optional dict from scan_modules_meta_yml_stats with topics/versions coverage.
     """
     components_with_errors: list[str] = []
     components_with_warnings: list[str] = []
@@ -1765,6 +2058,68 @@ def send_slack_report(
         blocks.append(
             {"type": "section", "text": {"type": "mrkdwn", "text": f"*Components with warnings only:*\n{listed}"}}
         )
+
+    if module_meta_stats and module_meta_stats.get("total", 0) > 0:
+        details = module_meta_stats.get("details", [])
+
+        # Modules: topics + versions in meta.yml
+        mod_total = sum(1 for d in details if d.get("type", "module") == "module")
+        mod_pass = module_meta_stats.get("with_topic_versions", 0)
+        mod_fail = module_meta_stats.get("without_topic_versions", 0)
+        mod_pct = mod_pass / mod_total * 100 if mod_total else 0
+        mod_text = f":books: *Modules topic+versions:* {mod_pass}/{mod_total} ({mod_pct:.1f}%)"
+        if mod_fail > 0:
+            mod_text += f" — {mod_fail} missing"
+
+        # Subworkflows: passing = no versions channel (has_versions=False)
+        swf_total = sum(1 for d in details if d.get("type") == "subworkflow")
+        swf_pass = module_meta_stats.get("subworkflow_without_versions", 0)
+        swf_fail = module_meta_stats.get("subworkflow_with_versions", 0)
+        swf_pct = swf_pass / swf_total * 100 if swf_total else 0
+        swf_text = f":no_entry_sign: *Subworkflows without versions channel:* {swf_pass}/{swf_total} ({swf_pct:.1f}%)"
+        if swf_fail > 0:
+            swf_text += f" — {swf_fail} still emit versions"
+
+        blocks.append({"type": "divider"})
+        blocks.append({"type": "section", "text": {"type": "mrkdwn", "text": f"{mod_text}\n{swf_text}"}})
+
+        if mod_fail > 0:
+            missing_mods = [
+                d
+                for d in details
+                if d.get("type", "module") == "module" and not (d["has_topics"] and d["has_versions"])
+            ]
+            missing_mods.sort(key=lambda x: x["name"])
+            capped = missing_mods[:MAX_ITEMS]
+            mod_lines = [f"• <{d['html_url']}|{d['name']}>" if d["html_url"] else f"• {d['name']}" for d in capped]
+            overflow = len(missing_mods) - MAX_ITEMS
+            if overflow > 0:
+                mod_lines.append(f"_…and {overflow} more_")
+            blocks.append(
+                {
+                    "type": "section",
+                    "text": {"type": "mrkdwn", "text": "*Modules missing topics/versions:*\n" + "\n".join(mod_lines)},
+                }
+            )
+
+        if swf_fail > 0:
+            # failing = those that still emit a versions channel (has_versions=True)
+            offending_swf = [d for d in details if d.get("type") == "subworkflow" and d["has_versions"]]
+            offending_swf.sort(key=lambda x: x["name"])
+            capped = offending_swf[:MAX_ITEMS]
+            swf_lines = [f"• <{d['html_url']}|{d['name']}>" if d["html_url"] else f"• {d['name']}" for d in capped]
+            overflow = len(offending_swf) - MAX_ITEMS
+            if overflow > 0:
+                swf_lines.append(f"_…and {overflow} more_")
+            blocks.append(
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "*Subworkflows still emitting a versions channel:*\n" + "\n".join(swf_lines),
+                    },
+                }
+            )
 
     fallback_text = (
         f"Strict Syntax Health: {total_errors} error(s), {total_warnings} warning(s) in modules/subworkflows"
@@ -1889,6 +2244,14 @@ def main(
         history = load_history()
         generate_all_charts(history)
 
+        # Load saved meta stats if available
+        saved_meta_stats = None
+        if MODULES_META_STATS_PATH.exists():
+            try:
+                saved_meta_stats = json.loads(MODULES_META_STATS_PATH.read_text())
+            except json.JSONDecodeError:
+                pass
+
         if update_readme:
             readme_content = generate_readme(
                 pipeline_results=pipeline_results,
@@ -1896,6 +2259,7 @@ def main(
                 subworkflow_results=subworkflow_results,
                 include_charts=True,
                 nextflow_version=nextflow_version,
+                module_meta_stats=saved_meta_stats,
             )
             README_PATH.write_text(readme_content)
             console.print(f"\n[green]Updated {README_PATH}[/green]")
@@ -2021,12 +2385,24 @@ def main(
     # History is updated per-type when all items of that type are linted (no -p/-m/-s filters)
     include_charts = False
 
+    # Scan meta.yml topics and versions usage (only when all modules or all subworkflows were linted)
+    module_meta_stats: dict | None = None
+    if MODULES_DIR.exists() and (
+        (module_results is not None and not module) or (subworkflow_results is not None and not subworkflow)
+    ):
+        module_meta_stats = scan_modules_meta_yml_stats()
+        display_meta_stats(module_meta_stats)
+        # Save for --generate-charts-only reuse
+        MODULES_META_STATS_PATH.parent.mkdir(parents=True, exist_ok=True)
+        MODULES_META_STATS_PATH.write_text(json.dumps(module_meta_stats, indent=2) + "\n")
+        console.print(f"Saved meta stats to {MODULES_META_STATS_PATH}")
+
     # Update history for each type that was fully linted
     if pipeline_results is not None and not pipeline:
         update_history(pipeline_results=pipeline_results)
 
     if module_results is not None and not module:
-        update_history(module_results=module_results)
+        update_history(module_results=module_results, module_meta_stats=module_meta_stats)
 
     if subworkflow_results is not None and not subworkflow:
         update_history(subworkflow_results=subworkflow_results)
@@ -2044,6 +2420,7 @@ def main(
             subworkflow_results=subworkflow_results,
             include_charts=include_charts,
             nextflow_version=nextflow_version,
+            module_meta_stats=module_meta_stats,
         )
         README_PATH.write_text(readme_content)
         console.print(f"\n[green]Updated {README_PATH}[/green]")
@@ -2051,7 +2428,7 @@ def main(
     # Send Slack report for modules/subworkflows when a webhook URL is configured
     if slack_webhook:
         if module_results is not None or subworkflow_results is not None:
-            send_slack_report(module_results, subworkflow_results, slack_webhook)
+            send_slack_report(module_results, subworkflow_results, slack_webhook, module_meta_stats=module_meta_stats)
         else:
             console.print("[dim]Slack report skipped: no module/subworkflow results to report.[/dim]")
 
