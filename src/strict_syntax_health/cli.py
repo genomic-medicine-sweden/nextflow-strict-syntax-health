@@ -2078,7 +2078,7 @@ def send_slack_report(
 
     # Build summary text
     if total_errors == 0 and total_warnings == 0:
-        summary = ":white_check_mark: No errors or warnings in modules/subworkflows."
+        summary = ":white_check_mark: No syntax errors or warnings in modules/subworkflows."
     else:
         parts = []
         if total_errors:
@@ -2092,7 +2092,7 @@ def send_slack_report(
             "type": "header",
             "text": {
                 "type": "plain_text",
-                "text": ":mag: Strict Syntax Health — Modules & Subworkflows",
+                "text": ":mag: Syntax Health — Modules & Subworkflows",
                 "emoji": True,
             },
         },
@@ -2130,7 +2130,7 @@ def send_slack_report(
         mod_pass = module_meta_stats.get("with_topic_versions", 0)
         mod_fail = module_meta_stats.get("without_topic_versions", 0)
         mod_pct = mod_pass / mod_total * 100 if mod_total else 0
-        mod_text = f":books: *Modules topic+versions:* {mod_pass}/{mod_total} ({mod_pct:.1f}%)"
+        mod_text = f":books: *Modules version topics:* {mod_pass}/{mod_total} ({mod_pct:.1f}%)"
         if mod_fail > 0:
             mod_text += f" — {mod_fail} missing"
 
@@ -2139,7 +2139,7 @@ def send_slack_report(
         swf_pass = module_meta_stats.get("subworkflow_without_versions", 0)
         swf_fail = module_meta_stats.get("subworkflow_with_versions", 0)
         swf_pct = swf_pass / swf_total * 100 if swf_total else 0
-        swf_text = f":no_entry_sign: *Subworkflows without versions channel:* {swf_pass}/{swf_total} ({swf_pct:.1f}%)"
+        swf_text = f":basket: *Subworkflows without versions channel:* {swf_pass}/{swf_total} ({swf_pct:.1f}%)"
         if swf_fail > 0:
             swf_text += f" — {swf_fail} still emit versions"
 
@@ -2326,6 +2326,14 @@ def main(
             )
             README_PATH.write_text(readme_content)
             console.print(f"\n[green]Updated {README_PATH}[/green]")
+
+        if slack_webhook:
+            if module_results is not None or subworkflow_results is not None:
+                send_slack_report(
+                    module_results, subworkflow_results, slack_webhook, module_meta_stats=saved_meta_stats
+                )
+            else:
+                console.print("[dim]Slack report skipped: no module/subworkflow results to report.[/dim]")
         return
 
     pipeline_results: list[dict] | None = None
