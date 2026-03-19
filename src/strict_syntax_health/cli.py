@@ -335,51 +335,54 @@ def scan_modules_meta_yml_stats() -> dict:
     details: list[dict] = []
 
     # Scan modules — meta.yml must have both topics: and versions:
+    # Walk the same two-level structure as discover_modules() so counts match exactly.
     modules_path = MODULES_DIR / "modules" / "sanger-tol"
     if modules_path.exists():
-        for meta_yml in sorted(modules_path.rglob("meta.yml")):
-            total += 1
-            try:
-                content = meta_yml.read_text(errors="replace")
-            except OSError:
+        for tool_dir in sorted(modules_path.iterdir()):
+            if not tool_dir.is_dir() or tool_dir.name.startswith("."):
+                continue
+            for subcommand_dir in sorted(tool_dir.iterdir()):
+                if not subcommand_dir.is_dir() or subcommand_dir.name.startswith("."):
+                    continue
+                if not (subcommand_dir / "main.nf").exists():
+                    continue
+                meta_yml = subcommand_dir / "meta.yml"
+                total += 1
+                name = f"{tool_dir.name}_{subcommand_dir.name}"
+                html_url = f"{base_url_modules}/{tool_dir.name}/{subcommand_dir.name}/meta.yml"
+
+                _no_meta = {
+                    "name": name,
+                    "html_url": html_url,
+                    "has_topics": False,
+                    "has_versions": False,
+                    "type": "module",
+                }
+                if not meta_yml.exists():
+                    details.append(_no_meta)
+                    continue
+
+                try:
+                    content = meta_yml.read_text(errors="replace")
+                except OSError:
+                    details.append(_no_meta)
+                    continue
+
+                has_topics = "topics:" in content
+                has_versions = "versions:" in content
+
+                if has_topics and has_versions:
+                    with_topic_versions += 1
+
                 details.append(
                     {
-                        "name": meta_yml.parent.name,
-                        "html_url": "",
-                        "has_topics": False,
-                        "has_versions": False,
+                        "name": name,
+                        "html_url": html_url,
+                        "has_topics": has_topics,
+                        "has_versions": has_versions,
                         "type": "module",
                     }
                 )
-                continue
-
-            has_topics = "topics:" in content
-            has_versions = "versions:" in content
-
-            # Derive module name (tool_subcommand) and URL from the path
-            parts = meta_yml.parts
-            try:
-                idx = list(parts).index("sanger-tol")
-                tool = parts[idx + 1]
-                subcommand = parts[idx + 2]
-                name = f"{tool}_{subcommand}"
-                html_url = f"{base_url_modules}/{tool}/{subcommand}/meta.yml"
-            except (ValueError, IndexError):
-                name = meta_yml.parent.name
-                html_url = ""
-
-            if has_topics and has_versions:
-                with_topic_versions += 1
-
-            details.append(
-                {
-                    "name": name,
-                    "html_url": html_url,
-                    "has_topics": has_topics,
-                    "has_versions": has_versions,
-                    "type": "module",
-                }
-            )
 
     # Scan subworkflows — main.nf must emit a `versions` output channel
     subworkflows_path = MODULES_DIR / "subworkflows" / "sanger-tol"
@@ -1254,7 +1257,8 @@ def display_results(results: list[dict], type_name: str, show_prints_help: bool 
 
     console.print(table)
     console.print(
-        f"\n[bold]Total: {total_parse_errors} parse errors, {total_errors} errors, {total_warnings} warnings[/bold]"
+        f"\n[bold]Strict syntax: {total_parse_errors} parse errors, {total_errors} errors,"
+        f" {total_warnings} warnings[/bold]"
     )
 
 
@@ -1665,7 +1669,6 @@ def _generate_results_section(
     if not results:
         return []
 
-    sorted_results = _sort_results(results)
     valid_results = [r for r in results if not r.get("parse_error", False)]
     parse_error_count = sum(1 for r in results if r.get("parse_error", False))
     total_errors = sum(r["errors"] for r in valid_results)
@@ -1673,12 +1676,69 @@ def _generate_results_section(
     zero_error_count = sum(1 for r in valid_results if r["errors"] == 0)
     zero_error_percentage = (zero_error_count / len(results) * 100) if results else 0
 
+    # Build per-row meta lookup early so we can use it for the "Zero errors" figure
+    meta_lookup: dict[str, dict] = {}
+    if module_meta_stats and module_meta_stats.get("details"):
+        for _d in module_meta_stats["details"]:
+            meta_lookup[_d["name"]] = _d
+
+    # For modules/subworkflows, redefine "zero errors" to also require meta compliance
+    # For pipelines, "zero issues" means zero errors, zero warnings, AND prints_help passes
+    if type_name == "modules" and meta_lookup:
+        zero_error_count = sum(
+            1
+            for r in valid_results
+            if r["errors"] == 0
+            and meta_lookup.get(r["name"], {}).get("has_topics")
+            and meta_lookup.get(r["name"], {}).get("has_versions")
+        )
+        zero_error_percentage = (zero_error_count / len(results) * 100) if results else 0
+        zero_error_label = f"- **Zero errors:** {zero_error_count} {type_name} ({zero_error_percentage:.1f}%)"
+    elif type_name == "subworkflows" and meta_lookup:
+        zero_error_count = sum(
+            1 for r in valid_results if r["errors"] == 0 and not meta_lookup.get(r["name"], {}).get("has_versions")
+        )
+        zero_error_percentage = (zero_error_count / len(results) * 100) if results else 0
+        zero_error_label = f"- **Zero errors:** {zero_error_count} {type_name} ({zero_error_percentage:.1f}%)"
+    elif type_name == "pipelines":
+        zero_error_count = sum(
+            1 for r in valid_results if r["errors"] == 0 and r["warnings"] == 0 and r.get("prints_help") is True
+        )
+        zero_error_percentage = (zero_error_count / len(results) * 100) if results else 0
+        zero_error_label = f"- **Zero issues:** {zero_error_count} {type_name} ({zero_error_percentage:.1f}%)"
+    else:
+        zero_error_label = f"- **Zero errors:** {zero_error_count} {type_name} ({zero_error_percentage:.1f}%)"
+
+    # Sort results, incorporating meta compliance as a tiebreaker for modules/subworkflows
+    if type_name == "modules" and meta_lookup:
+        sorted_results = sorted(
+            results,
+            key=lambda x: (
+                not x.get("parse_error", False),
+                -x["errors"],
+                -x["warnings"],
+                meta_lookup.get(x["name"], {}).get("has_topics", False)
+                and meta_lookup.get(x["name"], {}).get("has_versions", False),
+            ),
+        )
+    elif type_name == "subworkflows" and meta_lookup:
+        sorted_results = sorted(
+            results,
+            key=lambda x: (
+                not x.get("parse_error", False),
+                -x["errors"],
+                -x["warnings"],
+                not meta_lookup.get(x["name"], {}).get("has_versions", True),
+            ),
+        )
+    else:
+        sorted_results = _sort_results(results)
+
     lines = [
         f"## {type_name.title()}",
         "",
-        f"- **Total:** {parse_error_count} parse errors, {total_errors} errors, "
+        f"- **Strict syntax:** {parse_error_count} parse errors, {total_errors} errors, "
         f"{total_warnings} warnings across {len(results)} {type_name}",
-        f"- **Zero errors:** {zero_error_count} {type_name} ({zero_error_percentage:.1f}%)",
     ]
 
     if type_name == "modules" and module_meta_stats and module_meta_stats.get("details"):
@@ -1699,13 +1759,8 @@ def _generate_results_section(
             "do not emit a `versions` output channel"
         )
 
+    lines.append(zero_error_label)
     lines.append("")
-
-    # Build per-row meta lookup
-    meta_lookup: dict[str, dict] = {}
-    if module_meta_stats and module_meta_stats.get("details"):
-        for _d in module_meta_stats["details"]:
-            meta_lookup[_d["name"]] = _d
 
     # Add charts in a side-by-side table (charts are in LINT_RESULTS_DIR with type-prefixed names)
     errors_chart = LINT_RESULTS_DIR / f"{type_name}_errors.png"
@@ -1775,6 +1830,7 @@ def _generate_results_section(
         warnings = result["warnings"]
         parse_error = result.get("parse_error", False)
         prints_help = result.get("prints_help")
+        meta = meta_lookup.get(result["name"], {})
 
         if parse_error:
             parse_error_str = "Yes"
@@ -1785,10 +1841,19 @@ def _generate_results_section(
             parse_error_str = "No"
             error_str = str(errors)
             warning_str = str(warnings)
-            # For pipelines: only show checkmark if no errors AND prints_help passes
-            # For other types (no prints_help test): show checkmark if no errors
+            # For pipelines: only show checkmark if no errors, no warnings, AND prints_help passes
+            # For modules: also require has_topics and has_versions in meta.yml
+            # For subworkflows: also require the versions output channel is absent
             if show_prints_help:
-                status_emoji = ":white_check_mark:" if errors == 0 and prints_help is True else ":x:"
+                status_emoji = ":white_check_mark:" if errors == 0 and warnings == 0 and prints_help is True else ":x:"
+            elif type_name == "modules":
+                status_emoji = (
+                    ":white_check_mark:"
+                    if errors == 0 and meta.get("has_topics") and meta.get("has_versions")
+                    else ":x:"
+                )
+            elif type_name == "subworkflows":
+                status_emoji = ":white_check_mark:" if errors == 0 and not meta.get("has_versions") else ":x:"
             else:
                 status_emoji = ":white_check_mark:" if errors == 0 else ":x:"
 
@@ -1811,7 +1876,6 @@ def _generate_results_section(
             )
             lines.append(row)
         elif type_name == "modules":
-            meta = meta_lookup.get(result["name"], {})
             topics_str = ":white_check_mark:" if meta.get("has_topics") else ":x:"
             versions_str = ":white_check_mark:" if meta.get("has_versions") else ":x:"
             lines.append(
@@ -1819,7 +1883,6 @@ def _generate_results_section(
                 f"| {topics_str} | {versions_str} | {lint_file_link} |"
             )
         elif type_name == "subworkflows":
-            meta = meta_lookup.get(result["name"], {})
             versions_str = ":x:" if meta.get("has_versions") else ":white_check_mark:"
             lines.append(
                 f"| {name_link} | {parse_error_str} | {error_str} | {warning_str} | {versions_str} | {lint_file_link} |"
