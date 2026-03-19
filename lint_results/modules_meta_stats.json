@@ -1,0 +1,304 @@
+{
+  "total": 45,
+  "with_topic_versions": 20,
+  "without_topic_versions": 5,
+  "subworkflow_with_versions": 2,
+  "subworkflow_without_versions": 18,
+  "details": [
+    {
+      "name": "ancestral_extract",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/ancestral/extract/meta.yml",
+      "has_topics": false,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "ancestral_plot",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/ancestral/plot/meta.yml",
+      "has_topics": false,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "bedchunks_create",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/bedchunks/create/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "bedtools_bamtobedsort",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/bedtools/bamtobedsort/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "blast_blastn",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/blast/blastn/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "blobtoolkit_generatecsv",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/blobtoolkit/generatecsv/meta.yml",
+      "has_topics": false,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "blobtoolkit_generateparamsfile",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/blobtoolkit/generateparamsfile/meta.yml",
+      "has_topics": false,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "cramalign_bwamem2alignhic",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/cramalign/bwamem2alignhic/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "cramalign_gencramchunks",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/cramalign/gencramchunks/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "cramalign_minimap2align",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/cramalign/minimap2align/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "cramalign_minimap2alignhic",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/cramalign/minimap2alignhic/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "curationpretext_generateparamsfile",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/curationpretext/generateparamsfile/meta.yml",
+      "has_topics": false,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "fastxalign_minimap2align",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/fastxalign/minimap2align/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "fastxalign_pyfastxindex",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/fastxalign/pyfastxindex/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "gnk_fastasort",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/gnk/fastasort/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "longranger_align",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/longranger/align/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "longranger_mkref",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/longranger/mkref/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "mask_softmask2bed",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/mask/softmask2bed/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "mask_unmask",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/mask/unmask/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "samtools_mergedup",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/samtools/mergedup/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "telomere_extract",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/telomere/extract/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "telomere_regions",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/telomere/regions/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "telomere_windows",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/telomere/windows/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "yahs_makepairsfile",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/yahs/makepairsfile/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "yak_count",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/yak/count/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "ancestral_annotation",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/ancestral_annotation/main.nf",
+      "has_versions": true,
+      "type": "subworkflow"
+    },
+    {
+      "name": "bam2cool",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/bam2cool/main.nf",
+      "has_versions": true,
+      "type": "subworkflow"
+    },
+    {
+      "name": "bam_samtools_merge_markdup",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/bam_samtools_merge_markdup/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "cram_map_illumina_hic",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/cram_map_illumina_hic/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "cram_map_long_reads",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/cram_map_long_reads/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "fasta_10x_polishing_longranger_freebayes",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/fasta_10x_polishing_longranger_freebayes/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "fasta_bam_scaffolding_yahs",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/fasta_bam_scaffolding_yahs/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "fasta_compress_index",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/fasta_compress_index/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "fasta_purge_retained_haplotype",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/fasta_purge_retained_haplotype/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "fastx_map_long_reads",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/fastx_map_long_reads/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "feature_density",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/feature_density/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "gap_finder",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/gap_finder/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "genome_statistics",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/genome_statistics/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "get_blobtk_plots",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/get_blobtk_plots/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "pacbio_preprocess",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/pacbio_preprocess/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "pairs_create_contact_maps",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/pairs_create_contact_maps/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "repeat_density",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/repeat_density/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "repeat_masking",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/repeat_masking/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "soft_masked_fasta_repeats",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/soft_masked_fasta_repeats/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "telo_finder",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/telo_finder/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    }
+  ]
+}

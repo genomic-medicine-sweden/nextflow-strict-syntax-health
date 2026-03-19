@@ -53,21 +53,12 @@
     "parse_error": false,
     "prints_help": true
   },
-  "genealignment": {
-    "full_name": "sanger-tol/genealignment",
-    "html_url": "https://github.com/sanger-tol/genealignment",
-    "commit": "f3d7d0552c40b3e7c1e341d316bf32e698202e98",
-    "errors": 61,
-    "warnings": 28,
-    "parse_error": false,
-    "prints_help": null
-  },
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "fd70577e7869200cd46ad994d615158a4aadabc8",
+    "commit": "27cd95da37ca9fd51585023c0b14ebdabb126975",
     "errors": 0,
-    "warnings": 2,
+    "warnings": 0,
     "parse_error": false,
     "prints_help": true
   },
@@ -133,6 +124,15 @@
     "warnings": 0,
     "parse_error": false,
     "prints_help": true
+  },
+  "tollongc": {
+    "full_name": "sanger-tol/tollongc",
+    "html_url": "https://github.com/sanger-tol/tollongc",
+    "commit": "caba54f6ebbdbe81024924ed4a3e06d4545c7f54",
+    "errors": 0,
+    "warnings": 8,
+    "parse_error": false,
+    "prints_help": false
   },
   "treeval": {
     "full_name": "sanger-tol/treeval",
