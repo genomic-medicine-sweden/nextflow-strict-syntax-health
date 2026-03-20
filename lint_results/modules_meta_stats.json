@@ -1,6 +1,6 @@
 {
-  "total": 45,
-  "with_topic_versions": 25,
+  "total": 52,
+  "with_topic_versions": 32,
   "without_topic_versions": 0,
   "subworkflow_with_versions": 0,
   "subworkflow_without_versions": 20,
@@ -20,6 +20,13 @@
       "type": "module"
     },
     {
+      "name": "asmstats",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/asmstats/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
       "name": "bedchunks_create",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/bedchunks/create/meta.yml",
       "has_topics": true,
@@ -29,6 +36,13 @@
     {
       "name": "bedtools_bamtobedsort",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/bedtools/bamtobedsort/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "bgziptabix",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/bgziptabix/meta.yml",
       "has_topics": true,
       "has_versions": true,
       "type": "module"
@@ -50,6 +64,13 @@
     {
       "name": "blobtoolkit_generateparamsfile",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/blobtoolkit/generateparamsfile/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "contactbed",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/contactbed/meta.yml",
       "has_topics": true,
       "has_versions": true,
       "type": "module"
@@ -104,8 +125,22 @@
       "type": "module"
     },
     {
+      "name": "generatecontactsindex",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/generatecontactsindex/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
       "name": "gnk_fastasort",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/gnk/fastasort/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "hifiasm",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/hifiasm/meta.yml",
       "has_topics": true,
       "has_versions": true,
       "type": "module"
@@ -134,6 +169,20 @@
     {
       "name": "mask_unmask",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/mask/unmask/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "pretextannotate",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/pretextannotate/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "restructurebuscodir",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/restructurebuscodir/meta.yml",
       "has_topics": true,
       "has_versions": true,
       "type": "module"

@@ -3,7 +3,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
  N E X T F L O W   ~  version 26.03.0-edge
 
-Launching `./main.nf` [irreverent_swirles] revision: b0213e4a26
+Launching `./main.nf` [special_woese] revision: b0213e4a26
 
 WARN: Unrecognized config option 'trace.override'
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
