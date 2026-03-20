@@ -1223,7 +1223,7 @@ def _run_subworkflows_lint_bulk(subworkflows: list[dict], nextflow_version: str)
 
 def display_results(results: list[dict], type_name: str, show_prints_help: bool = False) -> None:
     """Display results in a rich table."""
-    table = Table(f"sanger-tol {type_name.capitalize()} Strict Syntax Health")
+    table = Table(title=f"sanger-tol {type_name.capitalize()} Strict Syntax Health")
     table.add_column(type_name.capitalize(), style="cyan")
     table.add_column("Parse Error", justify="right")
     table.add_column("Errors", justify="right")
@@ -1285,7 +1285,7 @@ def display_meta_stats(meta_stats: dict) -> None:
         mod_fail = meta_stats.get("without_topic_versions", 0)
         mod_pct = mod_pass / mod_total * 100 if mod_total else 0
 
-        mod_table = Table("sanger-tol Modules — topic + version usage (meta.yml)")
+        mod_table = Table(title="sanger-tol Modules — topic + version usage (meta.yml)")
         mod_table.add_column("Module", style="cyan")
         mod_table.add_column("topics:", justify="center")
         mod_table.add_column("versions:", justify="center")
@@ -1305,14 +1305,15 @@ def display_meta_stats(meta_stats: dict) -> None:
         swf_fail = meta_stats.get("subworkflow_with_versions", 0)
         swf_pct = swf_pass / swf_total * 100 if swf_total else 0
 
-        swf_table = Table("sanger-tol Subworkflows — versions channel (main.nf emit)")
-        swf_table.add_column("versions channel")  # subworkflow name, coloured by status
+        swf_table = Table(title="sanger-tol Subworkflows — versions channel (main.nf emit)")
+        swf_table.add_column("Subworkflow", style="cyan")
+        swf_table.add_column("versions channel", justify="center")
         # Bad ones (has versions) first, then good ones; within each group alphabetical
         for d in sorted(swf_details, key=lambda x: (not x["has_versions"], x["name"])):
             if d["has_versions"]:
-                swf_table.add_row(f"[red]{d['name']}[/red]")  # has versions = bad
+                swf_table.add_row(f"[red]{d['name']}[/red]", "[red]Yes[/red]")  # has versions = bad
             else:
-                swf_table.add_row(f"[green]{d['name']}[/green]")  # no versions = good
+                swf_table.add_row(f"[green]{d['name']}[/green]", "[green]No[/green]")  # no versions = good
         console.print(swf_table)
         console.print(
             f"[bold]subworkflows: {swf_pass}/{swf_total} ({swf_pct:.1f}%) passing"
