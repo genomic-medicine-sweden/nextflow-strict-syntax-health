@@ -335,21 +335,32 @@ def scan_modules_meta_yml_stats() -> dict:
     details: list[dict] = []
 
     # Scan modules — meta.yml must have both topics: and versions:
-    # Walk the same two-level structure as discover_modules() so counts match exactly.
+    # Walk the same single-level / two-level structure as discover_modules() so counts match exactly.
     modules_path = MODULES_DIR / "modules" / "sanger-tol"
     if modules_path.exists():
         for tool_dir in sorted(modules_path.iterdir()):
             if not tool_dir.is_dir() or tool_dir.name.startswith("."):
                 continue
-            for subcommand_dir in sorted(tool_dir.iterdir()):
-                if not subcommand_dir.is_dir() or subcommand_dir.name.startswith("."):
-                    continue
-                if not (subcommand_dir / "main.nf").exists():
-                    continue
-                meta_yml = subcommand_dir / "meta.yml"
+            # Single-level module: modules/sanger-tol/<name>/main.nf
+            if (tool_dir / "main.nf").exists():
+                component_dirs = [(tool_dir, tool_dir.name, f"{base_url_modules}/{tool_dir.name}/meta.yml")]
+            else:
+                component_dirs = []
+                for subcommand_dir in sorted(tool_dir.iterdir()):
+                    if not subcommand_dir.is_dir() or subcommand_dir.name.startswith("."):
+                        continue
+                    if not (subcommand_dir / "main.nf").exists():
+                        continue
+                    component_dirs.append(
+                        (
+                            subcommand_dir,
+                            f"{tool_dir.name}_{subcommand_dir.name}",
+                            f"{base_url_modules}/{tool_dir.name}/{subcommand_dir.name}/meta.yml",
+                        )
+                    )
+            for path, name, html_url in component_dirs:
+                meta_yml = path / "meta.yml"
                 total += 1
-                name = f"{tool_dir.name}_{subcommand_dir.name}"
-                html_url = f"{base_url_modules}/{tool_dir.name}/{subcommand_dir.name}/meta.yml"
 
                 _no_meta = {
                     "name": name,
