@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "5340348b33ada0f062cea26b138dceb90bb8b591",
+  "_repo_commit": "b917041e7261a65b826c658391a7bdc1e24b1001",
   "ancestral_extract": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract",
     "errors": 0,
@@ -12,6 +12,12 @@
     "warnings": 0,
     "parse_error": false
   },
+  "asmstats": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/asmstats",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
   "bedchunks_create": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/bedchunks/create",
     "errors": 0,
@@ -20,6 +26,12 @@
   },
   "bedtools_bamtobedsort": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/bedtools/bamtobedsort",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "bgziptabix": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/bgziptabix",
     "errors": 0,
     "warnings": 0,
     "parse_error": false
@@ -38,6 +50,12 @@
   },
   "blobtoolkit_generateparamsfile": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/blobtoolkit/generateparamsfile",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "contactbed": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/contactbed",
     "errors": 0,
     "warnings": 0,
     "parse_error": false
@@ -84,8 +102,20 @@
     "warnings": 0,
     "parse_error": false
   },
+  "generatecontactsindex": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/generatecontactsindex",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
   "gnk_fastasort": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/gnk/fastasort",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "hifiasm": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/hifiasm",
     "errors": 0,
     "warnings": 0,
     "parse_error": false
@@ -110,6 +140,18 @@
   },
   "mask_unmask": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/mask/unmask",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "pretextannotate": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/pretextannotate",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "restructurebuscodir": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/restructurebuscodir",
     "errors": 0,
     "warnings": 0,
     "parse_error": false

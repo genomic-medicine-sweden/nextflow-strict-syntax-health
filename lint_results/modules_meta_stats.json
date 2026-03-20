@@ -1,21 +1,21 @@
 {
   "total": 45,
-  "with_topic_versions": 20,
-  "without_topic_versions": 5,
-  "subworkflow_with_versions": 2,
-  "subworkflow_without_versions": 18,
+  "with_topic_versions": 25,
+  "without_topic_versions": 0,
+  "subworkflow_with_versions": 0,
+  "subworkflow_without_versions": 20,
   "details": [
     {
       "name": "ancestral_extract",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/ancestral/extract/meta.yml",
-      "has_topics": false,
+      "has_topics": true,
       "has_versions": true,
       "type": "module"
     },
     {
       "name": "ancestral_plot",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/ancestral/plot/meta.yml",
-      "has_topics": false,
+      "has_topics": true,
       "has_versions": true,
       "type": "module"
     },
@@ -43,14 +43,14 @@
     {
       "name": "blobtoolkit_generatecsv",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/blobtoolkit/generatecsv/meta.yml",
-      "has_topics": false,
+      "has_topics": true,
       "has_versions": true,
       "type": "module"
     },
     {
       "name": "blobtoolkit_generateparamsfile",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/blobtoolkit/generateparamsfile/meta.yml",
-      "has_topics": false,
+      "has_topics": true,
       "has_versions": true,
       "type": "module"
     },
@@ -85,7 +85,7 @@
     {
       "name": "curationpretext_generateparamsfile",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/curationpretext/generateparamsfile/meta.yml",
-      "has_topics": false,
+      "has_topics": true,
       "has_versions": true,
       "type": "module"
     },
@@ -183,13 +183,13 @@
     {
       "name": "ancestral_annotation",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/ancestral_annotation/main.nf",
-      "has_versions": true,
+      "has_versions": false,
       "type": "subworkflow"
     },
     {
       "name": "bam2cool",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/bam2cool/main.nf",
-      "has_versions": true,
+      "has_versions": false,
       "type": "subworkflow"
     },
     {
