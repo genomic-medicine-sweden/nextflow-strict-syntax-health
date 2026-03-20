@@ -2088,6 +2088,20 @@ def send_slack_report(
                 )
                 total_warnings += r["warnings"]
 
+    # Check for version-topic issues in meta.yml
+    meta_has_issues = False
+    if module_meta_stats and module_meta_stats.get("total", 0) > 0:
+        if (
+            module_meta_stats.get("without_topic_versions", 0) > 0
+            or module_meta_stats.get("subworkflow_with_versions", 0) > 0
+        ):
+            meta_has_issues = True
+
+    # Skip notification entirely when there is nothing to report
+    if total_errors == 0 and total_warnings == 0 and not meta_has_issues:
+        console.print("[dim]Slack report skipped: no errors, warnings, or version-topic issues found.[/dim]")
+        return
+
     # Build summary text
     if total_errors == 0 and total_warnings == 0:
         summary = ":white_check_mark: No syntax errors or warnings in modules/subworkflows."
