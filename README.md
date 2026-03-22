@@ -12,13 +12,13 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-03-21 00:07:59 UTC
+- **Last updated:** 2026-03-22 00:07:50 UTC
 - **Nextflow version:** 26.03.0-edge
 
 ## Pipelines
 
-- **Strict syntax:** 0 parse errors, 6 errors, 119 warnings across 19 pipelines
-- **Zero issues:** 10 pipelines (52.6%)
+- **Strict syntax:** 0 parse errors, 6 errors, 117 warnings across 19 pipelines
+- **Zero issues:** 11 pipelines (57.9%)
 
 |                    Errors                    |                     Warnings                     |
 | :------------------------------------------: | :----------------------------------------------: |
@@ -36,8 +36,8 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :x: [tollongc](https://github.com/sanger-tol/tollongc)                                          |     No      |      0 |        8 |     No      |       [View](lint_results/pipeline-results/tollongc_lint.md)        |       [View](lint_results/prints-help-results/tollongc_help.txt)        |
 | :x: [blobtoolkit](https://github.com/sanger-tol/blobtoolkit)                                    |     No      |      0 |        7 |     Yes     |      [View](lint_results/pipeline-results/blobtoolkit_lint.md)      |      [View](lint_results/prints-help-results/blobtoolkit_help.txt)      |
 | :x: [purging](https://github.com/sanger-tol/purging)                                            |     No      |      0 |        5 |     No      |        [View](lint_results/pipeline-results/purging_lint.md)        |        [View](lint_results/prints-help-results/purging_help.txt)        |
-| :x: [curationpretext](https://github.com/sanger-tol/curationpretext)                            |     No      |      0 |        2 |     No      |    [View](lint_results/pipeline-results/curationpretext_lint.md)    |    [View](lint_results/prints-help-results/curationpretext_help.txt)    |
 | :x: [treeval](https://github.com/sanger-tol/treeval)                                            |     No      |      0 |        2 |     No      |        [View](lint_results/pipeline-results/treeval_lint.md)        |        [View](lint_results/prints-help-results/treeval_help.txt)        |
+| :white_check_mark: [curationpretext](https://github.com/sanger-tol/curationpretext)             |     No      |      0 |        0 |     Yes     |    [View](lint_results/pipeline-results/curationpretext_lint.md)    |    [View](lint_results/prints-help-results/curationpretext_help.txt)    |
 | :white_check_mark: [ensemblgenedownload](https://github.com/sanger-tol/ensemblgenedownload)     |     No      |      0 |        0 |     Yes     |  [View](lint_results/pipeline-results/ensemblgenedownload_lint.md)  |  [View](lint_results/prints-help-results/ensemblgenedownload_help.txt)  |
 | :white_check_mark: [ensemblrepeatdownload](https://github.com/sanger-tol/ensemblrepeatdownload) |     No      |      0 |        0 |     Yes     | [View](lint_results/pipeline-results/ensemblrepeatdownload_lint.md) | [View](lint_results/prints-help-results/ensemblrepeatdownload_help.txt) |
 | :white_check_mark: [genomeassembly](https://github.com/sanger-tol/genomeassembly)               |     No      |      0 |        0 |     Yes     |    [View](lint_results/pipeline-results/genomeassembly_lint.md)     |    [View](lint_results/prints-help-results/genomeassembly_help.txt)     |
