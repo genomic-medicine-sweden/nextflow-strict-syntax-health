@@ -830,6 +830,29 @@ def test_prints_help(repo_path: Path, name: str) -> bool:
         return False
 
 
+def scan_pipeline_versions_mix(repo_path: Path) -> bool:
+    """Scan a pipeline for the ch_versions mix anti-pattern.
+
+    Checks all ``.nf`` files under ``workflows/`` and ``subworkflows/local/`` for the
+    pattern ``ch_versions += +ch_versions.mix``.  Presence is bad (returns ``True``);
+    absence is good (returns ``False``).
+    """
+    import re as _re
+
+    pattern = _re.compile(r"ch_versions\s+=\s+ch_versions\.mix")
+    for search_dir in [repo_path / "workflows", repo_path / "subworkflows" / "local"]:
+        if not search_dir.exists():
+            continue
+        for nf_file in search_dir.rglob("*.nf"):
+            try:
+                content = nf_file.read_text(errors="replace")
+                if pattern.search(content):
+                    return True
+            except OSError:
+                pass
+    return False
+
+
 def lint_component_markdown(repo_path: Path, name: str, output_dir: Path, target_path: Path | None = None) -> None:
     """Run nextflow lint on a component and save markdown output to file."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -892,8 +915,15 @@ def run_pipeline_lint(pipelines: list[dict], no_cache: bool = False) -> list[dic
                 and not cached.get("parse_error", False)
                 and cached.get("prints_help") is None
             )
+            # Check if we need to run the versions-mix scan for cached entries that predate it
+            needs_versions_mix = cached.get("has_versions_mix") is None and not cached.get("parse_error", False)
 
-            if remote_commit and remote_commit == cached.get("commit") and not needs_prints_help:
+            if (
+                remote_commit
+                and remote_commit == cached.get("commit")
+                and not needs_prints_help
+                and not needs_versions_mix
+            ):
                 console.print(f"[dim]Skipping {name} (unchanged at {remote_commit[:8]})[/dim]")
                 results.append(
                     {
@@ -905,6 +935,7 @@ def run_pipeline_lint(pipelines: list[dict], no_cache: bool = False) -> list[dic
                         "warnings": cached["warnings"],
                         "parse_error": cached.get("parse_error", False),
                         "prints_help": cached.get("prints_help"),
+                        "has_versions_mix": cached.get("has_versions_mix"),
                         "lint_details": {},  # Don't store full details in cache
                     }
                 )
@@ -934,6 +965,15 @@ def run_pipeline_lint(pipelines: list[dict], no_cache: bool = False) -> list[dic
                 else:
                     console.print("  [yellow]--help test failed[/yellow]")
 
+            # Scan for the ch_versions mix anti-pattern in workflows/ and subworkflows/local/
+            has_versions_mix: bool | None = None
+            if not parse_error:
+                has_versions_mix = scan_pipeline_versions_mix(repo_path)
+                if has_versions_mix:
+                    console.print("  [red]ch_versions mix anti-pattern found[/red]")
+                else:
+                    console.print("  [green]No ch_versions mix anti-pattern[/green]")
+
             results.append(
                 {
                     "name": name,
@@ -944,6 +984,7 @@ def run_pipeline_lint(pipelines: list[dict], no_cache: bool = False) -> list[dic
                     "warnings": warning_count,
                     "parse_error": parse_error,
                     "prints_help": prints_help,
+                    "has_versions_mix": has_versions_mix,
                     "lint_details": lint_result,
                 }
             )
@@ -960,6 +1001,7 @@ def run_pipeline_lint(pipelines: list[dict], no_cache: bool = False) -> list[dic
                     "warnings": 0,
                     "parse_error": True,
                     "prints_help": None,
+                    "has_versions_mix": None,
                     "lint_details": {},
                 }
             )
@@ -1230,6 +1272,7 @@ def display_results(results: list[dict], type_name: str, show_prints_help: bool 
     table.add_column("Warnings", justify="right")
     if show_prints_help:
         table.add_column("Prints Help", justify="right")
+        table.add_column("Versions Mix", justify="right")
 
     sorted_results = _sort_results(results)
 
@@ -1262,7 +1305,14 @@ def display_results(results: list[dict], type_name: str, show_prints_help: bool 
                 prints_help_str = "[green]Yes[/green]"
             else:
                 prints_help_str = "[red]No[/red]"
-            table.add_row(result["name"], parse_error_str, error_str, warning_str, prints_help_str)
+            has_versions_mix = result.get("has_versions_mix")
+            if has_versions_mix is None:
+                versions_mix_str = "-"
+            elif has_versions_mix:
+                versions_mix_str = "[red]Yes[/red]"
+            else:
+                versions_mix_str = "[green]No[/green]"
+            table.add_row(result["name"], parse_error_str, error_str, warning_str, prints_help_str, versions_mix_str)
         else:
             table.add_row(result["name"], parse_error_str, error_str, warning_str)
 
@@ -1462,6 +1512,8 @@ def _create_history_entry(
         # prints_help is True/False/None - None means test wasn't run (has errors)
         entry["prints_help_pass"] = sum(1 for r in valid_results if r.get("prints_help") is True)
         entry["prints_help_fail"] = sum(1 for r in valid_results if r.get("prints_help") is False)
+        entry["versions_mix_clean"] = sum(1 for r in valid_results if r.get("has_versions_mix") is False)
+        entry["versions_mix_found"] = sum(1 for r in valid_results if r.get("has_versions_mix") is True)
 
     if meta_stats:
         entry["meta_with_topic_versions"] = meta_stats.get("with_topic_versions", 0)
@@ -1645,6 +1697,29 @@ def generate_charts_for_type(history: list[dict], output_dir: Path, type_name: s
             y_label,
         )
 
+    # For pipelines: generate an additional chart tracking versions-mix anti-pattern
+    if type_name == "pipelines" and any("versions_mix_clean" in h for h in history):
+        _create_stacked_chart(
+            dates,
+            [
+                (
+                    [h.get("versions_mix_clean", 0) for h in history],
+                    "No versions mix",
+                    "#2ecc71",
+                    "rgba(46, 204, 113, 0.7)",
+                ),
+                (
+                    [h.get("versions_mix_found", 0) for h in history],
+                    "Has versions mix",
+                    "#e74c3c",
+                    "rgba(231, 76, 60, 0.7)",
+                ),
+            ],
+            "Pipeline Versions Mix Anti-Pattern Over Time",
+            LINT_RESULTS_DIR / "pipelines_versions_mix.png",
+            y_label,
+        )
+
 
 def generate_all_charts(history: dict) -> None:
     """Generate charts for all types (pipelines, modules, subworkflows)."""
@@ -1714,7 +1789,12 @@ def _generate_results_section(
         zero_error_label = f"- **Zero errors:** {zero_error_count} {type_name} ({zero_error_percentage:.1f}%)"
     elif type_name == "pipelines":
         zero_error_count = sum(
-            1 for r in valid_results if r["errors"] == 0 and r["warnings"] == 0 and r.get("prints_help") is True
+            1
+            for r in valid_results
+            if r["errors"] == 0
+            and r["warnings"] == 0
+            and r.get("prints_help") is True
+            and r.get("has_versions_mix") is False
         )
         zero_error_percentage = (zero_error_count / len(results) * 100) if results else 0
         zero_error_label = f"- **Zero issues:** {zero_error_count} {type_name} ({zero_error_percentage:.1f}%)"
@@ -1771,6 +1851,16 @@ def _generate_results_section(
             "do not emit a `versions` output channel"
         )
 
+    if type_name == "pipelines":
+        _vm_clean = sum(1 for r in valid_results if r.get("has_versions_mix") is False)
+        _vm_found = sum(1 for r in valid_results if r.get("has_versions_mix") is True)
+        _vm_total = _vm_clean + _vm_found
+        _vm_pct = _vm_clean / _vm_total * 100 if _vm_total else 0
+        lines.append(
+            f"- **Versions Mix:** {_vm_clean}/{_vm_total} ({_vm_pct:.1f}%) pipelines do not use the "
+            "`ch_versions += +ch_versions.mix` anti-pattern"
+        )
+
     lines.append(zero_error_label)
     lines.append("")
 
@@ -1799,6 +1889,18 @@ def _generate_results_section(
             ]
         )
 
+    # For pipelines: add versions mix chart if it exists
+    pipeline_vm_chart = LINT_RESULTS_DIR / "pipelines_versions_mix.png"
+    if include_charts and type_name == "pipelines" and pipeline_vm_chart.exists():
+        lines.extend(
+            [
+                "| Pipeline Versions Mix |",
+                "|:---------------------:|",
+                f"| ![Versions Mix]({pipeline_vm_chart}) |",
+                "",
+            ]
+        )
+
     # Filter results for table display if show_only_errors is True
     if show_only_errors:
         table_results = [r for r in sorted_results if r.get("parse_error", False) or r["errors"] > 0]
@@ -1812,9 +1914,12 @@ def _generate_results_section(
     # Results table in a collapsible details section
     if show_prints_help:
         table_header = (
-            f"| {type_singular.title()} | Parse Error | Errors | Warnings | Prints Help | Lint Output | Help Output |"
+            f"| {type_singular.title()} | Parse Error | Errors | Warnings"
+            " | Prints Help | Versions Mix | Lint Output | Help Output |"
         )
-        table_separator = "|----------|:-----------:|-------:|---------:|:-----------:|:-----------:|:-----------:|"
+        table_separator = (
+            "|----------|:-----------:|-------:|---------:|:-----------:|:------------:|:-----------:|:-----------:|"
+        )
     elif type_name == "modules":
         table_header = (
             f"| {type_singular.title()} | Parse Error | Errors | Warnings | `topics:` | `versions:` | Lint Output |"
@@ -1857,7 +1962,12 @@ def _generate_results_section(
             # For modules: also require has_topics and has_versions in meta.yml
             # For subworkflows: also require the versions output channel is absent
             if show_prints_help:
-                status_emoji = ":white_check_mark:" if errors == 0 and warnings == 0 and prints_help is True else ":x:"
+                _has_vm_status = result.get("has_versions_mix")
+                status_emoji = (
+                    ":white_check_mark:"
+                    if errors == 0 and warnings == 0 and prints_help is True and _has_vm_status is False
+                    else ":x:"
+                )
             elif type_name == "modules":
                 status_emoji = (
                     ":white_check_mark:"
@@ -1882,9 +1992,16 @@ def _generate_results_section(
             else:
                 prints_help_str = "No"
                 help_file_link = f"[View]({PRINTS_HELP_RESULTS_DIR}/{result['name']}_help.txt)"
+            _has_vm = result.get("has_versions_mix")
+            if _has_vm is None:
+                versions_mix_str = "-"
+            elif _has_vm:
+                versions_mix_str = ":x:"
+            else:
+                versions_mix_str = ":white_check_mark:"
             row = (
                 f"| {name_link} | {parse_error_str} | {error_str} | {warning_str} "
-                f"| {prints_help_str} | {lint_file_link} | {help_file_link} |"
+                f"| {prints_help_str} | {versions_mix_str} | {lint_file_link} | {help_file_link} |"
             )
             lines.append(row)
         elif type_name == "modules":
