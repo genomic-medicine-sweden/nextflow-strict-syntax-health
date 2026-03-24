@@ -6,7 +6,8 @@
     "errors": 1,
     "warnings": 7,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": null,
+    "has_versions_mix": true
   },
   "blobtoolkit": {
     "full_name": "sanger-tol/blobtoolkit",
@@ -15,7 +16,8 @@
     "errors": 0,
     "warnings": 7,
     "parse_error": false,
-    "prints_help": true
+    "prints_help": true,
+    "has_versions_mix": true
   },
   "curationpretext": {
     "full_name": "sanger-tol/curationpretext",
@@ -24,7 +26,8 @@
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": true
+    "prints_help": true,
+    "has_versions_mix": false
   },
   "ear": {
     "full_name": "sanger-tol/ear",
@@ -33,7 +36,8 @@
     "errors": 0,
     "warnings": 52,
     "parse_error": false,
-    "prints_help": false
+    "prints_help": false,
+    "has_versions_mix": true
   },
   "ensemblgenedownload": {
     "full_name": "sanger-tol/ensemblgenedownload",
@@ -42,7 +46,8 @@
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": true
+    "prints_help": true,
+    "has_versions_mix": false
   },
   "ensemblrepeatdownload": {
     "full_name": "sanger-tol/ensemblrepeatdownload",
@@ -51,7 +56,8 @@
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": true
+    "prints_help": true,
+    "has_versions_mix": false
   },
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
@@ -60,7 +66,8 @@
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": true
+    "prints_help": true,
+    "has_versions_mix": true
   },
   "genomenote": {
     "full_name": "sanger-tol/genomenote",
@@ -69,7 +76,8 @@
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": true
+    "prints_help": true,
+    "has_versions_mix": true
   },
   "insdcdownload": {
     "full_name": "sanger-tol/insdcdownload",
@@ -78,7 +86,8 @@
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": true
+    "prints_help": true,
+    "has_versions_mix": false
   },
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
@@ -87,7 +96,8 @@
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": true
+    "prints_help": true,
+    "has_versions_mix": true
   },
   "nfmicrofinder": {
     "full_name": "sanger-tol/nfmicrofinder",
@@ -96,7 +106,8 @@
     "errors": 0,
     "warnings": 21,
     "parse_error": false,
-    "prints_help": false
+    "prints_help": false,
+    "has_versions_mix": true
   },
   "purging": {
     "full_name": "sanger-tol/purging",
@@ -105,7 +116,8 @@
     "errors": 0,
     "warnings": 5,
     "parse_error": false,
-    "prints_help": false
+    "prints_help": false,
+    "has_versions_mix": false
   },
   "readmapping": {
     "full_name": "sanger-tol/readmapping",
@@ -114,7 +126,8 @@
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": true
+    "prints_help": true,
+    "has_versions_mix": true
   },
   "sequencecomposition": {
     "full_name": "sanger-tol/sequencecomposition",
@@ -123,7 +136,8 @@
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": true
+    "prints_help": true,
+    "has_versions_mix": true
   },
   "tollongc": {
     "full_name": "sanger-tol/tollongc",
@@ -132,7 +146,8 @@
     "errors": 0,
     "warnings": 8,
     "parse_error": false,
-    "prints_help": false
+    "prints_help": false,
+    "has_versions_mix": false
   },
   "treeval": {
     "full_name": "sanger-tol/treeval",
@@ -141,7 +156,8 @@
     "errors": 0,
     "warnings": 2,
     "parse_error": false,
-    "prints_help": false
+    "prints_help": false,
+    "has_versions_mix": true
   },
   "variantcalling": {
     "full_name": "sanger-tol/variantcalling",
@@ -150,16 +166,18 @@
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": true
+    "prints_help": true,
+    "has_versions_mix": true
   },
   "variantcomposition": {
     "full_name": "sanger-tol/variantcomposition",
     "html_url": "https://github.com/sanger-tol/variantcomposition",
-    "commit": "543de4d4d502e938e5fc33910a4335e4bd382333",
+    "commit": "51027361a9075f6ecbd6a072713ad18c15bee277",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": true
+    "prints_help": true,
+    "has_versions_mix": true
   },
   "zippypretext": {
     "full_name": "sanger-tol/zippypretext",
@@ -168,6 +186,7 @@
     "errors": 5,
     "warnings": 15,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": null,
+    "has_versions_mix": true
   }
 }

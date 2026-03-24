@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.03.0-edge
 
 Downloading plugin nf-schema@2.4.2
-Launching `./main.nf` [determined_leakey] revision: 40a7d17014
+Launching `./main.nf` [admiring_goldberg] revision: 40a7d17014
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
@@ -13,10 +13,10 @@ WARN: Unrecognized config option 'validation.help.command'
 WARN: Unrecognized config option 'validation.help.fullParameter'
 WARN: Unrecognized config option 'validation.help.showHiddenParameter'
 Generic options
-  trace_report_suffix: 2026-03-20_17-30-57
+  trace_report_suffix: 2026-03-24_10-47-33
 
 Core Nextflow options
-  runName            : determined_leakey
+  runName            : admiring_goldberg
   launchDir          : /home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/tollongc
   workDir            : /home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/tollongc/work
   projectDir         : /home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/tollongc
@@ -33,7 +33,7 @@ WARN: The following invalid input values have been detected:
 * --help: true
 * --validate_params: true
 * --custom_config_base: https://raw.githubusercontent.com/nf-core/configs/master
-* --trace_report_suffix: 2026-03-20_17-30-57
+* --trace_report_suffix: 2026-03-24_10-47-33
 * --custom_config_version: master
 
 
