@@ -1789,12 +1789,7 @@ def _generate_results_section(
         zero_error_label = f"- **Zero errors:** {zero_error_count} {type_name} ({zero_error_percentage:.1f}%)"
     elif type_name == "pipelines":
         zero_error_count = sum(
-            1
-            for r in valid_results
-            if r["errors"] == 0
-            and r["warnings"] == 0
-            and r.get("prints_help") is True
-            and r.get("has_versions_mix") is False
+            1 for r in valid_results if r["errors"] == 0 and r["warnings"] == 0 and r.get("prints_help") is True
         )
         zero_error_percentage = (zero_error_count / len(results) * 100) if results else 0
         zero_error_label = f"- **Zero issues:** {zero_error_count} {type_name} ({zero_error_percentage:.1f}%)"
@@ -1962,12 +1957,7 @@ def _generate_results_section(
             # For modules: also require has_topics and has_versions in meta.yml
             # For subworkflows: also require the versions output channel is absent
             if show_prints_help:
-                _has_vm_status = result.get("has_versions_mix")
-                status_emoji = (
-                    ":white_check_mark:"
-                    if errors == 0 and warnings == 0 and prints_help is True and _has_vm_status is False
-                    else ":x:"
-                )
+                status_emoji = ":white_check_mark:" if errors == 0 and warnings == 0 and prints_help is True else ":x:"
             elif type_name == "modules":
                 status_emoji = (
                     ":white_check_mark:"
