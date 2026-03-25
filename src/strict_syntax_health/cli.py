@@ -1986,7 +1986,7 @@ def _generate_results_section(
             if _has_vm is None:
                 versions_mix_str = "-"
             elif _has_vm:
-                versions_mix_str = ":x:"
+                versions_mix_str = ":negative_squared_cross_mark:"
             else:
                 versions_mix_str = ":white_check_mark:"
             row = (
