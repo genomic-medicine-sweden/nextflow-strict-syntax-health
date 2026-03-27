@@ -92,7 +92,7 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "bf234b365494bf1f9eb4c85e3d3d73caacf4f1a9",
+    "commit": "d10d09fc86a4d3c54bf5bfce402127b17832cb3f",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -122,7 +122,7 @@
   "readmapping": {
     "full_name": "sanger-tol/readmapping",
     "html_url": "https://github.com/sanger-tol/readmapping",
-    "commit": "b0acdebcb5ef8a22566cf484a4651f8a172fa3f3",
+    "commit": "4110a7ff2c5d425c82f7ae59ca6292b24f275748",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
