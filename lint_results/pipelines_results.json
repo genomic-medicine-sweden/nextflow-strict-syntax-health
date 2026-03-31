@@ -122,9 +122,9 @@
   "readmapping": {
     "full_name": "sanger-tol/readmapping",
     "html_url": "https://github.com/sanger-tol/readmapping",
-    "commit": "4110a7ff2c5d425c82f7ae59ca6292b24f275748",
+    "commit": "ed9f0ab0e73b7bb58d995556d9c349f4a25e34df",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 1,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -132,12 +132,12 @@
   "sequencecomposition": {
     "full_name": "sanger-tol/sequencecomposition",
     "html_url": "https://github.com/sanger-tol/sequencecomposition",
-    "commit": "8abc8cf9667aa0fa956743b763075a5f9149b248",
+    "commit": "8e85805b5431b40de1aa16561b794c19a69cdc19",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
     "prints_help": true,
-    "has_versions_mix": true
+    "has_versions_mix": false
   },
   "tollongc": {
     "full_name": "sanger-tol/tollongc",
