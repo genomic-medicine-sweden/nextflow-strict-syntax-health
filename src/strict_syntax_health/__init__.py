@@ -1,4 +1,4 @@
-"""Monitor sanger-tol pipelines for Nextflow strict syntax linting errors."""
+"""Monitor genomic-medicine-sweden pipelines for Nextflow strict syntax linting errors."""
 
 from importlib.metadata import version
 

@@ -1,4 +1,4 @@
-name: Lint sanger-tol Pipelines
+name: Lint genomic-medicine-sweden Pipelines
 
 on:
   schedule:

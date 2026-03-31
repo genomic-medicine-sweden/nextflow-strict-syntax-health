@@ -14,8 +14,8 @@ from rich.console import Console
 from rich.table import Table
 
 # API URLs
-PIPELINES_URL = "https://pipelines.tol.sanger.ac.uk/pipelines.json"
-MODULES_REPO_URL = "https://github.com/sanger-tol/nf-core-modules.git"
+PIPELINES_URL = "pipelines.json"
+MODULES_REPO_URL = "https://github.com/genomic-medicine-sweden/nf-core-modules.git"
 NFCORE_MODULES_REPO_URL = "https://github.com/nf-core/modules.git"
 
 # Directory paths
@@ -37,7 +37,7 @@ SUBWORKFLOWS_LINT_RESULTS_DIR = LINT_RESULTS_DIR / "subworkflow-results"
 PRINTS_HELP_RESULTS_DIR = LINT_RESULTS_DIR / "prints-help-results"
 
 # Base URL for linking to files in this repository (used in Slack reports)
-REPO_BASE_URL = "https://github.com/sanger-tol/nextflow-strict-syntax-health/blob/main"
+REPO_BASE_URL = "https://github.com/genomic-medicine-sweden/nextflow-strict-syntax-health/blob/main"
 
 # Saved meta.yml stats (reloaded in --generate-charts-only mode)
 MODULES_META_STATS_PATH = LINT_RESULTS_DIR / "modules_meta_stats.json"
@@ -104,6 +104,20 @@ def get_local_commit_hash(repo_path: Path) -> str:
 def _sort_results(results: list[dict]) -> list[dict]:
     """Sort results by parse_error first, then errors (descending), then warnings (descending)."""
     return sorted(results, key=lambda x: (not x.get("parse_error", False), -x["errors"], -x["warnings"]))
+
+
+def update_pipelines_json_from_path() -> None:
+    """Copy pipelines.json from a local path."""
+    console.print(f"Copying {PIPELINES_URL}...")
+    PIPELINES_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    src = Path(PIPELINES_URL)
+    if not src.exists():
+        raise FileNotFoundError(f"Local pipelines file not found: {src}")
+
+    PIPELINES_JSON_PATH.write_bytes(src.read_bytes())
+
+    console.print(f"Updated {PIPELINES_JSON_PATH}")
 
 
 def update_pipelines_json() -> None:
@@ -237,13 +251,13 @@ def link_nfcore_modules():
 
 
 def clone_modules_repo() -> str:
-    """Clone or update the sanger-tol/nf-core-modules repository.
+    """Clone or update the genomic-medicine-sweden/nf-core-modules repository.
 
     Returns:
         The current commit hash of the cloned/updated repository.
     """
     if MODULES_DIR.exists():
-        console.print("Updating sanger-tol/nf-core-modules repository...")
+        console.print("Updating genomic-medicine-sweden/nf-core-modules repository...")
         subprocess.run(
             ["git", "-C", str(MODULES_DIR), "fetch", "--quiet", "origin", "main"],
             check=True,
@@ -260,7 +274,7 @@ def clone_modules_repo() -> str:
             capture_output=True,
         )
     else:
-        console.print("Cloning sanger-tol/nf-core-modules repository...")
+        console.print("Cloning genomic-medicine-sweden/nf-core-modules repository...")
         subprocess.run(
             ["git", "clone", "--quiet", "--depth", "1", MODULES_REPO_URL, str(MODULES_DIR)],
             check=True,
@@ -268,13 +282,13 @@ def clone_modules_repo() -> str:
         )
 
     commit_hash = get_local_commit_hash(MODULES_DIR)
-    console.print(f"sanger-tol/nf-core-modules repository ready at {MODULES_DIR} ({commit_hash[:8]})")
+    console.print(f"genomic-medicine-sweden/nf-core-modules repository ready at {MODULES_DIR} ({commit_hash[:8]})")
     return commit_hash
 
 
 def discover_modules() -> list[dict]:
-    """Discover all modules in the sanger-tol/nf-core-modules repository."""
-    modules_path = MODULES_DIR / "modules" / "sanger-tol"
+    """Discover all modules in the genomic-medicine-sweden/nf-core-modules repository."""
+    modules_path = MODULES_DIR / "modules" / "genomic-medicine-sweden"
     if not modules_path.exists():
         console.print(f"[red]Modules path not found: {modules_path}[/red]")
         return []
@@ -299,7 +313,7 @@ def discover_modules() -> list[dict]:
                 {
                     "name": name,
                     "path": path,
-                    "html_url": f"https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/{path.relative_to(modules_path)}",
+                    "html_url": f"https://github.com/genomic-medicine-sweden/nf-core-modules/tree/main/modules/genomic-medicine-sweden/{path.relative_to(modules_path)}",
                 }
             )
 
@@ -308,7 +322,7 @@ def discover_modules() -> list[dict]:
 
 
 def scan_modules_meta_yml_stats() -> dict:
-    """Scan sanger-tol modules and subworkflows for topic/version usage.
+    """Scan genomic-medicine-sweden modules and subworkflows for topic/version usage.
 
     For **modules**: checks each ``meta.yml`` for the presence of both ``topics:`` and
     ``versions:`` fields, mirroring the check performed by the nf-core stats pipeline.
@@ -327,8 +341,12 @@ def scan_modules_meta_yml_stats() -> dict:
     """
     import re as _re
 
-    base_url_modules = "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol"
-    base_url_subworkflows = "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol"
+    base_url_modules = (
+        "https://github.com/genomic-medicine-sweden/nf-core-modules/blob/main/modules/genomic-medicine-sweden"
+    )
+    base_url_subworkflows = (
+        "https://github.com/genomic-medicine-sweden/nf-core-modules/blob/main/subworkflows/genomic-medicine-sweden"
+    )
     total = 0
     with_topic_versions = 0  # modules: topics + versions
     swf_with_versions = 0
@@ -336,12 +354,12 @@ def scan_modules_meta_yml_stats() -> dict:
 
     # Scan modules — meta.yml must have both topics: and versions:
     # Walk the same single-level / two-level structure as discover_modules() so counts match exactly.
-    modules_path = MODULES_DIR / "modules" / "sanger-tol"
+    modules_path = MODULES_DIR / "modules" / "genomic-medicine-sweden"
     if modules_path.exists():
         for tool_dir in sorted(modules_path.iterdir()):
             if not tool_dir.is_dir() or tool_dir.name.startswith("."):
                 continue
-            # Single-level module: modules/sanger-tol/<name>/main.nf
+            # Single-level module: modules/genomic-medicine-sweden/<name>/main.nf
             if (tool_dir / "main.nf").exists():
                 component_dirs = [(tool_dir, tool_dir.name, f"{base_url_modules}/{tool_dir.name}/meta.yml")]
             else:
@@ -396,14 +414,14 @@ def scan_modules_meta_yml_stats() -> dict:
                 )
 
     # Scan subworkflows — main.nf must emit a `versions` output channel
-    subworkflows_path = MODULES_DIR / "subworkflows" / "sanger-tol"
+    subworkflows_path = MODULES_DIR / "subworkflows" / "genomic-medicine-sweden"
     if subworkflows_path.exists():
         for subworkflow_dir in sorted(subworkflows_path.iterdir()):
             if not subworkflow_dir.is_dir() or subworkflow_dir.name.startswith("."):
                 continue
             main_nf = subworkflow_dir / "main.nf"
             total += 1
-            # Subworkflows are one level deep: subworkflows/sanger-tol/<name>/
+            # Subworkflows are one level deep: subworkflows/genomic-medicine-sweden/<name>/
             name = subworkflow_dir.name
             html_url = f"{base_url_subworkflows}/{name}/main.nf"
 
@@ -453,8 +471,8 @@ def scan_modules_meta_yml_stats() -> dict:
 
 
 def discover_subworkflows() -> list[dict]:
-    """Discover all subworkflows in the sanger-tol/nf-core-modules repository."""
-    subworkflows_path = MODULES_DIR / "subworkflows" / "sanger-tol"
+    """Discover all subworkflows in the genomic-medicine-sweden/nf-core-modules repository."""
+    subworkflows_path = MODULES_DIR / "subworkflows" / "genomic-medicine-sweden"
     if not subworkflows_path.exists():
         console.print(f"[red]Subworkflows path not found: {subworkflows_path}[/red]")
         return []
@@ -470,7 +488,7 @@ def discover_subworkflows() -> list[dict]:
                     "name": subworkflow_dir.name,
                     "path": subworkflow_dir,
                     "html_url": (
-                        f"https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/{subworkflow_dir.name}"
+                        f"https://github.com/genomic-medicine-sweden/nf-core-modules/tree/main/subworkflows/genomic-medicine-sweden/{subworkflow_dir.name}"
                     ),
                 }
             )
@@ -590,7 +608,7 @@ def lint_directory_bulk(repo_path: Path, target_path: Path) -> dict:
 
     Args:
         repo_path: The repository root path (used as cwd)
-        target_path: The directory to lint (e.g., modules/sanger-tol or subworkflows/sanger-tol)
+        target_path: The directory to lint (e.g., modules/genomic-medicine-sweden or subworkflows/genomic-medicine-sweden)
     """
     try:
         relative_path = target_path.relative_to(repo_path)
@@ -619,7 +637,7 @@ def _extract_component_name_from_path(filepath: str, component_type: str) -> str
     """Extract component name from a file path.
 
     Args:
-        filepath: Path like 'modules/sanger-tol/bwa/mem/main.nf' or 'subworkflows/sanger-tol/foo/main.nf'
+        filepath: Path like 'modules/genomic-medicine-sweden/bwa/mem/main.nf' or 'subworkflows/genomic-medicine-sweden/foo/main.nf'
         component_type: Either 'modules' or 'subworkflows'
 
     Returns:
@@ -627,18 +645,18 @@ def _extract_component_name_from_path(filepath: str, component_type: str) -> str
     """
     parts = Path(filepath).parts
 
-    # Find the sanger-tol part and extract the component name
+    # Find the genomic-medicine-sweden part and extract the component name
     try:
-        sanger_tol_idx = parts.index("sanger-tol")
+        sanger_tol_idx = parts.index("genomic-medicine-sweden")
     except ValueError:
         return None
 
     if component_type == "modules":
-        # modules/sanger-tol/tool/subcommand/main.nf -> tool_subcommand
+        # modules/genomic-medicine-sweden/tool/subcommand/main.nf -> tool_subcommand
         if len(parts) > sanger_tol_idx + 2:
             return f"{parts[sanger_tol_idx + 1]}_{parts[sanger_tol_idx + 2]}"
     else:
-        # subworkflows/sanger-tol/name/main.nf -> name
+        # subworkflows/genomic-medicine-sweden/name/main.nf -> name
         if len(parts) > sanger_tol_idx + 1:
             return parts[sanger_tol_idx + 1]
 
@@ -1100,8 +1118,8 @@ def _run_modules_lint_bulk(modules: list[dict], nextflow_version: str) -> list[d
     """Lint all modules at once using bulk lint (much faster)."""
     console.print(f"Running bulk lint on {len(modules)} modules...")
 
-    # Run lint once on the entire modules/sanger-tol directory
-    modules_path = MODULES_DIR / "modules" / "sanger-tol"
+    # Run lint once on the entire modules/genomic-medicine-sweden directory
+    modules_path = MODULES_DIR / "modules" / "genomic-medicine-sweden"
     bulk_result = lint_directory_bulk(MODULES_DIR, modules_path)
 
     # Group results by component name
@@ -1226,8 +1244,8 @@ def _run_subworkflows_lint_bulk(subworkflows: list[dict], nextflow_version: str)
     """Lint all subworkflows at once using bulk lint (much faster)."""
     console.print(f"Running bulk lint on {len(subworkflows)} subworkflows...")
 
-    # Run lint once on the entire subworkflows/sanger-tol directory
-    subworkflows_path = MODULES_DIR / "subworkflows" / "sanger-tol"
+    # Run lint once on the entire subworkflows/genomic-medicine-sweden directory
+    subworkflows_path = MODULES_DIR / "subworkflows" / "genomic-medicine-sweden"
     bulk_result = lint_directory_bulk(MODULES_DIR, subworkflows_path)
 
     # Group results by component name
@@ -1265,7 +1283,7 @@ def _run_subworkflows_lint_bulk(subworkflows: list[dict], nextflow_version: str)
 
 def display_results(results: list[dict], type_name: str, show_prints_help: bool = False) -> None:
     """Display results in a rich table."""
-    table = Table(title=f"sanger-tol {type_name.capitalize()} Strict Syntax Health")
+    table = Table(title=f"genomic-medicine-sweden {type_name.capitalize()} Strict Syntax Health")
     table.add_column(type_name.capitalize(), style="cyan")
     table.add_column("Parse Error", justify="right")
     table.add_column("Errors", justify="right")
@@ -1335,7 +1353,7 @@ def display_meta_stats(meta_stats: dict) -> None:
         mod_fail = meta_stats.get("without_topic_versions", 0)
         mod_pct = mod_pass / mod_total * 100 if mod_total else 0
 
-        mod_table = Table(title="sanger-tol Modules — topic + version usage (meta.yml)")
+        mod_table = Table(title="genomic-medicine-sweden Modules — topic + version usage (meta.yml)")
         mod_table.add_column("Module", style="cyan")
         mod_table.add_column("topics:", justify="center")
         mod_table.add_column("versions:", justify="center")
@@ -1355,7 +1373,7 @@ def display_meta_stats(meta_stats: dict) -> None:
         swf_fail = meta_stats.get("subworkflow_with_versions", 0)
         swf_pct = swf_pass / swf_total * 100 if swf_total else 0
 
-        swf_table = Table(title="sanger-tol Subworkflows — versions channel (main.nf emit)")
+        swf_table = Table(title="genomic-medicine-sweden Subworkflows — versions channel (main.nf emit)")
         swf_table.add_column("Subworkflow", style="cyan")
         swf_table.add_column("versions channel", justify="center")
         # Bad ones (has versions) first, then good ones; within each group alphabetical
@@ -2043,18 +2061,18 @@ def generate_readme(
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
     lines = [
-        "# sanger-tol Strict Syntax Health Report",
+        "# genomic-medicine-sweden Strict Syntax Health Report",
         "",
-        "This repository tracks the health of sanger-tol pipelines, modules, and subworkflows "
+        "This repository tracks the health of genomic-medicine-sweden pipelines, modules, and subworkflows "
         "with respect to Nextflow's _strict syntax_ linting.",
-        "It is a mere sanger-tol-ification of the upstream nf-core <https://github.com/nf-core/strict-syntax-health>.",
+        "It is a mere genomic-medicine-sweden-ification of the upstream nf-core <https://github.com/nf-core/strict-syntax-health>.",
         "",
         "The [Nextflow docs](https://www.nextflow.io/docs/latest/strict-syntax.html) describes the differences "
         "from standard Nextflow syntax and includes many examples to help with migration and fixing errors.",
         "Strict syntax is backwards compatible with existing Nextflow code, "
         "but enforces stricter rules to catch common errors and improve code quality.",
         "",
-        "The goal is for all sanger-tol pipelines to run without errors using strict syntax.",
+        "The goal is for all genomic-medicine-sweden pipelines to run without errors using strict syntax.",
         "",
         "> [!IMPORTANT]",
         "> See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) "
@@ -2108,7 +2126,7 @@ def generate_readme(
         [
             "## About",
             "",
-            "This report is generated daily by running `nextflow lint` on each sanger-tol pipeline, module, "
+            "This report is generated daily by running `nextflow lint` on each genomic-medicine-sweden pipeline, module, "
             "and subworkflow.",
             "The linting checks for strict syntax compliance in Nextflow DSL2 code.",
             "",
@@ -2419,9 +2437,9 @@ def main(
     no_cache: bool,
     slack_webhook: str | None,
 ) -> None:
-    """Check sanger-tol pipelines, modules, and subworkflows for Nextflow strict syntax linting issues."""
+    """Check genomic-medicine-sweden pipelines, modules, and subworkflows for Nextflow strict syntax linting issues."""
     if update_pipelines:
-        update_pipelines_json()
+        update_pipelines_json_from_path()
 
     # Get nextflow version
     nextflow_version = get_nextflow_version()
@@ -2513,7 +2531,7 @@ def main(
             console.print(f"[dim]modules repos unchanged at {remote_commit[:8]} - using cached results[/dim]")
             repo_commit = remote_commit
         else:
-            # Clone/update the sanger-tol repo
+            # Clone/update the genomic-medicine-sweden repo
             repo_commit = clone_modules_repo()
             # Clone/update the nf-core repo
             clone_nfcore_modules_repo()
@@ -2527,7 +2545,7 @@ def main(
                 # we can just use the cached results directly
                 modules_cache = load_results_dict_for_type("modules")
                 # Build modules list from cache keys (excluding _repo_commit)
-                base_url = "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol"
+                base_url = "https://github.com/genomic-medicine-sweden/nf-core-modules/tree/main/modules/genomic-medicine-sweden"
                 modules = [
                     {"name": name, "html_url": f"{base_url}/{name.replace('_', '/')}"}
                     for name in modules_cache.keys()
@@ -2557,7 +2575,7 @@ def main(
             if modules_repo_unchanged:
                 # Use cached results
                 subworkflows_cache = load_results_dict_for_type("subworkflows")
-                base_url = "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol"
+                base_url = "https://github.com/genomic-medicine-sweden/nf-core-modules/tree/main/subworkflows/genomic-medicine-sweden"
                 subworkflows = [
                     {"name": name, "html_url": f"{base_url}/{name}"}
                     for name in subworkflows_cache.keys()

@@ -1,190 +1,80 @@
 {
-  "ascc": {
-    "full_name": "sanger-tol/ascc",
-    "html_url": "https://github.com/sanger-tol/ascc",
-    "commit": "4356e522058cf85b6c3a56a40c60f374b5f09c05",
-    "errors": 1,
-    "warnings": 7,
+  "nallo": {
+    "full_name": "genomic-medicine-sweden/nallo",
+    "html_url": "https://github.com/genomic-medicine-sweden/nallo",
+    "commit": "9b5c8d1cfe404123ce2ee117a689a2c730fca15d",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false,
+    "prints_help": false,
+    "has_versions_mix": false
+  },
+  "tomte": {
+    "full_name": "genomic-medicine-sweden/tomte",
+    "html_url": "https://github.com/genomic-medicine-sweden/tomte",
+    "commit": "f91f584b362ce7819daf7a2a737d3fb67b126095",
+    "errors": 8,
+    "warnings": 149,
     "parse_error": false,
     "prints_help": null,
     "has_versions_mix": true
   },
-  "blobtoolkit": {
-    "full_name": "sanger-tol/blobtoolkit",
-    "html_url": "https://github.com/sanger-tol/blobtoolkit",
-    "commit": "6cacd1d4771527466c9405349e1eaf5059711140",
-    "errors": 0,
-    "warnings": 7,
+  "jasen": {
+    "full_name": "genomic-medicine-sweden/jasen",
+    "html_url": "https://github.com/genomic-medicine-sweden/jasen",
+    "commit": "ff547895e73800c05264e41da2cc233a3d40e6e1",
+    "errors": 74,
+    "warnings": 25,
     "parse_error": false,
-    "prints_help": true,
+    "prints_help": null,
     "has_versions_mix": true
   },
-  "curationpretext": {
-    "full_name": "sanger-tol/curationpretext",
-    "html_url": "https://github.com/sanger-tol/curationpretext",
-    "commit": "bc04469c6643f295803bc43d98cbb72c4c7170c3",
-    "errors": 0,
-    "warnings": 0,
+  "metaval": {
+    "full_name": "genomic-medicine-sweden/metaval",
+    "html_url": "https://github.com/genomic-medicine-sweden/metaval",
+    "commit": "0bb79580acf6d793ce7b59018531a8ade50012b9",
+    "errors": 30,
+    "warnings": 94,
     "parse_error": false,
-    "prints_help": true,
-    "has_versions_mix": false
+    "prints_help": null,
+    "has_versions_mix": true
   },
-  "ear": {
-    "full_name": "sanger-tol/ear",
-    "html_url": "https://github.com/sanger-tol/ear",
-    "commit": "2b15915ec8c6faa676452dc92153dbd1505f2426",
+  "TRANA": {
+    "full_name": "genomic-medicine-sweden/TRANA",
+    "html_url": "https://github.com/genomic-medicine-sweden/TRANA",
+    "commit": "c46ea949632fdb31c2d589a86779c247ebb3651d",
+    "errors": 4,
+    "warnings": 16,
+    "parse_error": false,
+    "prints_help": null,
+    "has_versions_mix": true
+  },
+  "nf-autoseq": {
+    "full_name": "genomic-medicine-sweden/nf-autoseq",
+    "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
+    "commit": "87aa5819a584ed56aab360338de0b313953dfc6b",
     "errors": 0,
-    "warnings": 52,
+    "warnings": 31,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": true
   },
-  "ensemblgenedownload": {
-    "full_name": "sanger-tol/ensemblgenedownload",
-    "html_url": "https://github.com/sanger-tol/ensemblgenedownload",
-    "commit": "27069deb1c33ccd82b5426d4fd948cf65b839a6d",
-    "errors": 0,
-    "warnings": 0,
-    "parse_error": false,
-    "prints_help": true,
-    "has_versions_mix": false
-  },
-  "ensemblrepeatdownload": {
-    "full_name": "sanger-tol/ensemblrepeatdownload",
-    "html_url": "https://github.com/sanger-tol/ensemblrepeatdownload",
-    "commit": "6fb99a14d1018a6f834d10afd229d967fe2a3373",
-    "errors": 0,
-    "warnings": 0,
-    "parse_error": false,
-    "prints_help": true,
-    "has_versions_mix": false
-  },
-  "genomeassembly": {
-    "full_name": "sanger-tol/genomeassembly",
-    "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "e6518019a2b33c210eb2ea4df27c136055995dc3",
-    "errors": 0,
-    "warnings": 0,
-    "parse_error": false,
-    "prints_help": true,
-    "has_versions_mix": true
-  },
-  "genomenote": {
-    "full_name": "sanger-tol/genomenote",
-    "html_url": "https://github.com/sanger-tol/genomenote",
-    "commit": "17b6c8bcad48eb2c9711aa994498eed2ea5423db",
-    "errors": 0,
-    "warnings": 0,
-    "parse_error": false,
-    "prints_help": true,
-    "has_versions_mix": true
-  },
-  "insdcdownload": {
-    "full_name": "sanger-tol/insdcdownload",
-    "html_url": "https://github.com/sanger-tol/insdcdownload",
-    "commit": "19d5dcf0342483a300dd9dab4ba29a02167e15e5",
-    "errors": 0,
-    "warnings": 0,
-    "parse_error": false,
-    "prints_help": true,
-    "has_versions_mix": false
-  },
-  "metagenomeassembly": {
-    "full_name": "sanger-tol/metagenomeassembly",
-    "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "d10d09fc86a4d3c54bf5bfce402127b17832cb3f",
-    "errors": 0,
-    "warnings": 0,
-    "parse_error": false,
-    "prints_help": true,
-    "has_versions_mix": true
-  },
-  "nfmicrofinder": {
-    "full_name": "sanger-tol/nfmicrofinder",
-    "html_url": "https://github.com/sanger-tol/nfmicrofinder",
-    "commit": "858b2a0750328215449ee36589940538c305e9c8",
-    "errors": 0,
-    "warnings": 21,
-    "parse_error": false,
-    "prints_help": false,
-    "has_versions_mix": true
-  },
-  "purging": {
-    "full_name": "sanger-tol/purging",
-    "html_url": "https://github.com/sanger-tol/purging",
-    "commit": "401c68cc7ea9eed6e50a2784a38e96f32306d0fe",
-    "errors": 0,
+  "rarediseaserefs": {
+    "full_name": "genomic-medicine-sweden/rarediseaserefs",
+    "html_url": "https://github.com/genomic-medicine-sweden/rarediseaserefs",
+    "commit": "92871c01f72ac2880663f305fa98a54afe4a906f",
+    "errors": 1,
     "warnings": 5,
     "parse_error": false,
-    "prints_help": false,
+    "prints_help": null,
     "has_versions_mix": false
   },
-  "readmapping": {
-    "full_name": "sanger-tol/readmapping",
-    "html_url": "https://github.com/sanger-tol/readmapping",
-    "commit": "ed9f0ab0e73b7bb58d995556d9c349f4a25e34df",
-    "errors": 0,
-    "warnings": 1,
-    "parse_error": false,
-    "prints_help": true,
-    "has_versions_mix": true
-  },
-  "sequencecomposition": {
-    "full_name": "sanger-tol/sequencecomposition",
-    "html_url": "https://github.com/sanger-tol/sequencecomposition",
-    "commit": "8e85805b5431b40de1aa16561b794c19a69cdc19",
-    "errors": 0,
-    "warnings": 0,
-    "parse_error": false,
-    "prints_help": true,
-    "has_versions_mix": false
-  },
-  "tollongc": {
-    "full_name": "sanger-tol/tollongc",
-    "html_url": "https://github.com/sanger-tol/tollongc",
-    "commit": "caba54f6ebbdbe81024924ed4a3e06d4545c7f54",
-    "errors": 0,
-    "warnings": 8,
-    "parse_error": false,
-    "prints_help": false,
-    "has_versions_mix": false
-  },
-  "treeval": {
-    "full_name": "sanger-tol/treeval",
-    "html_url": "https://github.com/sanger-tol/treeval",
-    "commit": "7b40ee76404e64dae349d2e9e2a089b9c1269c08",
-    "errors": 0,
-    "warnings": 2,
-    "parse_error": false,
-    "prints_help": false,
-    "has_versions_mix": true
-  },
-  "variantcalling": {
-    "full_name": "sanger-tol/variantcalling",
-    "html_url": "https://github.com/sanger-tol/variantcalling",
-    "commit": "1b0f1f959b5a49d46c3a1fecb800ee7b6f6e8d5d",
-    "errors": 0,
-    "warnings": 0,
-    "parse_error": false,
-    "prints_help": true,
-    "has_versions_mix": true
-  },
-  "variantcomposition": {
-    "full_name": "sanger-tol/variantcomposition",
-    "html_url": "https://github.com/sanger-tol/variantcomposition",
-    "commit": "51027361a9075f6ecbd6a072713ad18c15bee277",
-    "errors": 0,
-    "warnings": 0,
-    "parse_error": false,
-    "prints_help": true,
-    "has_versions_mix": true
-  },
-  "zippypretext": {
-    "full_name": "sanger-tol/zippypretext",
-    "html_url": "https://github.com/sanger-tol/zippypretext",
-    "commit": "d32f0ae3722b7faaccccda37df8dae43a2e039fb",
-    "errors": 5,
-    "warnings": 15,
+  "nallorefs": {
+    "full_name": "genomic-medicine-sweden/nallorefs",
+    "html_url": "https://github.com/genomic-medicine-sweden/nallorefs",
+    "commit": "cf3b17d7bb6a7b1a435e026e49e795e39755bc09",
+    "errors": 1,
+    "warnings": 31,
     "parse_error": false,
     "prints_help": null,
     "has_versions_mix": true

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This tool monitors sanger-tol Nextflow pipelines, modules, and subworkflows for strict syntax linting errors. It clones repositories, runs `nextflow lint`, and generates health reports with trend charts.
+This tool monitors genomic-medicine-sweden Nextflow pipelines, modules, and subworkflows for strict syntax linting errors. It clones repositories, runs `nextflow lint`, and generates health reports with trend charts.
 
 ## Commands
 
@@ -12,7 +12,7 @@ This tool monitors sanger-tol Nextflow pipelines, modules, and subworkflows for 
 # Install dependencies
 pip install -e .
 
-# Run the linter on all sanger-tol pipelines, modules, and subworkflows
+# Run the linter on all genomic-medicine-sweden pipelines, modules, and subworkflows
 strict-syntax-health
 
 # Update the pipelines list from nf-co.re before running
@@ -47,8 +47,8 @@ prek run --all-files
 Single-module CLI (`src/strict_syntax_health/cli.py`) using rich-click:
 
 1. **Pipeline discovery**: Fetches `pipelines.json` from nf-co.re, filters out archived pipelines
-2. **Module/Subworkflow discovery**: Clones sanger-tol/nf-core-modules repo, discovers components from directory structure
-3. **Cloning**: Shallow clones pipelines to `pipelines/` directory, sanger-tol/nf-core-modules to `modules/`
+2. **Module/Subworkflow discovery**: Clones genomic-medicine-sweden/nf-core-modules repo, discovers components from directory structure
+3. **Cloning**: Shallow clones pipelines to `pipelines/` directory, genomic-medicine-sweden/nf-core-modules to `modules/`
 4. **Linting**: Runs `nextflow lint` on each component, parses JSON output
 5. **History tracking**: Stores daily aggregates in `lint_results/history.json` (counts by error/warning severity buckets)
 6. **Chart generation**: Creates stacked area charts with Plotly showing trends over time
@@ -61,7 +61,7 @@ pipelines/
 ├── pipelines.json          # Pipeline list from nf-co.re (tracked in git)
 └── <cloned pipeline repos> # (gitignored)
 
-modules/                    # sanger-tol/nf-core-modules clone (gitignored)
+modules/                    # genomic-medicine-sweden/nf-core-modules clone (gitignored)
 
 lint_results/
 ├── history.json            # Combined history for pipelines, modules, subworkflows
@@ -82,14 +82,14 @@ lint_results/
 ## External Dependencies
 
 - **Nextflow**: Must be installed and available on PATH. In CI, it's built from the master branch to get latest lint features.
-- **Git**: Required for cloning pipelines and sanger-tol/nf-core-modules
+- **Git**: Required for cloning pipelines and genomic-medicine-sweden/nf-core-modules
 
 ## Caching
 
 The tool uses commit-based caching to skip unchanged repositories:
 
 - Pipeline results are cached by git commit hash; unchanged pipelines are skipped
-- Module/subworkflow results share a single cache keyed to the sanger-tol/nf-core-modules repo commit
+- Module/subworkflow results share a single cache keyed to the genomic-medicine-sweden/nf-core-modules repo commit
 - Use `--no-cache` to force re-linting everything
 
 ## Code Style
