@@ -1,7 +1,7 @@
 # genomic-medicine-sweden Strict Syntax Health Report
 
 This repository tracks the health of genomic-medicine-sweden pipelines, modules, and subworkflows with respect to Nextflow's _strict syntax_ linting.
-It is a mere genomic-medicine-sweden-ification of the upstream nf-core <https://github.com/nf-core/strict-syntax-health>.
+It is a mere genomic-medicine-sweden fork of the sanger-tol-ification <https://github.com/sanger-tol/nextflow-strict-syntax-health> of the upstream nf-core <https://github.com/nf-core/strict-syntax-health>.
 
 The [Nextflow docs](https://www.nextflow.io/docs/latest/strict-syntax.html) describes the differences from standard Nextflow syntax and includes many examples to help with migration and fixing errors.
 Strict syntax is backwards compatible with existing Nextflow code, but enforces stricter rules to catch common errors and improve code quality.
