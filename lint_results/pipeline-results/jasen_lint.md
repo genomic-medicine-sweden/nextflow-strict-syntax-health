@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-03-31T07:42:42.117333060Z
+- Generated: 2026-03-31T12:57:10.583596860Z
 - Nextflow version: 26.03.1-edge
 - Summary: 74 errors, 25 warnings
 
@@ -90,14 +90,14 @@
                                            ^^^^^^^
   ```
 
-- Error: `main.nf:5:1`: Included name 'CALL_MYCOBACTERIUM_TUBERCULOSIS' is not defined in module '/home/felix/projects/genomic-medicine-sweden/nextflow-strict-syntax-health/pipelines/jasen/workflows/mycobacterium_tuberculosis.nf'
+- Error: `main.nf:5:1`: Included name 'CALL_MYCOBACTERIUM_TUBERCULOSIS' is not defined in module '/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/jasen/workflows/mycobacterium_tuberculosis.nf'
 
   ```nextflow
   include { CALL_MYCOBACTERIUM_TUBERCULOSIS   } from './workflows/mycobacterium_tuberculosis.nf'
   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Error: `main.nf:6:1`: Included name 'CALL_BACTERIAL_GENERAL' is not defined in module '/home/felix/projects/genomic-medicine-sweden/nextflow-strict-syntax-health/pipelines/jasen/workflows/bacterial_general.nf'
+- Error: `main.nf:6:1`: Included name 'CALL_BACTERIAL_GENERAL' is not defined in module '/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/jasen/workflows/bacterial_general.nf'
 
   ```nextflow
   include { CALL_BACTERIAL_GENERAL            } from './workflows/bacterial_general.nf'
@@ -475,7 +475,7 @@
                                            ^^^^^^^^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/typing.nf:9:1`: Included name 'mlst' is not defined in module '/home/felix/projects/genomic-medicine-sweden/nextflow-strict-syntax-health/pipelines/jasen/modules/nf-core/mlst/main.nf'
+- Error: `subworkflows/typing.nf:9:1`: Included name 'mlst' is not defined in module '/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/jasen/modules/nf-core/mlst/main.nf'
 
   ```nextflow
   include { mlst                          } from '../modules/nf-core/mlst/main.nf'
