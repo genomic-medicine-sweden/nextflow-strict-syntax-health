@@ -1,17 +1,17 @@
 [
   {
     "date": "2026-03-31",
-    "total": 8,
+    "total": 9,
     "parse_errors": 0,
-    "errors_zero": 2,
+    "errors_zero": 3,
     "errors_low": 3,
     "errors_high": 3,
     "warnings_zero": 1,
-    "warnings_low": 2,
+    "warnings_low": 3,
     "warnings_high": 5,
     "prints_help_pass": 0,
-    "prints_help_fail": 2,
-    "versions_mix_clean": 2,
+    "prints_help_fail": 3,
+    "versions_mix_clean": 3,
     "versions_mix_found": 6
   }
 ]
