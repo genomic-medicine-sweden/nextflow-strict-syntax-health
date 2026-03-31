@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "f68a7145a562afc71714fb30f7704ea55ced2edf",
+    "commit": "2559a49612c98e7d238f8aa8c355b56926faeba4",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -32,9 +32,9 @@
   "metaval": {
     "full_name": "genomic-medicine-sweden/metaval",
     "html_url": "https://github.com/genomic-medicine-sweden/metaval",
-    "commit": "0bb79580acf6d793ce7b59018531a8ade50012b9",
-    "errors": 30,
-    "warnings": 94,
+    "commit": "1a5848bf3f52a1458bcf6c8b83acb46525dc8e54",
+    "errors": 35,
+    "warnings": 112,
     "parse_error": false,
     "prints_help": null,
     "has_versions_mix": true
@@ -82,7 +82,7 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "80b8f7e3324bb274e00f516a3036e3dfe0255bba",
+    "commit": "39f46207a6f56eba171e5463fa7613614d1a8e89",
     "errors": 0,
     "warnings": 6,
     "parse_error": false,
@@ -102,7 +102,7 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "b52d599b70d9a8531301f9cbbcd89fb67a853d16",
+    "commit": "37e1f7c018e0916387b9b21e1e29d8f3d151fd7c",
     "errors": 1,
     "warnings": 5,
     "parse_error": false,
@@ -112,7 +112,7 @@
   "taxprofiler": {
     "full_name": "nf-core/taxprofiler",
     "html_url": "https://github.com/nf-core/taxprofiler",
-    "commit": "a0a52b3620c3b16a2931a9521b76a1b17fcde1bc",
+    "commit": "f554ba0733d26f2ec06098d7b9479b0629dc13da",
     "errors": 0,
     "warnings": 99,
     "parse_error": false,
