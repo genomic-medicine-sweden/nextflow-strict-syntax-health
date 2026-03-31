@@ -88,5 +88,35 @@
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": false
+  },
+  "rnafusion": {
+    "full_name": "nf-core/rnafusion",
+    "html_url": "https://github.com/nf-core/rnafusion",
+    "commit": "34eb35b2ee44c4b39a7d3f10d9db37f4d355e9d9",
+    "errors": 13,
+    "warnings": 116,
+    "parse_error": false,
+    "prints_help": null,
+    "has_versions_mix": true
+  },
+  "raredisease": {
+    "full_name": "nf-core/raredisease",
+    "html_url": "https://github.com/nf-core/raredisease",
+    "commit": "b52d599b70d9a8531301f9cbbcd89fb67a853d16",
+    "errors": 1,
+    "warnings": 5,
+    "parse_error": false,
+    "prints_help": null,
+    "has_versions_mix": false
+  },
+  "taxprofiler": {
+    "full_name": "nf-core/taxprofiler",
+    "html_url": "https://github.com/nf-core/taxprofiler",
+    "commit": "a0a52b3620c3b16a2931a9521b76a1b17fcde1bc",
+    "errors": 0,
+    "warnings": 99,
+    "parse_error": false,
+    "prints_help": true,
+    "has_versions_mix": true
   }
 }

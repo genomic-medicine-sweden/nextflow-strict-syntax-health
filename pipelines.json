@@ -8,6 +8,9 @@
         {"name": "nf-autoseq", "full_name": "genomic-medicine-sweden\/nf-autoseq"},
         {"name": "rarediseaserefs", "full_name": "genomic-medicine-sweden\/rarediseaserefs"},
         {"name": "nallorefs", "full_name": "genomic-medicine-sweden\/nallorefs"},
-        {"name": "oncorefiner", "full_name": "clinical-genomics\/oncorefiner"}
+        {"name": "oncorefiner", "full_name": "clinical-genomics\/oncorefiner"},
+        {"name": "rnafusion", "full_name": "nf-core\/rnafusion"},
+        {"name": "raredisease", "full_name": "nf-core\/raredisease"},
+        {"name": "taxprofiler", "full_name": "nf-core\/taxprofiler"}
     ]
 }
