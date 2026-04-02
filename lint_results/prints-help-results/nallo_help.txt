@@ -4,8 +4,251 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.03.1-edge
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [cranky_lorenz] revision: 55a0d4369e
+Launching `./main.nf` [distracted_leakey] revision: 08bb8e53ad
 
-ERROR ~ Unable to create help message: Specified param 'true' does not exist in JSON schema.
 
- -- Check script 'subworkflows/nf-core/utils_nfschema_plugin/main.nf' at line: 41 or see '.nextflow.log' file for more details
+                                       _                              _ _      _
+       __ _  ___ _ __   ___  _ __ ___ (_) ___      _ __ ___   ___  __| (_) ___(_)_ __   ___
+      / _` |/ _ \ '_ \ / _ \| '_ ` _ \| |/ __|____| '_ ` _ \ / _ \/ _` | |/ __| | '_ \ / _ \_____
+     | (_| |  __/ | | | (_) | | | | | | | (_|_____| | | | | |  __/ (_| | | (__| | | | |  __/_____|
+      \__, |\___|_| |_|\___/|_| |_| |_|_|\___|    |_| |_| |_|\___|\__,_|_|\___|_|_| |_|\___|
+      |___/      _____  __| | ___ _ __    / / __   __ _| | | ___
+     / __\ \ /\ / / _ \/ _` |/ _ \ '_ \  / / '_ \ / _` | | |/ _ \
+     \__ \\ V  V /  __/ (_| |  __/ | | |/ /| | | | (_| | | | (_) |
+     |___/ \_/\_/ \___|\__,_|\___|_| |_/_/ |_| |_|\__,_|_|_|\___/
+    
+    Typical pipeline command:
+
+  nextflow run genomic-medicine-sweden/nallo -profile <docker/singularity/.../institute> --input samplesheet.csv --outdir <OUTDIR>
+
+help message of that parameter will be printed.  
+or `--helpFull`.  
+
+Workflow skip options
+  --skip_annotate_paralogs                     [boolean] Skip paralogs (Paraphase) annotation [default: false] 
+  --skip_qc                                    [boolean] Skip QC of reads [default: false] 
+  --skip_snv_calling                           [boolean] Skip short variant calling [default: false] 
+  --skip_genome_assembly                       [boolean] Skip genome assembly and assembly variant calling [default: false] 
+  --skip_alignment                             [boolean] Skip read mapping (alignment) [default: false] 
+  --skip_methylation_calling                   [boolean] Skip methylation calling [default: false] 
+  --skip_repeat_calling                        [boolean] Skip tandem repeat calling [default: false] 
+  --skip_repeat_annotation                     [boolean] Skip tandem repeat annotation [default: false] 
+  --skip_chromograph                           [boolean] Skip chromograph image generation. True if both plot_chromograph_coverage and 
+plot_chromograph_autozygosity are set to false.  
+  --skip_peddy                                 [boolean] Skip peddy [default: false] 
+  --skip_sambamba_depth                        [boolean] Skip sambamba depth. True unless `--sambamba_regions` is provided. 
+  --skip_phasing                               [boolean] Skip phasing of variants and haplotagging of reads [default: false] 
+  --skip_snv_annotation                        [boolean] Skip short variant annotation [default: false] 
+  --skip_sv_calling                            [boolean] Skip structural variant calling [default: false] 
+  --skip_sv_annotation                         [boolean] Skip structural variant annotation [default: false] 
+  --skip_call_paralogs                         [boolean] Skip the calling of specific paralogous genes [default: false] 
+  --skip_rank_variants                         [boolean] Skip ranking of short variants [default: false] 
+  --skip_prepare_gens_input                    [boolean] Skip preparing input data for Gens [default: false] 
+  --skip_sex_check                             [boolean] Skip sex check [default: false] 
+
+Input/output options
+  --input                                      [string]  Path to comma-separated file containing information about the samples in the experiment. 
+  --outdir                                     [string]  The output directory where the results will be saved. You have to use absolute paths to storage on 
+Cloud infrastructure.  
+  --email                                      [string]  Email address for completion summary. 
+  --multiqc_title                              [string]  MultiQC report title. Printed as page header, used for filename if not otherwise specified. 
+  --cadd_prescored_indels                      [string]  Path to a directory containing prescored indels for CADD. 
+  --cadd_resources                             [string]  Path to a directory containing CADD annotations. 
+  --par_regions                                [string]  Provide a bed file of chrX and chrY PAR regions for DeepVariant 
+  --tandem_repeats                             [string]  A tandem repeat BED file for sniffles 
+  --str_bed                                    [string]  A BED file with repeats to be genotyped with TRGT 
+  --echtvar_snv_databases                      [string]  Path to a CSV/TSV/JSON/YAML file with echtvar databases to annotate SNVs with. 
+  --svdb_sv_databases                          [string]  Databases used for structural variant annotation in vcf format. 
+  --stranger_repeat_catalog                    [string]  A variant catalog json-file for stranger 
+  --variant_consequences_snvs                  [string]  File containing list of SO terms listed in the order of severity from most severe to lease severe 
+for annotating genomic SNVs. For more information check 
+https://ensembl.org/info/genome/variation/prediction/predicted_data.html  
+  --variant_consequences_svs                   [string]  File containing list of SO terms listed in the order of severity from most severe to lease severe 
+for annotating genomic SVs. For more information check 
+https://ensembl.org/info/genome/variation/prediction/predicted_data.html  
+  --vep_cache                                  [string]  A path to the VEP cache location 
+  --target_regions                             [string]  A BED file with regions of interest. 
+  --methbat_regions                            [string]  A tsv file with only regions of interest (example here: 
+https://github.com/PacificBiosciences/MethBat/blob/main/data/cpgIslandExt.sorted.hg38.tsv) or with 
+both regions and background cohort values (example here: 
+https://github.com/PacificBiosciences/MethBat/blob/main/data/meth_profile_model.tsv), made with 
+methbat build  
+  --modkit_call_regions                        [string]  A BED file with regions of interest for the methylation pileups. By default this is the same as 
+`target_regions`.  
+  --mosdepth_regions                           [string]  A BED file with regions of interest used in mosdepth. By default this is the same as `qc_regions`. 
+ 
+  --mosdepth_d4_output                         [boolean] Should mosdepth output d4-files. [default: false] 
+  --bigwig_modcodes                            [string]  Comma-separated list of modification codes to include in the bigWig methylation visualization file. 
+Defaults to 5hmC and 5mC. See https://samtools.github.io/hts-specs/SAMtags.pdf for a complete list. 
+[default: m]  
+  --snv_call_regions                           [string]  A BED file containing regions to limit SNV calling. By default this is the same as `target_regions`. 
+ 
+  --sv_call_regions                            [string]  A BED file containging regions to filter SV calls. By default this is the same as `target_regions`. 
+ 
+  --qc_regions                                 [string]  A BED file with regions of interest used in QC. By default this is the same as `target_regions`. 
+ 
+  --cnv_expected_xy_cn                         [string]  A BED file containing expected copy number regions for XY samples. 
+  --cnv_expected_xx_cn                         [string]  A BED file containing expected copy number regions for XX samples. 
+  --cnv_excluded_regions                       [string]  A BED file specifying regions to exclude with HiFiCNV or Sawfish, such as centromeres. 
+  --genmod_reduced_penetrance                  [string]  A file with gene ids that have reduced penetrance. For use with genmod. 
+  --genmod_score_config_snvs                   [string]  A SNV rank model config file for genmod. 
+  --genmod_score_config_svs                    [string]  A SV rank model config file for genmod. 
+  --somalier_sites                             [string]  A VCF of known polymorphic sites for somalier 
+  --gens_baf_positions                         [string]  Tab-delimited file with variant positions used to calculate B-allele frequencies for Gens inputs. 
+ 
+  --gens_panel_of_normals_female               [string]  Panel of normals of female samples (HDF5) used to standardize coverage for Gens inputs 
+(https://gatk.broadinstitute.org/hc/en-us/articles/360040510031-CreateReadCountPanelOfNormals). This 
+can be generated using https://github.com/nf-core/createpanelrefs. For long reads we have used 
+mosdepth to calculate coverage per-bin rather than counting reads per bin, and then created a panel 
+of normals using the GATK command.  
+  --gens_panel_of_normals_male                 [string]  Panel of normals of male samples (HDF5) used to standardize coverage for Gens inputs 
+(https://gatk.broadinstitute.org/hc/en-us/articles/360040510031-CreateReadCountPanelOfNormals). This 
+can be generated using https://github.com/nf-core/createpanelrefs. For long reads we have used 
+mosdepth to calculate coverage per-bin rather than counting reads per bin, and then created a panel 
+of normals using the GATK command.  
+  --gens_coverage_bins                         [string]  Bed file with bins for which to calculate coverage. Typically 100bp bins across the genome is used 
+in Gens. It should be the same as the one used to prepare the panel of normals.  
+  --strdrop_training_set_json                  [string]  A JSON file containing the training set for strdrop 
+  --paraphrase_output_format                   [string]  Output format for paralog annotation from Paraphrase. Either `tsv` or `json`.  (accepted: tsv, 
+json) [default: tsv]  
+  --paraphrase_rules                           [string]  A file path to a YAML file with rules for paraphrase to use when annotating paralogs. For an 
+example, see: https://github.com/Clinical-Genomics/paraphrase/blob/main/test-data/rules.yaml. 
+ 
+  --peddy_sites                                [string]  A file path to a VCF of known polymorphic sites for peddy. You may need to create a custom sites 
+file if you have incomplete or targeted data.  
+  --sambamba_regions                           [string]  A BED file with regions of interest used in sambamba depth. By default this is the same as 
+`qc_regions`.  
+  --alignment_output_format                    [string]  Output format for alignment files. Either `bam` or `cram`  (accepted: bam, cram) [default: bam] 
+ 
+  --create_maf_track                           [boolean] Whether to create a MAF track from SNV calls when calling SVs with HiFiCNV or Sawfish. Requires SNV 
+calling to finish before calling SVs, so deactivating this can speed up the pipeline. Defaults to 
+`true` [default: true]  
+
+Reference genome options
+  --fasta                                      [string] Reference genome 
+
+Generic options
+  --multiqc_methods_description                [string]          Custom MultiQC yaml file containing HTML including a methods description. 
+  --help                                       [boolean, string] Display the help message. 
+  --help_full                                  [boolean]         Display the full detailed help message. 
+  --show_hidden                                [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
+ 
+
+Workflow options
+  --bcftools_roh_af_tag                        [string]  AF-tag that variants have been annotated with for use in the chromograph subworkflow. By default set 
+to `--chromograph_af_tag`.  
+  --chromograph_af_tag                         [string]  AF-tag to use in the chromograph subworkflow to generate plots of autozygosity. SNVs need to be 
+annotated with allele frequencies specified by this tag for autozygosity plotting to work.  
+  --preset                                     [string]  Enable or disable certain parts of the pipeline by default, depending on data type (`revio`, 
+`pacbio`, `ONT_R10`)  (accepted: revio, pacbio, ONT_R10) [default: revio]  
+  --sv_callers                                 [string]  Which SV callers to use. Several callers can be specified, separated by commas (e.g. 
+sniffles,severus,hificnv,sawfish). The order of the SV callers in this list will determine the 
+priority of the calls when merging them if not overwritten by `sv_caller_priority`. [default: 
+sniffles,hificnv]  
+  --sv_callers_merge_priority                  [string]  The order of the SV callers in this list will determine the priority of the calls when merging them. 
+All callers that has been specified in `sv_callers` should also be specified here separated by 
+commas (e.g. sniffles,severus,hificnv,sawfish). By default same as `--sv_callers`. [default: 
+sniffles,hificnv]  
+  --sv_callers_to_run                          [string]  Which SV callers to run, separated by commas (e.g. sniffles,severus,hificnv,sawfish). By default 
+same as `--sv_callers` [default: sniffles,hificnv]  
+  --sv_callers_to_merge                        [string]  Which SV callers to merge into family VCFs (that are also used for annotation and ranking), 
+separated by commas (e.g. sniffles,severus,hificnv,sawfish). By default same as `--sv_callers` 
+[default: sniffles,hificnv]  
+  --snv_caller                                 [string]  Which short variant software to use (`deepvariant`)  (accepted: deepvariant, sentieon) [default: 
+deepvariant]  
+  --str_caller                                 [string]  Which caller to use for short tandem repeat expansions (TRGT or STRdust).  (accepted: trgt, 
+strdust) [default: trgt]  
+  --paraphrase_genes                           [string]  An optional comma-separated list of genes to run Paraphrase on for paralog annotation. By default 
+all genes called by paraphase are used.  
+  --paraphrase_skip_keys                       [string]  An optional comma-separated list of keys to skip when running Paraphrase. By default the default 
+skip keys are determined by Paraphrase.  
+  --phaser                                     [string]  Which phasing software to use (`longphase`, `whatshap`, `hiphase`)  (accepted: longphase, 
+whatshap, hiphase) [default: longphase]  
+  --hifiasm_mode                               [string]  Run hifiasm in hifi-only or hifi-trio mode (`hifi-only`, `trio-binning`)  (accepted: hifi-only, 
+trio-binning) [default: trio-binning]  
+  --hifiasm_preset                             [string]  Hifiasm preset, is set to `--ont` when `--preset ONT_R10` is active.  (accepted: , --ont) 
+  --run_methbat                                [boolean] Run methbat for methylation analysis, set to `true` by default when `--preset revio` is active. 
+ 
+  --run_modkit                                 [boolean] Run modkit for methylation analysis, set to `true` by default when `--preset ONT_R10` is active. 
+ 
+  --methbat_male_label                         [string]  Label used for male samples in methbat profile. [default: MALE] 
+  --methbat_female_label                       [string]  Label used for female samples in methbat profile. [default: FEMALE] 
+  --modkit_modified_bases                      [string]  Modkit modified bases, separated by space. E.g. '5mC 5hmC' [default: 5mC] 
+  --mitochondrial_caller                       [string]  Which mitochondrial caller to use for mitochondrial variant calling (`deepvariant`) [default: 
+deepvariant]  
+  --alignment_processes                        [integer] If alignment_processes is bigger than 1, input files will be split and aligned in parallel to reduce 
+processing time. [default: 8]  
+  --snv_calling_processes                      [integer] If snv_calling_processes is bigger than 1, short variant calling will be done in parallel to reduce 
+processing time. [default: 13]  
+  --vep_cache_version                          [integer] VEP cache version [default: 110] 
+  --vep_mitochondrial_genome_distance          [integer] The distance parameter used in VEP for mitochondrial SNVs [default: 0] 
+  --vep_nuclear_genome_distance                [integer] The distance parameter used in VEP for nuclear SNVs [default: 5000] 
+  --vep_plugin_files                           [string]  Path to a CSV/TSV/JSON/YAML file with vep_files as header, and then paths to vep plugin files. Paths 
+to pLI_values.txt and LoFtool_scores.txt are required.  
+  --force_sawfish_joint_call_single_samples    [boolean] Force sawfish to run joint-call on single samples instead of all samples from the same family. This 
+effectively causes SVDB to merge the samples into family VCFs instead.  
+  --filter_variants_hgnc_ids                   [string]  A tsv/csv file with a `hgnc_ids` column header, and then one numerical HGNC ID per row. E.g. `4281` 
+or `HGNC:4281`.  
+  --filter_snvs_expression                     [string]  An expression that is passed to bcftools view to filter SNVs, e.g. --filter_snvs_expression "-e 
+'INFO/AQ>60'"  
+  --filter_svs_expression                      [string]  An expression that is passed to bcftools view to filter SVs, e.g. --filter_svs_expression "-e 
+'INFO/AQ>60'"  
+  --genmod_compound_snv_penalty                [integer] Genmod compound penalty for SNVs. [default: 6] 
+  --genmod_compound_snv_threshold              [integer] Genmod compound threshold for SNVs. [default: 9] 
+  --genmod_compound_sv_penalty                 [integer] Genmod compound penalty for SVs. [default: 6] 
+  --genmod_compound_sv_threshold               [integer] Genmod compound threshold for SVs. [default: 9] 
+  --genmod_compound_singleton_snv_penalty      [integer] Genmod compound penalty for SNVs. Applied in families with an affected individual without two 
+parents. By default same as `--genmod_compound_snv_penalty`.  
+  --genmod_compound_singleton_snv_threshold    [integer] Genmod compound threshold for SNVs. Applied in families with an affected individual without two 
+parents. By default same as `--genmod_compound_snv_threshold`.  
+  --genmod_compound_singleton_sv_penalty       [integer] Genmod compound penalty for SVs. Applied in families with an affected individual without two 
+parents. By default same as `--genmod_compound_sv_penalty`.  
+  --genmod_compound_singleton_sv_threshold     [integer] Genmod compound threshold for SVs. Applied in families with an affected individual without two 
+parents. By default same as `--genmod_compound_sv_threshold`.  
+  --genmod_compound_trio_snv_penalty           [integer] Genmod compound penalty for SNVs. Applied in families with at least one affected individual with two 
+parents. By default same as `--genmod_compound_snv_penalty`.  
+  --genmod_compound_trio_snv_threshold         [integer] Genmod compound threshold for SNVs. Applied in families with at least one affected individual with 
+two parents. By default same as `--genmod_compound_snv_threshold`.  
+  --genmod_compound_trio_sv_penalty            [integer] Genmod compound penalty for SVs. Applied in families with at least one affected individual with two 
+parents. By default same as `--genmod_compound_sv_penalty`.  
+  --genmod_compound_trio_sv_threshold          [integer] Genmod compound threshold for SVs. Applied in families with at least one affected individual with 
+two parents. By default same as `--genmod_compound_sv_threshold`.  
+  --plot_chromograph_autozygosity              [boolean] Whether to plot chromograph autozygosity plots in the chromograph subworkflow. This requires SNVs to 
+be annotated with allele frequencies, and is therefore false by default unless 
+`--bcftools_roh_af_tag` and `--rhocallviz_af_tag` have been set, in which case it is assumed that 
+the user has annotated the SNVs with the correct tag.  
+  --plot_chromograph_coverage                  [boolean] Whether to plot chromograph coverage plots in the chromograph subworkflow. [default: true] 
+  --pre_vep_snv_filter_expression              [string]  An expression that is passed to bcftools view to filter SNVs before being annotated with VEP, e.g. 
+--pre_vep_snv_filter_expression "-e 'INFO/AQ>60'". The expression applies to both the clinical and 
+the research VCFs.  
+  --rhocallviz_af_tag                          [string]  AF-tag that variants have been annotated with, for use in the chromograph subworkflow. By default 
+set to `--chromograph_af_tag.  
+  --rhocallviz_min_af                          [number]  Minimum allele frequency for variants to be included in rhocall viz within the chromograph 
+subworkflow. [default: 0.0001]  
+  --rhocallviz_min_qual                        [number]  Minimum quality for variants to be included in rhocall viz within the chromograph subworkflow. 
+[default: 10.0]  
+  --tiddit_bin_size                            [integer] Bin size to use for TIDDIT coverage wig generation in the chromograph subworkflow. [default: 
+500]  
+  --sentieon_model_bundle                      [string]  The location of the DNAscope model bundle. Model bundle files can be found in the sentieon-models 
+Github repository.  
+  --sentieon_tech                              [string]  Sequencing technology used to generate the reads. Supported arguments are ONT or HiFi.  
+(accepted: HiFi, ONT) [default: HiFi]  
+  --sentieon_male_haploid_bed                  [string]  Interval in the reference to restrict haploid variant calling for males, in BED file format. 
+ 
+  --sentieon_male_diploid_bed                  [string]  Interval in the reference to restrict diploid variant calling for males, in BED file format. 
+ 
+  --sentieon_female_diploid_bed                [string]  Interval in the reference to restrict diploid variant calling for females, in BED file format. 
+ 
+  --strdrop_fraction                           [number]  Case average adjusted sequencing depth ratio cutoff in strdrop. [default: 0.66] 
+  --strdrop_alpha                              [number]  Unadjusted probability confidence level for coverage test in strdrop. [default: 0.18] 
+  --strdrop_edit                               [number]  Allele similarity Levenshtein edit distance ratio cutoff in strdrop. [default: 0.9] 
+  --sniffles_min_support_reads                 [number]  Minimum number of reads to support a SV in Sniffles. [default: 3] 
+  --sniffles_min_segment_length                [number]  Discard a read if non of its segment is larger than this in Sniffles. [default: 500] 
+  --sniffles_min_heterozygous_allele_frequency [number]  Threshold on heterozygous allele frequency in Sniffles (0-1). [default: 0] 
+  --sniffles_min_sv_size                       [number]  Minimum length of SV to be reported in Sniffles. [default: 50] 
+  --sawfish_min_sv_size                        [number]  Co-linear SVs must have either an insertion or deletion of this size or greater to be included in 
+the output in Sawfish. All other SV evidence patterns such as those consistent with duplications, 
+inversions and translocations will always be included in the output. [default: 50]  
+ !! Hiding 32 param(s), use the `--showHidden` parameter to show them !!
+------------------------------------------------------
+

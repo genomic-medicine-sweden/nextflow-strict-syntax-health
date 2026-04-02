@@ -12,14 +12,14 @@ The goal is for all genomic-medicine-sweden pipelines to run without errors usin
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-04-02 00:20:48 UTC
+- **Last updated:** 2026-04-02 14:45:51 UTC
 - **Nextflow version:** 26.03.1-edge
 
 ## Pipelines
 
 - **Strict syntax:** 0 parse errors, 137 errors, 594 warnings across 12 pipelines
 - **Versions Mix:** 4/12 (33.3%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
-- **Zero issues:** 0 pipelines (0.0%)
+- **Zero issues:** 1 pipelines (8.3%)
 
 |                    Errors                    |                     Warnings                     |
 | :------------------------------------------: | :----------------------------------------------: |
@@ -45,7 +45,7 @@ The goal is for all genomic-medicine-sweden pipelines to run without errors usin
 | :x: [taxprofiler](https://github.com/nf-core/taxprofiler)                         |     No      |      0 |       99 |     Yes     | :negative_squared_cross_mark: |   [View](lint_results/pipeline-results/taxprofiler_lint.md)   | [View](lint_results/prints-help-results/taxprofiler_help.txt) |
 | :x: [nf-autoseq](https://github.com/genomic-medicine-sweden/nf-autoseq)           |     No      |      0 |       31 |     No      | :negative_squared_cross_mark: |   [View](lint_results/pipeline-results/nf-autoseq_lint.md)    | [View](lint_results/prints-help-results/nf-autoseq_help.txt)  |
 | :x: [oncorefiner](https://github.com/clinical-genomics/oncorefiner)               |     No      |      0 |        6 |     No      |      :white_check_mark:       |   [View](lint_results/pipeline-results/oncorefiner_lint.md)   | [View](lint_results/prints-help-results/oncorefiner_help.txt) |
-| :x: [nallo](https://github.com/genomic-medicine-sweden/nallo)                     |     No      |      0 |        0 |     No      |      :white_check_mark:       |      [View](lint_results/pipeline-results/nallo_lint.md)      |    [View](lint_results/prints-help-results/nallo_help.txt)    |
+| :white_check_mark: [nallo](https://github.com/genomic-medicine-sweden/nallo)      |     No      |      0 |        0 |     Yes     |      :white_check_mark:       |      [View](lint_results/pipeline-results/nallo_lint.md)      |    [View](lint_results/prints-help-results/nallo_help.txt)    |
 
 </details>
 
