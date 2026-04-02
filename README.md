@@ -12,12 +12,12 @@ The goal is for all genomic-medicine-sweden pipelines to run without errors usin
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-04-01 00:23:49 UTC
+- **Last updated:** 2026-04-02 00:20:48 UTC
 - **Nextflow version:** 26.03.1-edge
 
 ## Pipelines
 
-- **Strict syntax:** 0 parse errors, 137 errors, 595 warnings across 12 pipelines
+- **Strict syntax:** 0 parse errors, 137 errors, 594 warnings across 12 pipelines
 - **Versions Mix:** 4/12 (33.3%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
 - **Zero issues:** 0 pipelines (0.0%)
 
@@ -37,7 +37,7 @@ The goal is for all genomic-medicine-sweden pipelines to run without errors usin
 | :x: [jasen](https://github.com/genomic-medicine-sweden/jasen)                     |     No      |     74 |       25 |      -      | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/jasen_lint.md)      |                               -                               |
 | :x: [metaval](https://github.com/genomic-medicine-sweden/metaval)                 |     No      |     35 |      112 |      -      | :negative_squared_cross_mark: |     [View](lint_results/pipeline-results/metaval_lint.md)     |                               -                               |
 | :x: [rnafusion](https://github.com/nf-core/rnafusion)                             |     No      |     13 |      116 |      -      | :negative_squared_cross_mark: |    [View](lint_results/pipeline-results/rnafusion_lint.md)    |                               -                               |
-| :x: [tomte](https://github.com/genomic-medicine-sweden/tomte)                     |     No      |      8 |      149 |      -      | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/tomte_lint.md)      |                               -                               |
+| :x: [tomte](https://github.com/genomic-medicine-sweden/tomte)                     |     No      |      8 |      148 |      -      | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/tomte_lint.md)      |                               -                               |
 | :x: [TRANA](https://github.com/genomic-medicine-sweden/TRANA)                     |     No      |      4 |       16 |      -      | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/TRANA_lint.md)      |                               -                               |
 | :x: [nallorefs](https://github.com/genomic-medicine-sweden/nallorefs)             |     No      |      1 |       31 |      -      | :negative_squared_cross_mark: |    [View](lint_results/pipeline-results/nallorefs_lint.md)    |                               -                               |
 | :x: [rarediseaserefs](https://github.com/genomic-medicine-sweden/rarediseaserefs) |     No      |      1 |        5 |      -      |      :white_check_mark:       | [View](lint_results/pipeline-results/rarediseaserefs_lint.md) |                               -                               |

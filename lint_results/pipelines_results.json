@@ -12,9 +12,9 @@
   "tomte": {
     "full_name": "genomic-medicine-sweden/tomte",
     "html_url": "https://github.com/genomic-medicine-sweden/tomte",
-    "commit": "f91f584b362ce7819daf7a2a737d3fb67b126095",
+    "commit": "0e77bdf132875bc303c9432ff972dc8dcd0e3e5b",
     "errors": 8,
-    "warnings": 149,
+    "warnings": 148,
     "parse_error": false,
     "prints_help": null,
     "has_versions_mix": true
@@ -82,7 +82,7 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "4a06a8b849299f327ab05a793bb2c6377826a424",
+    "commit": "f13be010535f3a44704c9fb90a64ad8c1e093dc0",
     "errors": 0,
     "warnings": 6,
     "parse_error": false,
@@ -112,7 +112,7 @@
   "taxprofiler": {
     "full_name": "nf-core/taxprofiler",
     "html_url": "https://github.com/nf-core/taxprofiler",
-    "commit": "f554ba0733d26f2ec06098d7b9479b0629dc13da",
+    "commit": "46acfa467098cdcfa4ec98c2c971671e8c841d94",
     "errors": 0,
     "warnings": 99,
     "parse_error": false,

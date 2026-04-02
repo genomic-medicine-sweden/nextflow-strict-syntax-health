@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-03-31T12:57:03.985010198Z
+- Generated: 2026-04-02T00:19:42.866918785Z
 - Nextflow version: 26.03.1-edge
-- Summary: 8 errors, 149 warnings
+- Summary: 8 errors, 148 warnings
 
 ## :x: Errors
 
@@ -575,21 +575,14 @@
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/prepare_references/main.nf:45:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
-  ```
-
-- Warning: `subworkflows/local/prepare_references/main.nf:190:34`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/prepare_references/main.nf:195:34`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
       if (ch.flatten().count().map{it == (1)}) {
                                    ^^
   ```
 
-- Warning: `subworkflows/local/prepare_references/main.nf:197:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/prepare_references/main.nf:202:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
       } else if (ch.flatten().count().map{it == (2)}) {
