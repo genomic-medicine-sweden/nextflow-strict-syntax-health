@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-04-02T14:45:20.957108647Z
-- Nextflow version: 26.03.1-edge
-- Summary: 6 warnings
+- Generated: 2026-04-08T00:22:42.865785809Z
+- Nextflow version: 26.03.2-edge
+- Summary: 7 warnings
 
 ## :warning: Warnings
 
@@ -32,6 +32,13 @@
   ```nextflow
       input             //  string: Path to input samplesheet
       ^^^^^
+  ```
+
+- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
+
+  ```nextflow
+      valid_config = checkConfigProvided()
+      ^^^^^^^^^^^^
   ```
 
 - Warning: `workflows/oncorefiner.nf:45:9`: Parameter was not used -- prefix with `_` to suppress warning
