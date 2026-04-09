@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-03-31T12:57:43.540298089Z
-- Nextflow version: 26.03.1-edge
-- Summary: 31 warnings
+- Generated: 2026-04-09T00:18:30.331490043Z
+- Nextflow version: 26.03.2-edge
+- Summary: 32 warnings
 
 ## :warning: Warnings
 
@@ -83,18 +83,39 @@
           ^^^^
   ```
 
-- Warning: `subworkflows/local/bam_qc_picard_samtools/main.nf:17:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/local/alignment/main.nf:18:20`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
+      ch_versions  = Channel.empty()
+                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/bam_qc_picard_samtools/main.nf:33:32`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/alignment/main.nf:67:22`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
-          .map { meta, bam, bai, meta2, interval_list ->
-                                 ^^^^^
+          .map { meta, bam ->
+                       ^^^
+  ```
+
+- Warning: `subworkflows/local/alignment/main.nf:85:16`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+          .map { id, meta, bam ->
+                 ^^
+  ```
+
+- Warning: `subworkflows/local/alignment/main.nf:92:33`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+
+  ```nextflow
+          ch_genome_fasta.collect{it[1]},
+                                  ^^
+  ```
+
+- Warning: `subworkflows/local/alignment/main.nf:93:31`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+
+  ```nextflow
+          ch_genome_fai.collect{it[1]}
+                                ^^
   ```
 
 - Warning: `subworkflows/local/call_somatic_snvs/main.nf:33:16`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
@@ -132,39 +153,18 @@
                                             ^^
   ```
 
-- Warning: `subworkflows/local/fastq_align_bwamem2/main.nf:18:20`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/local/qc_alignment/main.nf:17:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
-      ch_versions  = Channel.empty()
-                     ^^^^^^^
+      ch_versions = Channel.empty()
+                    ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/fastq_align_bwamem2/main.nf:67:22`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/qc_alignment/main.nf:33:32`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
-          .map { meta, bam ->
-                       ^^^
-  ```
-
-- Warning: `subworkflows/local/fastq_align_bwamem2/main.nf:85:16`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-          .map { id, meta, bam ->
-                 ^^
-  ```
-
-- Warning: `subworkflows/local/fastq_align_bwamem2/main.nf:92:33`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-          ch_genome_fasta.collect{it[1]},
-                                  ^^
-  ```
-
-- Warning: `subworkflows/local/fastq_align_bwamem2/main.nf:93:31`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-          ch_genome_fai.collect{it[1]}
-                                ^^
+          .map { meta, bam, bai, meta2, interval_list ->
+                                 ^^^^^
   ```
 
 - Warning: `subworkflows/local/utils_nfcore_autoseq_pipeline/main.nf:32:5`: Parameter was not used -- prefix with `_` to suppress warning
@@ -221,4 +221,11 @@
   ```nextflow
       consensus_bam = Channel.empty()
                       ^^^^^^^
+  ```
+
+- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
+
+  ```nextflow
+      valid_config = checkConfigProvided()
+      ^^^^^^^^^^^^
   ```

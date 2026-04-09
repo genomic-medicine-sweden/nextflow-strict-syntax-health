@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-03-31T12:57:24.811636433Z
-- Nextflow version: 26.03.1-edge
-- Summary: 35 errors, 112 warnings
+- Generated: 2026-04-09T00:18:22.213448980Z
+- Nextflow version: 26.03.2-edge
+- Summary: 35 errors, 113 warnings
 
 ## :x: Errors
 
@@ -76,35 +76,35 @@
                                                                                                   ^^^
   ```
 
-- Error: `subworkflows/local/fetch_blast_genomes.nf:27:20`: `blast_taxid` is already declared
+- Error: `subworkflows/local/fetch_blast_genomes.nf:32:20`: `blast_taxid` is already declared
 
   ```nextflow
               .map { blast_taxid, meta, available_taxids ->
                      ^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/local/fetch_blast_genomes.nf:36:23`: `blast_taxid` is already declared
+- Error: `subworkflows/local/fetch_blast_genomes.nf:41:23`: `blast_taxid` is already declared
 
   ```nextflow
               .filter { blast_taxid, meta, genome_taxid, organism, genome -> blast_taxid == genome_taxid } // Filter to keep only matching taxids
                         ^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/local/fetch_blast_genomes.nf:37:20`: `blast_taxid` is already declared
+- Error: `subworkflows/local/fetch_blast_genomes.nf:42:20`: `blast_taxid` is already declared
 
   ```nextflow
               .map { blast_taxid, meta, genome_taxid, organism, genome -> [blast_taxid, meta, organism, genome] }
                      ^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/local/fetch_blast_genomes.nf:44:16`: `blast_taxid` is already declared
+- Error: `subworkflows/local/fetch_blast_genomes.nf:49:16`: `blast_taxid` is already declared
 
   ```nextflow
           .map { blast_taxid, meta, organism, genome ->
                  ^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/local/fetch_blast_genomes.nf:51:29`: `blast_taxid` is already declared
+- Error: `subworkflows/local/fetch_blast_genomes.nf:56:29`: `blast_taxid` is already declared
 
   ```nextflow
           .map { meta_joined, blast_taxid, meta1, organism, genome, meta2, reads ->
@@ -428,70 +428,70 @@
                         ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/fetch_blast_genomes.nf:21:27`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/fetch_blast_genomes.nf:26:27`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               .map { taxid, organism, genome -> taxid }
                             ^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/fetch_blast_genomes.nf:21:37`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/fetch_blast_genomes.nf:26:37`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               .map { taxid, organism, genome -> taxid }
                                       ^^^^^^
   ```
 
-- Warning: `subworkflows/local/fetch_blast_genomes.nf:23:20`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/fetch_blast_genomes.nf:28:20`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               .map { it.toSet() }  // Stores all taxids in a Set, automatically removing any duplicates.
                      ^^
   ```
 
-- Warning: `subworkflows/local/fetch_blast_genomes.nf:34:23`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/fetch_blast_genomes.nf:39:23`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               .filter { it != null }
                         ^^
   ```
 
-- Warning: `subworkflows/local/fetch_blast_genomes.nf:36:36`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/fetch_blast_genomes.nf:41:36`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               .filter { blast_taxid, meta, genome_taxid, organism, genome -> blast_taxid == genome_taxid } // Filter to keep only matching taxids
                                      ^^^^
   ```
 
-- Warning: `subworkflows/local/fetch_blast_genomes.nf:36:56`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/fetch_blast_genomes.nf:41:56`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               .filter { blast_taxid, meta, genome_taxid, organism, genome -> blast_taxid == genome_taxid } // Filter to keep only matching taxids
                                                          ^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/fetch_blast_genomes.nf:36:66`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/fetch_blast_genomes.nf:41:66`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               .filter { blast_taxid, meta, genome_taxid, organism, genome -> blast_taxid == genome_taxid } // Filter to keep only matching taxids
                                                                    ^^^^^^
   ```
 
-- Warning: `subworkflows/local/fetch_blast_genomes.nf:37:39`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/fetch_blast_genomes.nf:42:39`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               .map { blast_taxid, meta, genome_taxid, organism, genome -> [blast_taxid, meta, organism, genome] }
                                         ^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/fetch_blast_genomes.nf:51:16`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/fetch_blast_genomes.nf:56:16`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { meta_joined, blast_taxid, meta1, organism, genome, meta2, reads ->
                  ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/fetch_blast_genomes.nf:51:42`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/fetch_blast_genomes.nf:56:42`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { meta_joined, blast_taxid, meta1, organism, genome, meta2, reads ->
@@ -909,6 +909,13 @@
   ```nextflow
       ch_fasta = ch_fasta_fai.map { meta, fasta, fai -> [meta, fasta]}
                                                  ^^^
+  ```
+
+- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
+
+  ```nextflow
+      valid_config = checkConfigProvided()
+      ^^^^^^^^^^^^
   ```
 
 - Warning: `workflows/metaval.nf:54:5`: Variable was declared but not used

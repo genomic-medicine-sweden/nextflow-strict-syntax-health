@@ -32,9 +32,9 @@
   "metaval": {
     "full_name": "genomic-medicine-sweden/metaval",
     "html_url": "https://github.com/genomic-medicine-sweden/metaval",
-    "commit": "1a5848bf3f52a1458bcf6c8b83acb46525dc8e54",
+    "commit": "be3494826081c4c413eddaa9cb23ca2aaade60a9",
     "errors": 35,
-    "warnings": 112,
+    "warnings": 113,
     "parse_error": false,
     "prints_help": null,
     "has_versions_mix": true
@@ -52,9 +52,9 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "87aa5819a584ed56aab360338de0b313953dfc6b",
+    "commit": "66b208ea0d3a5f9627ecfb3a861b496cb3aae577",
     "errors": 0,
-    "warnings": 31,
+    "warnings": 32,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": true
