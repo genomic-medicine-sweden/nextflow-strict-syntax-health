@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-04-09T00:18:22.213448980Z
+- Generated: 2026-04-11T00:20:27.910848171Z
 - Nextflow version: 26.03.2-edge
-- Summary: 35 errors, 113 warnings
+- Summary: 35 errors, 114 warnings
 
 ## :x: Errors
 
@@ -48,21 +48,21 @@
   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/local/blast.nf:73:9`: `DIAMOND_BLASTX` is not defined
+- Error: `subworkflows/local/blast.nf:76:9`: `DIAMOND_BLASTX` is not defined
 
   ```nextflow
           DIAMOND_BLASTX (
           ^^^^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/local/blast.nf:79:40`: `DIAMOND_BLASTX` is not defined
+- Error: `subworkflows/local/blast.nf:82:40`: `DIAMOND_BLASTX` is not defined
 
   ```nextflow
           ch_versions = ch_versions.mix( DIAMOND_BLASTX.out.versions.first() )
                                          ^^^^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/local/blast.nf:82:26`: `DIAMOND_BLASTX` is not defined
+- Error: `subworkflows/local/blast.nf:85:26`: `DIAMOND_BLASTX` is not defined
 
   ```nextflow
           ch_blastx_hits = DIAMOND_BLASTX.out.txt.filter { meta, blastx_hits -> blastx_hits.size() > 0 }
@@ -386,21 +386,28 @@
                                    ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/blast.nf:82:58`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/blast.nf:73:52`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+          ch_query_for_blastx = query.filter { meta, fasta -> meta.tool != 'diamond' }
+                                                     ^^^^^
+  ```
+
+- Warning: `subworkflows/local/blast.nf:85:58`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           ch_blastx_hits = DIAMOND_BLASTX.out.txt.filter { meta, blastx_hits -> blastx_hits.size() > 0 }
                                                            ^^^^
   ```
 
-- Warning: `subworkflows/local/blast.nf:92:37`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/blast.nf:95:37`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               .unique { staxid, meta, blastx_hits -> [staxid, meta.id, meta.taxid, meta.tool]}
                                       ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/blast.nf:93:34`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/blast.nf:96:34`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               .map { staxid, meta, blastx_hits -> [ staxid, meta ] }
