@@ -42,9 +42,9 @@
   "TRANA": {
     "full_name": "genomic-medicine-sweden/TRANA",
     "html_url": "https://github.com/genomic-medicine-sweden/TRANA",
-    "commit": "c46ea949632fdb31c2d589a86779c247ebb3651d",
+    "commit": "eca295c90521e09857cf83119b7039de30a79b1e",
     "errors": 4,
-    "warnings": 16,
+    "warnings": 17,
     "parse_error": false,
     "prints_help": null,
     "has_versions_mix": true
@@ -82,9 +82,9 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "fa7045a8e846d90cb19f77adf2e09ca5d2d70f7a",
+    "commit": "fb7e0fb6fc6caa6b871d6cd8edae4cf9dd176e6a",
     "errors": 0,
-    "warnings": 7,
+    "warnings": 6,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": false
@@ -112,9 +112,9 @@
   "taxprofiler": {
     "full_name": "nf-core/taxprofiler",
     "html_url": "https://github.com/nf-core/taxprofiler",
-    "commit": "98b132688ef4e60017c751c39c8571daccc06ccc",
+    "commit": "3b6e73c22538fe437180e2fd75af1409e6a2c00c",
     "errors": 0,
-    "warnings": 99,
+    "warnings": 94,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true

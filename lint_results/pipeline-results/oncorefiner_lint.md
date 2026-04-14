@@ -1,19 +1,19 @@
 # Nextflow lint results
 
-- Generated: 2026-04-08T00:22:42.865785809Z
+- Generated: 2026-04-14T00:26:24.341700980Z
 - Nextflow version: 26.03.2-edge
-- Summary: 7 warnings
+- Summary: 6 warnings
 
 ## :warning: Warnings
 
-- Warning: `main.nf:56:5`: Variable was declared but not used
+- Warning: `main.nf:58:5`: Variable was declared but not used
 
   ```nextflow
       ch_vep_cache_unprocessed = val_vep_cache ? channel.fromPath(val_vep_cache).map { it -> [[id:'vep_cache'], it] }.collect()
       ^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `main.nf:73:5`: Variable was declared but not used
+- Warning: `main.nf:75:5`: Variable was declared but not used
 
   ```nextflow
       ch_svdb_dbs             = channel.empty()
@@ -41,16 +41,9 @@
       ^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/oncorefiner.nf:45:9`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/oncorefiner.nf:46:9`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           ch_samplesheet        // channel: [mandatory] samplesheet read in from --input
           ^^^^^^^^^^^^^^
-  ```
-
-- Warning: `workflows/oncorefiner.nf:51:9`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-          ch_sv_vcf_tbi         // channel: [optional]  [val(meta), path(vcf.tbi)]
-          ^^^^^^^^^^^^^
   ```
