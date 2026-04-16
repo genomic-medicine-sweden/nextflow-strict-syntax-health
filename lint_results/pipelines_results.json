@@ -32,17 +32,17 @@
   "metaval": {
     "full_name": "genomic-medicine-sweden/metaval",
     "html_url": "https://github.com/genomic-medicine-sweden/metaval",
-    "commit": "6ea121087668decbff14acbd511caa6949db4375",
-    "errors": 35,
-    "warnings": 114,
+    "commit": "6bf5ca734b61c59acb6e770113438132dd3d8a5a",
+    "errors": 0,
+    "warnings": 2,
     "parse_error": false,
-    "prints_help": null,
+    "prints_help": true,
     "has_versions_mix": true
   },
   "TRANA": {
     "full_name": "genomic-medicine-sweden/TRANA",
     "html_url": "https://github.com/genomic-medicine-sweden/TRANA",
-    "commit": "eca295c90521e09857cf83119b7039de30a79b1e",
+    "commit": "4a6eef941ad06e0328177aff122f9ada940f7f75",
     "errors": 4,
     "warnings": 17,
     "parse_error": false,
@@ -52,7 +52,7 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "7e5815c8dae73b1823f6c812b35ad3e05d2efbce",
+    "commit": "b7c14c08886ea72566df76883f8e722149e2c765",
     "errors": 0,
     "warnings": 32,
     "parse_error": false,
@@ -82,7 +82,7 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "fb7e0fb6fc6caa6b871d6cd8edae4cf9dd176e6a",
+    "commit": "6a2b0a2af6ff9f0f0693e08b52106a245f21005b",
     "errors": 0,
     "warnings": 6,
     "parse_error": false,
@@ -112,7 +112,7 @@
   "taxprofiler": {
     "full_name": "nf-core/taxprofiler",
     "html_url": "https://github.com/nf-core/taxprofiler",
-    "commit": "b7b52fd6133434e029aba65968b74d8f349fbfcc",
+    "commit": "c1ff448a0e87da577784736c503c2d202b45dca4",
     "errors": 0,
     "warnings": 94,
     "parse_error": false,

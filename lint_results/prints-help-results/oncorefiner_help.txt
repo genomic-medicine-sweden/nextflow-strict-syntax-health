@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.03.2-edge
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [infallible_fourier] revision: 86030aadfc
+Launching `./main.nf` [romantic_rutherford] revision: 86030aadfc
 
 ERROR ~ Unable to create help message: Specified param 'true' does not exist in JSON schema.
 

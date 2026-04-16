@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-04-14T00:26:24.341700980Z
+- Generated: 2026-04-16T00:27:46.855791882Z
 - Nextflow version: 26.03.2-edge
 - Summary: 6 warnings
 
@@ -41,7 +41,7 @@
       ^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/oncorefiner.nf:46:9`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/oncorefiner.nf:48:9`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           ch_samplesheet        // channel: [mandatory] samplesheet read in from --input
