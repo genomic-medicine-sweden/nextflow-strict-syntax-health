@@ -1,19 +1,12 @@
 # Nextflow lint results
 
-- Generated: 2026-04-16T00:27:46.855791882Z
+- Generated: 2026-04-17T00:25:39.662089326Z
 - Nextflow version: 26.03.2-edge
-- Summary: 6 warnings
+- Summary: 5 warnings
 
 ## :warning: Warnings
 
-- Warning: `main.nf:58:5`: Variable was declared but not used
-
-  ```nextflow
-      ch_vep_cache_unprocessed = val_vep_cache ? channel.fromPath(val_vep_cache).map { it -> [[id:'vep_cache'], it] }.collect()
-      ^^^^^^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Warning: `main.nf:75:5`: Variable was declared but not used
+- Warning: `main.nf:72:5`: Variable was declared but not used
 
   ```nextflow
       ch_svdb_dbs             = channel.empty()

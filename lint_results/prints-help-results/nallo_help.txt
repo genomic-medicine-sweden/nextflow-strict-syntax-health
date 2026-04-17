@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.03.2-edge
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [shrivelled_wegener] revision: 08bb8e53ad
+Launching `./main.nf` [thirsty_khorana] revision: 02628b1c3d
 
 
                                        _                              _ _      _
@@ -126,6 +126,7 @@ calling to finish before calling SVs, so deactivating this can speed up the pipe
 
 Reference genome options
   --fasta                                      [string] Reference genome 
+  --fai                                        [string] Reference genome index file 
 
 Generic options
   --multiqc_methods_description                [string]          Custom MultiQC yaml file containing HTML including a methods description. 
