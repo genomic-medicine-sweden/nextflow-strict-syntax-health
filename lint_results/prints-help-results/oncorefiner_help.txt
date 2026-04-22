@@ -1,10 +1,60 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.03.2-edge
+ N E X T F L O W   ~  version 26.03.3-edge
 
-Launching `./main.nf` [curious_stone] revision: 10c22f24d1
+Downloading plugin nf-schema@2.6.1
+Launching `./main.nf` [determined_crick] revision: 10c22f24d1
 
-ERROR ~ Unable to create help message: Specified param 'true' does not exist in JSON schema.
+Typical pipeline command:
 
- -- Check script 'subworkflows/nf-core/utils_nfschema_plugin/main.nf' at line: 41 or see '.nextflow.log' file for more details
+  nextflow run Clinical-Genomics/oncorefiner -profile <docker/singularity/.../institute> --input samplesheet.csv --outdir <OUTDIR>
+
+help message of that parameter will be printed.  
+or `--helpFull`.  
+
+Input/output options
+  --input                       [string] Path to comma-separated file containing information about the samples in the experiment. 
+  --outdir                      [string] The output directory where the results will be saved. You have to use absolute paths to storage on 
+Cloud infrastructure.  
+  --snv_vcf                     [string] Path to a VCF file containing somatic SNV/INDEL variants to be processed by the pipeline. The VCF 
+may include one or multiple samples. Typically, this is a single tumor sample for tumor-only 
+analyses, or both tumor and matched normal samples for tumor-normal analyses.  
+  --sv_vcf                      [string] Path to a VCF file containing somatic structural variants (SVs) to be processed by the pipeline. The 
+VCF may include one or multiple samples. Typically, this is a single tumor sample for tumor-only 
+analyses, or both tumor and matched normal samples for tumor-normal analyses.  
+  --bam_tumor                   [string] Path to alignment BAM file for the tumor sample. 
+  --bai_tumor                   [string] Path to BAM index file for the tumor sample. 
+  --bam_normal                  [string] Path to alignment BAM file for the normal sample. 
+  --bai_normal                  [string] Path to BAM index file for the normal sample. 
+  --sex                         [string] Sex of the patient.  (accepted: female, male, unknown) 
+  --email                       [string] Email address for completion summary. 
+  --multiqc_title               [string] MultiQC report title. Printed as page header, used for filename if not otherwise specified. 
+
+Reference genome options
+  --genome                      [string] Name of the genome reference.  (accepted: GRCh38, GRCh37) [default: GRCh38] 
+  --fasta                       [string] Path to FASTA genome file. 
+  --fai                         [string] Path to FASTA genome index file. 
+  --species                     [string] Species of the reference genome. E.g. `--species homo_sapiens`.  (accepted: homo_sapiens) 
+[default: homo_sapiens]  
+
+Annotation options
+  --vep_cache_version           [integer] Specify the version of the VEP cache provided to the `--vep_cache` option. [default: 112] 
+  --vep_cache                   [string]  Path to vep's cache directory. 
+  --vep_plugin_files            [string]  Databases used by both named and custom plugins to annotate variants. 
+  --vcfanno_extra               [string]  Path to a VCF file containing annotations. 
+  --vcfanno_resources           [string]  Path to a file containing the absolute paths to resources defined within the vcfanno toml file. One 
+line per resource.  
+  --vcfanno_toml                [string]  Path to the vcfanno toml file. 
+  --vcfanno_lua                 [string]  Path to the vcfanno lua file. 
+  --svdb_query_dbs              [string]  Databases used for structural variant annotation in vcf format. 
+
+Generic options
+  --multiqc_methods_description [string]          Custom MultiQC yaml file containing HTML including a methods description. 
+  --help                        [boolean, string] Display the help message. 
+  --help_full                   [boolean]         Display the full detailed help message. 
+  --show_hidden                 [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
+ 
+ !! Hiding 18 param(s), use the `--showHidden` parameter to show them !!
+------------------------------------------------------
+

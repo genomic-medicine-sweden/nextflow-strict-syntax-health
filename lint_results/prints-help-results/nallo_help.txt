@@ -1,10 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.03.2-edge
+ N E X T F L O W   ~  version 26.03.3-edge
 
-Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [thirsty_khorana] revision: 02628b1c3d
+Downloading plugin nf-schema@2.7.0
+Launching `./main.nf` [sharp_lovelace] revision: 5800e5394e
 
 
                                        _                              _ _      _
@@ -180,7 +180,7 @@ deepvariant]
   --alignment_processes                        [integer] If alignment_processes is bigger than 1, input files will be split and aligned in parallel to reduce 
 processing time. [default: 8]  
   --snv_calling_processes                      [integer] If snv_calling_processes is bigger than 1, short variant calling will be done in parallel to reduce 
-processing time. [default: 13]  
+processing time. Must be `1` when `--snv_caller sentieon` is used. [default: 13]  
   --vep_cache_version                          [integer] VEP cache version [default: 110] 
   --vep_mitochondrial_genome_distance          [integer] The distance parameter used in VEP for mitochondrial SNVs [default: 0] 
   --vep_nuclear_genome_distance                [integer] The distance parameter used in VEP for nuclear SNVs [default: 5000] 
