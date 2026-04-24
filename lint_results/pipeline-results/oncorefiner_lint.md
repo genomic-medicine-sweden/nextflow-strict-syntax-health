@@ -1,15 +1,15 @@
 # Nextflow lint results
 
-- Generated: 2026-04-22T00:23:02.877414301Z
+- Generated: 2026-04-24T00:27:59.994507026Z
 - Nextflow version: 26.03.3-edge
 - Summary: 5 warnings
 
 ## :warning: Warnings
 
-- Warning: `main.nf:72:5`: Variable was declared but not used
+- Warning: `main.nf:74:5`: Variable was declared but not used
 
   ```nextflow
-      ch_svdb_dbs             = channel.empty()
+      ch_svdb_dbs        = channel.empty()
       ^^^^^^^^^^^
   ```
 
@@ -37,6 +37,6 @@
 - Warning: `workflows/oncorefiner.nf:48:9`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
-          ch_samplesheet        // channel: [mandatory] samplesheet read in from --input
+          ch_samplesheet           // channel: [mandatory] samplesheet read in from --input
           ^^^^^^^^^^^^^^
   ```

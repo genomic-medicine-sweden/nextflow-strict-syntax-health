@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.03.3-edge
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [determined_crick] revision: 10c22f24d1
+Launching `./main.nf` [hopeful_crick] revision: 4a50803daa
 
 Typical pipeline command:
 
@@ -35,6 +35,8 @@ Reference genome options
   --genome                      [string] Name of the genome reference.  (accepted: GRCh38, GRCh37) [default: GRCh38] 
   --fasta                       [string] Path to FASTA genome file. 
   --fai                         [string] Path to FASTA genome index file. 
+  --cadd_prescored_indels       [string] Path to a directory containing prescored indels for CADD. 
+  --cadd_resources              [string] Path to the directory containing cadd annotations. 
   --species                     [string] Species of the reference genome. E.g. `--species homo_sapiens`.  (accepted: homo_sapiens) 
 [default: homo_sapiens]  
 
