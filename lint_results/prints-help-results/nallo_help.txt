@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.03.4-edge
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [scruffy_newton] revision: 69cbff4c25
+Launching `./main.nf` [agitated_allen] revision: 69cbff4c25
 
 
                                        _                              _ _      _
@@ -245,7 +245,7 @@ Github repository.
   --strdrop_alpha                              [number]  Unadjusted probability confidence level for coverage test in strdrop. [default: 0.18] 
   --strdrop_edit                               [number]  Allele similarity Levenshtein edit distance ratio cutoff in strdrop. [default: 0.9] 
   --sniffles_min_support_reads                 [number]  Minimum number of reads to support a SV in Sniffles. [default: 3] 
-  --sniffles_min_segment_length                [number]  Discard a read if non of its segment is larger than this in Sniffles. [default: 500] 
+  --sniffles_min_segment_length                [number]  Discard a read if none of its segment is larger than this in Sniffles. [default: 500] 
   --sniffles_min_heterozygous_allele_frequency [number]  Threshold on heterozygous allele frequency in Sniffles (0-1). [default: 0] 
   --sniffles_min_sv_size                       [number]  Minimum length of SV to be reported in Sniffles. [default: 50] 
   --sawfish_min_sv_size                        [number]  Co-linear SVs must have either an insertion or deletion of this size or greater to be included in 
