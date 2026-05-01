@@ -1,17 +1,10 @@
 # Nextflow lint results
 
-- Generated: 2026-03-31T12:57:10.583596860Z
-- Nextflow version: 26.03.1-edge
-- Summary: 74 errors, 25 warnings
+- Generated: 2026-05-01T00:30:33.277331065Z
+- Nextflow version: 26.04.0
+- Summary: 60 errors, 21 warnings
 
 ## :x: Errors
-
-- Error: `bin/bcf_to_vcf.nf:10:17`: Unexpected input: 'from'
-
-  ```nextflow
-    file bcf_file from snpcalling_output
-                  ^
-  ```
 
 - Error: `conf/ngp.config:15:42`: `outdir` is not defined
 
@@ -279,13 +272,6 @@
           ^^^^^^^^^^^^^^
   ```
 
-- Error: `modules/nf-core/medaka/main.nf:7:15`: `sample_id` is already declared
-
-  ```nextflow
-      tuple val(sample_id), path(assembly)
-                ^^^^^^^^^
-  ```
-
 - Error: `modules/nf-core/mlst/main.nf:1:1`: Invalid process definition -- check for missing or out-of-order section labels
 
   ```nextflow
@@ -321,189 +307,91 @@
                               ^^^^^^^^^
   ```
 
-- Error: `modules/nf-core/samtools/main.nf:144:29`: `sample_id` is not defined
-
-  ```nextflow
-      cat <<-END_VERSIONS > ${sample_id}_${task.process}_versions.yml
-                              ^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/samtools/main.nf:157:29`: `sample_id` is not defined
-
-  ```nextflow
-      cat <<-END_VERSIONS > ${sample_id}_${task.process}_versions.yml
-                              ^^^^^^^^^
-  ```
-
-- Error: `nextflow.config:17:34`: `outdir` is not defined
+- Error: `nextflow.config:16:34`: `outdir` is not defined
 
   ```nextflow
       tracedir                = "${outdir}/pipeline_info"
                                    ^^^^^^
   ```
 
-- Error: `nextflow.config:22:34`: `root` is not defined
-
-  ```nextflow
-      containers_dir          = "${root}/containers"
-                                   ^^^^
-  ```
-
-- Error: `nextflow.config:23:34`: `workDir` is not defined
+- Error: `nextflow.config:22:34`: `workDir` is not defined
 
   ```nextflow
       workDir                 = "${workDir}"
                                    ^^^^^^^
   ```
 
-- Error: `nextflow.config:39:34`: `root` is not defined
-
-  ```nextflow
-      amrfinder_db            = "${root}/assets/amrfinder_db/latest"
-                                   ^^^^
-  ```
-
-- Error: `nextflow.config:40:34`: `root` is not defined
-
-  ```nextflow
-      resfinder_db            = "${root}/assets/resfinder_db"
-                                   ^^^^
-  ```
-
-- Error: `nextflow.config:41:34`: `root` is not defined
-
-  ```nextflow
-      pointfinder_db          = "${root}/assets/pointfinder_db"
-                                   ^^^^
-  ```
-
-- Error: `nextflow.config:42:34`: `root` is not defined
-
-  ```nextflow
-      serotypefinder_db       = "${root}/assets/serotypefinder_db"
-                                   ^^^^
-  ```
-
-- Error: `nextflow.config:43:34`: `root` is not defined
-
-  ```nextflow
-      shigapass_db            = "${root}/assets/ShigaPass/SCRIPT/ShigaPass_DataBases"
-                                   ^^^^
-  ```
-
-- Error: `nextflow.config:44:34`: `root` is not defined
-
-  ```nextflow
-      virulencefinder_db      = "${root}/assets/virulencefinder_db"
-                                   ^^^^
-  ```
-
-- Error: `nextflow.config:45:34`: `root` is not defined
-
-  ```nextflow
-      mlst_blast_db           = "${root}/assets/mlstdb/blast"
-                                   ^^^^
-  ```
-
-- Error: `nextflow.config:46:34`: `root` is not defined
-
-  ```nextflow
-      pubmlst_db              = "${root}/assets/mlstdb/pubmlst"
-                                   ^^^^
-  ```
-
-- Error: `nextflow.config:47:34`: `root` is not defined
-
-  ```nextflow
-      gambit_db               = "${root}/assets/gambit_db"
-                                   ^^^^
-  ```
-
-- Error: `nextflow.config:48:34`: `root` is not defined
-
-  ```nextflow
-      hostile_dir             = "${root}/assets/hostile_db"
-                                   ^^^^
-  ```
-
-- Error: `nextflow.config:90:42`: `GITHUB_WORKSPACE` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-          params.root                 = "${GITHUB_WORKSPACE}"
-                                           ^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `nextflow.config:321:1`: Variable declarations cannot be mixed with config statements
+- Error: `nextflow.config:319:1`: Variable declarations cannot be mixed with config statements
 
   ```nextflow
   def trace_timestamp = new java.util.Date().format('yyyy-MM-dd_HH-mm-ss')
   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:324:60`: `trace_timestamp` is not defined
+- Error: `nextflow.config:322:60`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/execution_timeline_${trace_timestamp}.html"
                                                              ^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:329:58`: `trace_timestamp` is not defined
+- Error: `nextflow.config:327:58`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/execution_report_${trace_timestamp}.html"
                                                            ^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:334:57`: `trace_timestamp` is not defined
+- Error: `nextflow.config:332:57`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/execution_trace_${trace_timestamp}.txt"
                                                           ^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:339:54`: `trace_timestamp` is not defined
+- Error: `nextflow.config:337:54`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/pipeline_dag_${trace_timestamp}.html"
                                                        ^^^^^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/preprocessing.nf:43:42`: `target_sample_size` is not defined
+- Error: `subworkflows/preprocessing.nf:44:42`: `target_sample_size` is not defined
 
   ```nextflow
           seqtk_sample( ch_depleted_reads, target_sample_size ).reads.set{ ch_depleted_sampled_reads }
                                            ^^^^^^^^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/typing.nf:9:1`: Included name 'mlst' is not defined in module '/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/jasen/modules/nf-core/mlst/main.nf'
+- Error: `subworkflows/typing.nf:15:1`: Included name 'mlst' is not defined in module '/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/jasen/modules/nf-core/mlst/main.nf'
 
   ```nextflow
-  include { mlst                          } from '../modules/nf-core/mlst/main.nf'
-  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  include { mlst                                      } from '../modules/nf-core/mlst/main.nf'
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/typing.nf:37:9`: `mlst` is not defined
+- Error: `subworkflows/typing.nf:45:9`: `mlst` is not defined
 
   ```nextflow
           mlst(ch_assembly, mlst_scheme, pubmlst_db, mlst_blast_db)
           ^^^^
   ```
 
-- Error: `subworkflows/typing.nf:38:9`: `mlst` is not defined
+- Error: `subworkflows/typing.nf:46:9`: `mlst` is not defined
 
   ```nextflow
           mlst.out.json.set{ ch_mlst }
           ^^^^
   ```
 
-- Error: `subworkflows/typing.nf:39:39`: `mlst` is not defined
+- Error: `subworkflows/typing.nf:47:39`: `mlst` is not defined
 
   ```nextflow
           ch_versions = ch_versions.mix(mlst.out.versions)
                                         ^^^^
   ```
 
-- Error: `subworkflows/typing.nf:118:5`: Workflow emit `serotypefinder` is already declared
+- Error: `subworkflows/typing.nf:189:5`: Workflow emit `serotypefinder` is already declared
 
   ```nextflow
       serotypefinder  = ch_serotypefinder_meta              // channel: [ val(meta), path(json) ]
@@ -517,10 +405,24 @@
   ^
   ```
 
-- Error: `workflows/mycobacterium_tuberculosis.nf:13:1`: Invalid workflow definition -- check for missing or out-of-order section labels
+- Error: `workflows/bacterial_general.nf:159:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
+
+  ```nextflow
+  workflow.onComplete {
+  ^
+  ```
+
+- Error: `workflows/mycobacterium_tuberculosis.nf:14:1`: Invalid workflow definition -- check for missing or out-of-order section labels
 
   ```nextflow
   workflow CALL_MYCOBACTERIUM_TUBERCULOSIS {
+  ^
+  ```
+
+- Error: `workflows/mycobacterium_tuberculosis.nf:147:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
+
+  ```nextflow
+  workflow.onComplete {
   ^
   ```
 
@@ -547,13 +449,6 @@
           ^^^^^^^^^
   ```
 
-- Warning: `modules/nf-core/medaka/main.nf:6:15`: Variable was declared but not used
-
-  ```nextflow
-      tuple val(sample_id), path(reads)
-                ^^^^^^^^^
-  ```
-
 - Warning: `subworkflows/assembly.nf:17:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
@@ -575,49 +470,42 @@
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:23:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/preprocessing.nf:24:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_versions = Channel.empty()
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:27:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/preprocessing.nf:28:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       Channel.fromPath(input_samples)
       ^^^^^^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:29:15`: Variable was declared but not used
+- Warning: `subworkflows/preprocessing.nf:30:15`: Variable was declared but not used
 
   ```nextflow
           .tap{ ch_raw_input }
                 ^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:51:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      Channel.empty()
-      ^^^^^^^
-  ```
-
-- Warning: `subworkflows/preprocessing.nf:55:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/preprocessing.nf:60:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       Channel.fromPath(input_samples).splitCsv(header:true)
       ^^^^^^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:58:19`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/preprocessing.nf:63:19`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ id, sequencing_run, lims_id, sample_name -> [ id, lims_id, sample_name ]}
                     ^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:62:30`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/preprocessing.nf:67:30`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
       ch_reads.map{ sample_id, reads -> [ sample_id, [] ] }.set{ ch_sample_id }
@@ -645,7 +533,7 @@
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/quality_control.nf:32:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/quality_control.nf:34:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_versions = Channel.empty()
@@ -666,35 +554,21 @@
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/typing.nf:24:5`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/typing.nf:33:5`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
       species
       ^^^^^^^
   ```
 
-- Warning: `subworkflows/typing.nf:32:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/typing.nf:41:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_versions = Channel.empty()
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/typing.nf:33:5`: Variable was declared but not used
-
-  ```nextflow
-      ch_chewbbaca_input = Channel.empty()
-      ^^^^^^^^^^^^^^^^^^
-  ```
-
-- Warning: `subworkflows/typing.nf:33:26`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_chewbbaca_input = Channel.empty()
-                           ^^^^^^^
-  ```
-
-- Warning: `subworkflows/variant_calling.nf:21:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/variant_calling.nf:19:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_versions = Channel.empty()
