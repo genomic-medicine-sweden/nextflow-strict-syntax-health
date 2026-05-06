@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "c61d549e0d741ed7793e2cce6d9f709482950c6e",
+    "commit": "46da3b6a86daa422b3ef1873df3b89c4c06fc5cf",
     "errors": 0,
     "warnings": 1,
     "parse_error": false,
@@ -42,7 +42,7 @@
   "TRANA": {
     "full_name": "genomic-medicine-sweden/TRANA",
     "html_url": "https://github.com/genomic-medicine-sweden/TRANA",
-    "commit": "0f3eb46b69bb8ca330fe0ec19129cdecb48c2ba6",
+    "commit": "4c9f9e691c23f80776264fb94cfe50c283fa9d96",
     "errors": 4,
     "warnings": 17,
     "parse_error": false,
@@ -102,7 +102,7 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "a68931d923998a59684004c0d0bad5cbe8e8dd9f",
+    "commit": "356cbf11fbe336ff0c8e90c61906a31d6596396d",
     "errors": 0,
     "warnings": 1,
     "parse_error": false,
