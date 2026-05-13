@@ -1,8 +1,15 @@
 {
-  "total": 0,
+  "total": 1,
   "with_topic_versions": 0,
   "without_topic_versions": 0,
   "subworkflow_with_versions": 0,
-  "subworkflow_without_versions": 0,
-  "details": []
+  "subworkflow_without_versions": 1,
+  "details": [
+    {
+      "name": "vcf_annotate_score_genmod",
+      "html_url": "https://github.com/genomic-medicine-sweden/nf-core-modules/blob/main/subworkflows/genomic-medicine-sweden/vcf_annotate_score_genmod/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    }
+  ]
 }
