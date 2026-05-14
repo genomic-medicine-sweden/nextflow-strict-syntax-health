@@ -2,9 +2,9 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "3f09b7f41b70f5cb4625767d7b2bc6608c4337bd",
+    "commit": "3e3842cb52340eb856a854b5d96009475c0fa6df",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 7,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -92,9 +92,9 @@
   "rnafusion": {
     "full_name": "nf-core/rnafusion",
     "html_url": "https://github.com/nf-core/rnafusion",
-    "commit": "fd481762d4f99b531d349df0d972fcd31b0fa4de",
+    "commit": "02cc2f13317d3ffec072c6087ac63156b5e31986",
     "errors": 0,
-    "warnings": 24,
+    "warnings": 27,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -102,9 +102,9 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "1b18bd1a9aab26865aee79cd1d256d54bd121775",
+    "commit": "5b81ee115c90e57caeb88cf58b23e9a9c9ea93f2",
     "errors": 0,
-    "warnings": 2,
+    "warnings": 13,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false

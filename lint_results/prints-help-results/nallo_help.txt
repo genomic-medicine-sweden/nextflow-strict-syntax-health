@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.04.1
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [maniac_sammet] revision: 5dc178c6bc
+Launching `./main.nf` [ridiculous_avogadro] revision: 493059a1d1
 
 
                                        _                              _ _      _
@@ -252,6 +252,6 @@ Github repository.
   --sawfish_min_sv_size                        [number]  Co-linear SVs must have either an insertion or deletion of this size or greater to be included in 
 the output in Sawfish. All other SV evidence patterns such as those consistent with duplications, 
 inversions and translocations will always be included in the output. [default: 50]  
- !! Hiding 32 param(s), use the `--showHidden` parameter to show them !!
+ !! Hiding 31 param(s), use the `--showHidden` parameter to show them !!
 ------------------------------------------------------
 

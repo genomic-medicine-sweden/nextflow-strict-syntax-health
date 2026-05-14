@@ -1,10 +1,24 @@
 # Nextflow lint results
 
-- Generated: 2026-05-12T00:32:52.046746719Z
+- Generated: 2026-05-14T00:35:54.180721774Z
 - Nextflow version: 26.04.1
-- Summary: 2 warnings
+- Summary: 13 warnings
 
 ## :warning: Warnings
+
+- Warning: `subworkflows/local/annotate_mobile_elements/main.nf:74:9`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+          vcf_ann  = BCFTOOLS_VIEW_FILTER.out.vcf     // channel: [ val(meta), path(vcf) ]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/local/annotate_rhocallviz/main.nf:60:9`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+          publish = ch_publish // channel: [ val(destination), val(value) ]
+          ^^^^^^^^^^^^^^^^^^
+  ```
 
 - Warning: `subworkflows/local/call_sv_MT/main.nf:141:27`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
@@ -13,9 +27,72 @@
                             ^^
   ```
 
+- Warning: `subworkflows/local/call_sv_cnvnator/main.nf:44:9`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+          vcf        = SVDB_MERGE_CNVNATOR.out.vcf  // channel: [ val(meta), path(*.tar.gz) ]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/local/call_sv_tiddit/main.nf:35:9`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+          vcf      = SVDB_MERGE_TIDDIT.out.vcf // channel: [ val(meta), path(vcf) ]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/local/generate_cytosure_files/main.nf:94:9`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+          publish = ch_publish // channel: [ val(destination), val(value) ]
+          ^^^^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/local/subsample_mt_frac/main.nf:40:9`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+          publish = ch_publish // channel: [ val(destination), val(value) ]
+          ^^^^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/local/subsample_mt_reads/main.nf:34:9`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+          publish = ch_publish // channel: [ val(destination), val(value) ]
+          ^^^^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/local/variant_evaluation/main.nf:59:9`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+          publish = ch_publish // channel: [ val(destination), val(value) ]
+          ^^^^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/nf-core/utils_nextflow_pipeline/main.nf:43:5`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+      dummy_emit = true
+      ^^^^^^^^^^^^^^^
+  ```
+
 - Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
 
   ```nextflow
       valid_config = checkConfigProvided()
       ^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:20:5`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+      valid_config
+      ^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/nf-core/utils_nfschema_plugin/main.nf:72:5`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+      dummy_emit = true
+      ^^^^^^^^^^^^^^^
   ```
