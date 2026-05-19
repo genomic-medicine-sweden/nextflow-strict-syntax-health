@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-05-14T00:35:54.180721774Z
+- Generated: 2026-05-19T00:36:43.696054062Z
 - Nextflow version: 26.04.1
-- Summary: 13 warnings
+- Summary: 15 warnings
 
 ## :warning: Warnings
 
@@ -20,11 +20,11 @@
           ^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/call_sv_MT/main.nf:141:27`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/call_sv_MT/main.nf:153:28`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
-                  .filter{ !it.isEmpty() }
-                            ^^
+                  .filter { !it.isEmpty() }
+                             ^^
   ```
 
 - Warning: `subworkflows/local/call_sv_cnvnator/main.nf:44:9`: Emit name should be omitted when there is only one emit
@@ -76,23 +76,37 @@
       ^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
-
-  ```nextflow
-      valid_config = checkConfigProvided()
-      ^^^^^^^^^^^^
-  ```
-
 - Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:20:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
-      valid_config
-      ^^^^^^^^^^^^
+      valid_config = valid_config
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
 - Warning: `subworkflows/nf-core/utils_nfschema_plugin/main.nf:72:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
       dummy_emit = true
+      ^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `workflows/raredisease.nf:940:5`: Variable was declared but not used
+
+  ```nextflow
+      ch_multiqc_config        = channel.fromPath(
+      ^^^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `workflows/raredisease.nf:942:5`: Variable was declared but not used
+
+  ```nextflow
+      ch_multiqc_custom_config = val_multiqc_config ?
+      ^^^^^^^^^^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `workflows/raredisease.nf:945:5`: Variable was declared but not used
+
+  ```nextflow
+      ch_multiqc_logo          = val_multiqc_logo ?
       ^^^^^^^^^^^^^^^
   ```

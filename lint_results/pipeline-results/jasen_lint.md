@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-05-01T00:30:33.277331065Z
-- Nextflow version: 26.04.0
-- Summary: 60 errors, 21 warnings
+- Generated: 2026-05-19T00:36:08.490926809Z
+- Nextflow version: 26.04.1
+- Summary: 60 errors, 23 warnings
 
 ## :x: Errors
 
@@ -321,42 +321,42 @@
                                    ^^^^^^^
   ```
 
-- Error: `nextflow.config:319:1`: Variable declarations cannot be mixed with config statements
+- Error: `nextflow.config:321:1`: Variable declarations cannot be mixed with config statements
 
   ```nextflow
   def trace_timestamp = new java.util.Date().format('yyyy-MM-dd_HH-mm-ss')
   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:322:60`: `trace_timestamp` is not defined
+- Error: `nextflow.config:324:60`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/execution_timeline_${trace_timestamp}.html"
                                                              ^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:327:58`: `trace_timestamp` is not defined
+- Error: `nextflow.config:329:58`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/execution_report_${trace_timestamp}.html"
                                                            ^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:332:57`: `trace_timestamp` is not defined
+- Error: `nextflow.config:334:57`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/execution_trace_${trace_timestamp}.txt"
                                                           ^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:337:54`: `trace_timestamp` is not defined
+- Error: `nextflow.config:339:54`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/pipeline_dag_${trace_timestamp}.html"
                                                        ^^^^^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/preprocessing.nf:44:42`: `target_sample_size` is not defined
+- Error: `subworkflows/preprocessing.nf:45:42`: `target_sample_size` is not defined
 
   ```nextflow
           seqtk_sample( ch_depleted_reads, target_sample_size ).reads.set{ ch_depleted_sampled_reads }
@@ -370,28 +370,28 @@
   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/typing.nf:45:9`: `mlst` is not defined
+- Error: `subworkflows/typing.nf:44:9`: `mlst` is not defined
 
   ```nextflow
           mlst(ch_assembly, mlst_scheme, pubmlst_db, mlst_blast_db)
           ^^^^
   ```
 
-- Error: `subworkflows/typing.nf:46:9`: `mlst` is not defined
+- Error: `subworkflows/typing.nf:45:9`: `mlst` is not defined
 
   ```nextflow
           mlst.out.json.set{ ch_mlst }
           ^^^^
   ```
 
-- Error: `subworkflows/typing.nf:47:39`: `mlst` is not defined
+- Error: `subworkflows/typing.nf:46:39`: `mlst` is not defined
 
   ```nextflow
           ch_versions = ch_versions.mix(mlst.out.versions)
                                         ^^^^
   ```
 
-- Error: `subworkflows/typing.nf:189:5`: Workflow emit `serotypefinder` is already declared
+- Error: `subworkflows/typing.nf:188:5`: Workflow emit `serotypefinder` is already declared
 
   ```nextflow
       serotypefinder  = ch_serotypefinder_meta              // channel: [ val(meta), path(json) ]
@@ -419,7 +419,7 @@
   ^
   ```
 
-- Error: `workflows/mycobacterium_tuberculosis.nf:147:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
+- Error: `workflows/mycobacterium_tuberculosis.nf:146:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
 
   ```nextflow
   workflow.onComplete {
@@ -470,42 +470,56 @@
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:24:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/postprocessing.nf:58:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+
+  ```nextflow
+          .map { it[0] }
+                 ^^
+  ```
+
+- Warning: `subworkflows/postprocessing.nf:60:46`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+
+  ```nextflow
+          .combine(format_jasen.out.json.map { it[0] }.collect())
+                                               ^^
+  ```
+
+- Warning: `subworkflows/preprocessing.nf:25:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_versions = Channel.empty()
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:28:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/preprocessing.nf:29:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       Channel.fromPath(input_samples)
       ^^^^^^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:30:15`: Variable was declared but not used
+- Warning: `subworkflows/preprocessing.nf:31:15`: Variable was declared but not used
 
   ```nextflow
           .tap{ ch_raw_input }
                 ^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:60:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/preprocessing.nf:64:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       Channel.fromPath(input_samples).splitCsv(header:true)
       ^^^^^^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:63:19`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/preprocessing.nf:67:19`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ id, sequencing_run, lims_id, sample_name -> [ id, lims_id, sample_name ]}
                     ^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:67:30`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/preprocessing.nf:71:30`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
       ch_reads.map{ sample_id, reads -> [ sample_id, [] ] }.set{ ch_sample_id }
@@ -547,21 +561,21 @@
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/screening.nf:22:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/screening.nf:24:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_versions = Channel.empty()
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/typing.nf:33:5`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/typing.nf:32:5`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
       species
       ^^^^^^^
   ```
 
-- Warning: `subworkflows/typing.nf:41:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/typing.nf:40:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_versions = Channel.empty()

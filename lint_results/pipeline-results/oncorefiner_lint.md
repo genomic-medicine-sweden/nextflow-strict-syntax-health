@@ -1,42 +1,56 @@
 # Nextflow lint results
 
-- Generated: 2026-05-09T00:29:48.167486806Z
-- Nextflow version: 26.04.0
-- Summary: 5 warnings
+- Generated: 2026-05-19T00:36:15.232868032Z
+- Nextflow version: 26.04.1
+- Summary: 7 warnings
 
 ## :warning: Warnings
 
-- Warning: `main.nf:74:5`: Variable was declared but not used
+- Warning: `main.nf:79:5`: Variable was declared but not used
 
   ```nextflow
       ch_svdb_dbs        = channel.empty()
       ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_oncorefiner_pipeline/main.nf:32:5`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `main.nf:186:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
-      monochrome_logs   // boolean: Do not use coloured log outputs
+      multiqc_report = ONCOREFINER.out.multiqc_report // channel: /path/to/multiqc_report.html
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/local/prepare_references/main.nf:32:9`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+          vep_resources = ch_vep_resources // channel: [vep_cache_files]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/nf-core/utils_nextflow_pipeline/main.nf:43:5`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+      dummy_emit = true
       ^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_oncorefiner_pipeline/main.nf:35:5`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:20:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
-      input             //  string: Path to input samplesheet
-      ^^^^^
+      valid_config = valid_config
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
+- Warning: `subworkflows/nf-core/utils_nfschema_plugin/main.nf:72:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
-      valid_config = checkConfigProvided()
-      ^^^^^^^^^^^^
+      dummy_emit = true
+      ^^^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/oncorefiner.nf:40:9`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/oncorefiner.nf:23:9`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
-          ch_samplesheet           // channel: [mandatory] samplesheet read in from --input
+          ch_samplesheet                  // channel: [mandatory] samplesheet read in from --input
           ^^^^^^^^^^^^^^
   ```
