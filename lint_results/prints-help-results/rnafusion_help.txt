@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.04.1
 
 Downloading plugin nf-schema@2.5.1
-Launching `./main.nf` [goofy_stallman] revision: 08c5b91315
+Launching `./main.nf` [wise_brown] revision: 08c5b91315
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
@@ -15,7 +15,7 @@ WARN: Unrecognized config option 'validation.monochromeLogs'
   |\ | |__  __ /  ` /  \ |__) |__         }  {
   | \| |       \__, \__/ |  \ |___     \`-._,-`-,
                                         `._,._,'
-  nf-core/rnafusion 4.1.1
+  nf-core/rnafusion 4.1.2
 ------------------------------------------------------
 Typical pipeline command:
 
