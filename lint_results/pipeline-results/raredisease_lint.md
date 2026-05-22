@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-05-19T00:36:43.696054062Z
-- Nextflow version: 26.04.1
-- Summary: 15 warnings
+- Generated: 2026-05-22T00:35:52.264786233Z
+- Nextflow version: 26.04.2
+- Summary: 13 warnings
 
 ## :warning: Warnings
 
@@ -48,20 +48,6 @@
           ^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/subsample_mt_frac/main.nf:40:9`: Emit name should be omitted when there is only one emit
-
-  ```nextflow
-          publish = ch_publish // channel: [ val(destination), val(value) ]
-          ^^^^^^^^^^^^^^^^^^
-  ```
-
-- Warning: `subworkflows/local/subsample_mt_reads/main.nf:34:9`: Emit name should be omitted when there is only one emit
-
-  ```nextflow
-          publish = ch_publish // channel: [ val(destination), val(value) ]
-          ^^^^^^^^^^^^^^^^^^
-  ```
-
 - Warning: `subworkflows/local/variant_evaluation/main.nf:59:9`: Emit name should be omitted when there is only one emit
 
   ```nextflow
@@ -90,21 +76,21 @@
       ^^^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/raredisease.nf:940:5`: Variable was declared but not used
+- Warning: `workflows/raredisease.nf:953:5`: Variable was declared but not used
 
   ```nextflow
       ch_multiqc_config        = channel.fromPath(
       ^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/raredisease.nf:942:5`: Variable was declared but not used
+- Warning: `workflows/raredisease.nf:955:5`: Variable was declared but not used
 
   ```nextflow
       ch_multiqc_custom_config = val_multiqc_config ?
       ^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/raredisease.nf:945:5`: Variable was declared but not used
+- Warning: `workflows/raredisease.nf:958:5`: Variable was declared but not used
 
   ```nextflow
       ch_multiqc_logo          = val_multiqc_logo ?
