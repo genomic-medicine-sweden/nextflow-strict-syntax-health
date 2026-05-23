@@ -52,11 +52,11 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "12516793f7723e3b33b2c1d2f025fe79eec52605",
+    "commit": "d3623a118c75f9b6796d1685eab833da1bb80dfd",
     "errors": 0,
-    "warnings": 32,
+    "warnings": 31,
     "parse_error": false,
-    "prints_help": false,
+    "prints_help": true,
     "has_versions_mix": true
   },
   "rarediseaserefs": {

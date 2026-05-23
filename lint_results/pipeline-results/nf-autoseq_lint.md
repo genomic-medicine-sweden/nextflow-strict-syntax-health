@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-05-12T00:32:00.499827862Z
-- Nextflow version: 26.04.1
-- Summary: 32 warnings
+- Generated: 2026-05-23T00:34:41.372468221Z
+- Nextflow version: 26.04.2
+- Summary: 31 warnings
 
 ## :warning: Warnings
 
@@ -167,28 +167,7 @@
                                  ^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_autoseq_pipeline/main.nf:32:5`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-      monochrome_logs   // boolean: Do not use coloured log outputs
-      ^^^^^^^^^^^^^^^
-  ```
-
-- Warning: `subworkflows/local/utils_nfcore_autoseq_pipeline/main.nf:35:5`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-      input             //  string: Path to input samplesheet
-      ^^^^^
-  ```
-
-- Warning: `subworkflows/local/utils_nfcore_autoseq_pipeline/main.nf:104:22`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      input_samples =  Channel
-                       ^^^^^^^
-  ```
-
-- Warning: `subworkflows/local/utils_nfcore_autoseq_pipeline/main.nf:114:21`: Variable was declared but not used
+- Warning: `subworkflows/local/utils_nfcore_autoseq_pipeline/main.nf:118:21`: Variable was declared but not used
 
   ```nextflow
                   def readgroup = "${meta.case_id}_${meta.sample_name}_${meta.lane}".toString()
@@ -223,9 +202,23 @@
                       ^^^^^^^
   ```
 
-- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
+- Warning: `subworkflows/nf-core/utils_nextflow_pipeline/main.nf:43:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
-      valid_config = checkConfigProvided()
-      ^^^^^^^^^^^^
+      dummy_emit = true
+      ^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:20:5`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+      valid_config = valid_config
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/nf-core/utils_nfschema_plugin/main.nf:72:5`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+      dummy_emit = true
+      ^^^^^^^^^^^^^^^
   ```
