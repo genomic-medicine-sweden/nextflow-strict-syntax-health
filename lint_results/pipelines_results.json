@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "b0803e1e3fc4d216bb1a4d8333904286de82ddcf",
+    "commit": "91fb3baf8e56ec85f8c71563954c43ec4d5bb90e",
     "errors": 0,
     "warnings": 7,
     "parse_error": false,
@@ -52,7 +52,7 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "9f8c73d9f16cf9d98d4a2ad75c3a11d79ee1f517",
+    "commit": "6495ec0b6d72e3a3bcf97540c382859b5296f9bd",
     "errors": 0,
     "warnings": 31,
     "parse_error": false,
@@ -82,7 +82,7 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "a8fbf92f13fa5c08815f7a36649df12f5318f31e",
+    "commit": "a1c68fd3f271af65162f7ae1f713a3b87b38b085",
     "errors": 0,
     "warnings": 7,
     "parse_error": false,
@@ -102,7 +102,7 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "b540088ca2f06e00ac1c4d4e4d83369462510fc1",
+    "commit": "4b3e42bc8ffe810764e27834c4a567234c4aa96b",
     "errors": 0,
     "warnings": 13,
     "parse_error": false,

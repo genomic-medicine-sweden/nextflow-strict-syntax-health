@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.04.2
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [distracted_liskov] revision: f88a53b6cb
+Launching `./main.nf` [nauseous_mahavira] revision: 5f0c709c2c
 
 
                                        _                              _ _      _
@@ -61,6 +61,12 @@ Cloud infrastructure.
   --echtvar_snv_databases                      [string]  Path to a CSV/TSV/JSON/YAML file with echtvar databases to annotate SNVs with. 
   --svdb_sv_databases                          [string]  Databases used for structural variant annotation in vcf format. 
   --stranger_repeat_catalog                    [string]  A variant catalog json-file for stranger 
+  --variant_consequences_snvs                  [string]  File containing list of SO terms listed in the order of severity from most severe to lease severe 
+for annotating genomic SNVs. For more information check 
+https://ensembl.org/info/genome/variation/prediction/predicted_data.html  
+  --variant_consequences_svs                   [string]  File containing list of SO terms listed in the order of severity from most severe to lease severe 
+for annotating genomic SVs. For more information check 
+https://ensembl.org/info/genome/variation/prediction/predicted_data.html  
   --vep_cache                                  [string]  A path to the VEP cache location 
   --target_regions                             [string]  A BED file with regions of interest. 
   --methbat_regions                            [string]  A tsv file with only regions of interest (example here: 
