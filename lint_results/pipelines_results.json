@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "91fb3baf8e56ec85f8c71563954c43ec4d5bb90e",
+    "commit": "40e57b469771b991c7da252fdad495955f3393cb",
     "errors": 0,
     "warnings": 7,
     "parse_error": false,
@@ -92,7 +92,7 @@
   "rnafusion": {
     "full_name": "nf-core/rnafusion",
     "html_url": "https://github.com/nf-core/rnafusion",
-    "commit": "28246ef171df35b063cdce2904a007133953fba0",
+    "commit": "3934e6b4ef39c0127ef06223db804918996b004d",
     "errors": 0,
     "warnings": 27,
     "parse_error": false,
