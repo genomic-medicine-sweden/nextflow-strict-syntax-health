@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "40e57b469771b991c7da252fdad495955f3393cb",
+    "commit": "b5bc8a12d06a1c3a2847dc213db845458a2f890f",
     "errors": 0,
     "warnings": 7,
     "parse_error": false,
@@ -102,9 +102,9 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "4b3e42bc8ffe810764e27834c4a567234c4aa96b",
+    "commit": "efbdf4617de741c5dc29b16a9721f35727db14bf",
     "errors": 0,
-    "warnings": 13,
+    "warnings": 12,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
