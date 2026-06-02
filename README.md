@@ -12,7 +12,7 @@ The goal is for all genomic-medicine-sweden pipelines to run without errors usin
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-06-01 00:36:21 UTC
+- **Last updated:** 2026-06-02 00:44:54 UTC
 - **Nextflow version:** 26.04.3
 
 ## Pipelines
@@ -44,7 +44,7 @@ The goal is for all genomic-medicine-sweden pipelines to run without errors usin
 | :x: [rnafusion](https://github.com/nf-core/rnafusion)                             |     No      |      0 |       27 |     Yes     | :negative_squared_cross_mark: |    [View](lint_results/pipeline-results/rnafusion_lint.md)    |  [View](lint_results/prints-help-results/rnafusion_help.txt)  |
 | :x: [raredisease](https://github.com/nf-core/raredisease)                         |     No      |      0 |       12 |     Yes     |      :white_check_mark:       |   [View](lint_results/pipeline-results/raredisease_lint.md)   | [View](lint_results/prints-help-results/raredisease_help.txt) |
 | :x: [nallo](https://github.com/genomic-medicine-sweden/nallo)                     |     No      |      0 |        7 |     Yes     |      :white_check_mark:       |      [View](lint_results/pipeline-results/nallo_lint.md)      |    [View](lint_results/prints-help-results/nallo_help.txt)    |
-| :x: [oncorefiner](https://github.com/clinical-genomics/oncorefiner)               |     No      |      0 |        7 |     Yes     |      :white_check_mark:       |   [View](lint_results/pipeline-results/oncorefiner_lint.md)   | [View](lint_results/prints-help-results/oncorefiner_help.txt) |
+| :x: [oncorefiner](https://github.com/clinical-genomics/oncorefiner)               |     No      |      0 |        7 |     No      |      :white_check_mark:       |   [View](lint_results/pipeline-results/oncorefiner_lint.md)   | [View](lint_results/prints-help-results/oncorefiner_help.txt) |
 | :x: [metaval](https://github.com/genomic-medicine-sweden/metaval)                 |     No      |      0 |        2 |     Yes     | :negative_squared_cross_mark: |     [View](lint_results/pipeline-results/metaval_lint.md)     |   [View](lint_results/prints-help-results/metaval_help.txt)   |
 
 </details>
