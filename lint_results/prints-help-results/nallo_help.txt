@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.04.3
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [voluminous_lattes] revision: ed9f773a2b
+Launching `./main.nf` [boring_golick] revision: ed9f773a2b
 
 
                                        _                              _ _      _
