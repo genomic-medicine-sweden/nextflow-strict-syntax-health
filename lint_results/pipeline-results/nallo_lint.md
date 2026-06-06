@@ -1,33 +1,33 @@
 # Nextflow lint results
 
-- Generated: 2026-06-03T00:46:55.368615942Z
+- Generated: 2026-06-06T00:35:12.632807323Z
 - Nextflow version: 26.04.3
 - Summary: 7 warnings
 
 ## :warning: Warnings
 
-- Warning: `subworkflows/local/annotate_methylation/main.nf:36:5`: Emit name should be omitted when there is only one emit
+- Warning: `subworkflows/local/annotate_methylation/main.nf:35:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
       methylation_annotation = CSVTK_SORT.out.sorted // channel: [ val(meta), path(tsv) ]
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/chromograph/main.nf:103:5`: Emit name should be omitted when there is only one emit
+- Warning: `subworkflows/local/chromograph/main.nf:99:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
       chromograph_plots = RUN_CHROMOGRAPH.out.plots // channel: [ val(meta), path(plot) ]
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/split_multisample_vcf/main.nf:32:5`: Emit name should be omitted when there is only one emit
+- Warning: `subworkflows/local/split_multisample_vcf/main.nf:30:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
       split_vcf = ch_split_vcf // channel: [ val(meta), path(vcf), val(variant_type) ]
       ^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_nallo_pipeline/main.nf:326:5`: Emit name should be omitted when there is only one emit
+- Warning: `subworkflows/local/utils_nfcore_nallo_pipeline/main.nf:325:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
       samplesheet = ch_samplesheet

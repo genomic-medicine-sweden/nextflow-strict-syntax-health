@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.04.3
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [kickass_brahmagupta] revision: 7441b6a507
+Launching `./main.nf` [irreverent_bhabha] revision: 7441b6a507
 
 Typical pipeline command:
 
@@ -50,11 +50,11 @@ line per resource.
   --vcfanno_toml                   [string]  Path to the vcfanno toml file. 
   --vcfanno_lua                    [string]  Path to the vcfanno lua file. 
   --svdb_query_dbs                 [string]  Databases used for structural variant annotation in vcf format. 
-  --extra_args_cadd_annotate       [string]  Extra arguments for `ANNOTATE_CADD:BCFTOOLS_ANNOTATE_INDELS` 
-  --extra_args_snv_clinical_filter [string]  Extra arguments for `PROCESS_SNVS:BCFTOOLS_VIEW_CLINICAL` 
-  --extra_args_snv_research_filter [string]  Extra arguments for `PROCESS_SNVS:BCFTOOLS_VIEW_RESEARCH` 
-  --extra_args_snv_vep             [string]  Extra arguments for `PROCESS_SNVS:ENSEMBLVEP_VEP` 
-  --extra_args_sv_vep              [string]  Extra arguments for `PROCESS_SVS:ENSEMBLVEP_VEP` 
+  --extra_args_cadd_annotate       [string]  Extra arguments for `ANNOTATE_CADD:BCFTOOLS_ANNOTATE_INDELS`. 
+  --extra_args_snv_clinical_filter [string]  Extra arguments for `PROCESS_SNVS:BCFTOOLS_VIEW_CLINICAL`. 
+  --extra_args_snv_research_filter [string]  Extra arguments for `PROCESS_SNVS:BCFTOOLS_VIEW_RESEARCH`. 
+  --extra_args_snv_vep             [string]  Extra arguments for `PROCESS_SNVS:ENSEMBLVEP_VEP`. 
+  --extra_args_sv_vep              [string]  Extra arguments for `PROCESS_SVS:ENSEMBLVEP_VEP`. 
 
 Generic options
   --multiqc_methods_description    [string]          Custom MultiQC yaml file containing HTML including a methods description. 
