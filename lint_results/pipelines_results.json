@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "5e8f562f96e14cce1b109a5ab8af0170b8c7de62",
+    "commit": "f448ecd38bde8d6c62111b76b232c39f185586fc",
     "errors": 0,
     "warnings": 7,
     "parse_error": false,
@@ -112,9 +112,9 @@
   "taxprofiler": {
     "full_name": "nf-core/taxprofiler",
     "html_url": "https://github.com/nf-core/taxprofiler",
-    "commit": "8fc4897b7cb2559ea7ecd7ac91820cf6e59c4b3c",
+    "commit": "4732e9257d4a9093d021530a98d603d039339540",
     "errors": 0,
-    "warnings": 94,
+    "warnings": 97,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
