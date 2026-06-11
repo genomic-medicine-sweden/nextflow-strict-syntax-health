@@ -4,17 +4,16 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.04.3
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [irreverent_bhabha] revision: 7441b6a507
+Launching `./main.nf` [awesome_sinoussi] revision: 84b646d2b8
 
 Typical pipeline command:
 
-  nextflow run Clinical-Genomics/oncorefiner -profile <docker/singularity/.../institute> --input samplesheet.csv --outdir <OUTDIR>
+  nextflow run Clinical-Genomics/oncorefiner -profile <docker/singularity/.../institute> --outdir <OUTDIR>
 
 help message of that parameter will be printed.  
 or `--helpFull`.  
 
 Input/output options
-  --input                          [string] Path to comma-separated file containing information about the samples in the experiment. 
   --outdir                         [string] The output directory where the results will be saved. You have to use absolute paths to storage on 
 Cloud infrastructure.  
   --snv_vcf                        [string] Path to a VCF file containing somatic SNV/INDEL variants to be processed by the pipeline. The VCF 
