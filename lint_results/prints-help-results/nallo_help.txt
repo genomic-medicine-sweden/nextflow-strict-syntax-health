@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.04.3
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [mighty_feynman] revision: ed9f773a2b
+Launching `./main.nf` [small_aryabhata] revision: 2a6cd4e2b7
 
 
                                        _                              _ _      _
@@ -177,8 +177,11 @@ trio-binning) [default: trio-binning]
   --methbat_male_label                         [string]  Label used for male samples in methbat profile. [default: MALE] 
   --methbat_female_label                       [string]  Label used for female samples in methbat profile. [default: FEMALE] 
   --modkit_modified_bases                      [string]  Modkit modified bases, separated by space. E.g. '5mC 5hmC' [default: 5mC] 
-  --mitochondrial_caller                       [string]  Which mitochondrial caller to use for mitochondrial variant calling (`deepvariant`) [default: 
-deepvariant]  
+  --mitochondrial_caller                       [string]  Which mitochondrial caller to use for mitochondrial variant calling [default: mitorsaw] 
+  --mitorsaw_minimum_maf                       [number]  Minimum minor allele frequency (MAF) for mitorsaw variant calling. [default: 0.1] 
+  --mitorsaw_minimum_read_count                [integer] Minimum read count to consider a heteroplasmic variant. [default: 3] 
+  --mitochondrial_sv_min_size                  [integer] Minimum allele length difference (abs(strlen(REF)-strlen(ALT))) to classify a mitochondrial variant 
+as an SV rather than a SNV/small indel. [default: 50]  
   --alignment_processes                        [integer] If alignment_processes is bigger than 1, input files will be split and aligned in parallel to reduce 
 processing time. [default: 8]  
   --snv_calling_processes                      [integer] If snv_calling_processes is bigger than 1, short variant calling will be done in parallel to reduce 
