@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-06-12T00:43:12.043648159Z
+- Generated: 2026-06-16T00:45:29.117496043Z
 - Nextflow version: 26.04.3
-- Summary: 7 warnings
+- Summary: 6 warnings
 
 ## :warning: Warnings
 
@@ -11,13 +11,6 @@
   ```nextflow
       ch_svdb_dbs        = channel.empty()
       ^^^^^^^^^^^
-  ```
-
-- Warning: `main.nf:184:5`: Emit name should be omitted when there is only one emit
-
-  ```nextflow
-      multiqc_report = ONCOREFINER.out.multiqc_report // channel: /path/to/multiqc_report.html
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
 - Warning: `subworkflows/local/prepare_references/main.nf:32:9`: Emit name should be omitted when there is only one emit
