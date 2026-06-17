@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-06-16T00:45:29.117496043Z
+- Generated: 2026-06-17T00:42:28.642950726Z
 - Nextflow version: 26.04.3
 - Summary: 6 warnings
 
@@ -13,11 +13,11 @@
       ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/prepare_references/main.nf:32:9`: Emit name should be omitted when there is only one emit
+- Warning: `subworkflows/local/prepare_references/main.nf:32:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
-          vep_resources = ch_vep_resources // channel: [vep_cache_files]
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      vep_resources = ch_vep_resources // channel: [vep_cache_files]
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
 - Warning: `subworkflows/local/utils_nfcore_oncorefiner_pipeline/main.nf:83:5`: Emit name should be omitted when there is only one emit

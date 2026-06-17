@@ -82,7 +82,7 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "4dd6a3c4c3a4f5eb620cd651e7e6ec107385058b",
+    "commit": "8dfe5414d9c53528daf4c71496aef9171f8e7e08",
     "errors": 0,
     "warnings": 6,
     "parse_error": false,
@@ -112,7 +112,7 @@
   "taxprofiler": {
     "full_name": "nf-core/taxprofiler",
     "html_url": "https://github.com/nf-core/taxprofiler",
-    "commit": "cb5b02b9f588346ddbf9a9584735dbc269894e05",
+    "commit": "4fd02bfbe8d7980159190b9ec1eda71f437f7e54",
     "errors": 0,
     "warnings": 97,
     "parse_error": false,
