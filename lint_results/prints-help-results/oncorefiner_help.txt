@@ -1,10 +1,11 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
+Nextflow 26.04.4 is available - Please consider updating your version to it
 
  N E X T F L O W   ~  version 26.04.3
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [shrivelled_rosalind] revision: 79065613e2
+Launching `./main.nf` [distraught_gates] revision: a6d3bb2b4d
 
 Typical pipeline command:
 
