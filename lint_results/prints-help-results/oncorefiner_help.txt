@@ -5,7 +5,7 @@ Nextflow 26.04.4 is available - Please consider updating your version to it
  N E X T F L O W   ~  version 26.04.3
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [distraught_gates] revision: a6d3bb2b4d
+Launching `./main.nf` [compassionate_lavoisier] revision: 4ecff0f1ee
 
 Typical pipeline command:
 
@@ -55,6 +55,7 @@ line per resource.
   --extra_args_snv_research_filter [string]  Extra arguments for `PROCESS_SNVS:BCFTOOLS_VIEW_RESEARCH`. 
   --extra_args_snv_vep             [string]  Extra arguments for `PROCESS_SNVS:ENSEMBLVEP_VEP`. 
   --extra_args_sv_vep              [string]  Extra arguments for `PROCESS_SVS:ENSEMBLVEP_VEP`. 
+  --genmod_score_config            [string]  Path to genmod score configuration file (rank model). 
 
 Generic options
   --multiqc_methods_description    [string]          Custom MultiQC yaml file containing HTML including a methods description. 

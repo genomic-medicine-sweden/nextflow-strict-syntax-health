@@ -1,12 +1,12 @@
 # Nextflow lint results
 
-- Generated: 2026-06-18T00:43:48.774200559Z
+- Generated: 2026-06-19T00:46:53.327784014Z
 - Nextflow version: 26.04.3
 - Summary: 6 warnings
 
 ## :warning: Warnings
 
-- Warning: `main.nf:79:5`: Variable was declared but not used
+- Warning: `main.nf:80:5`: Variable was declared but not used
 
   ```nextflow
       ch_svdb_dbs        = channel.empty()
