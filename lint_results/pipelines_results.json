@@ -92,11 +92,11 @@
   "rnafusion": {
     "full_name": "nf-core/rnafusion",
     "html_url": "https://github.com/nf-core/rnafusion",
-    "commit": "d91904e05490eef579ca4c28d17a6172ddbb864b",
+    "commit": "36e05815b3c7ccf9e73cc2616655ee3bce9e298e",
     "errors": 0,
-    "warnings": 27,
+    "warnings": 6,
     "parse_error": false,
-    "prints_help": true,
+    "prints_help": false,
     "has_versions_mix": true
   },
   "raredisease": {
