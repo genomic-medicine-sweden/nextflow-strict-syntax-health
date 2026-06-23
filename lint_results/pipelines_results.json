@@ -32,7 +32,7 @@
   "metaval": {
     "full_name": "genomic-medicine-sweden/metaval",
     "html_url": "https://github.com/genomic-medicine-sweden/metaval",
-    "commit": "006b3984266a21271a132c7401953fe22eba5365",
+    "commit": "232b2267a1dddcac3d39f7004ffb2fd683532db1",
     "errors": 0,
     "warnings": 6,
     "parse_error": false,
@@ -82,7 +82,7 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "e3b23ebdd6312aea3ea74298bf744f9c87d7656b",
+    "commit": "1cdec75f0012760c3ce786391cba3a31a4a481df",
     "errors": 0,
     "warnings": 6,
     "parse_error": false,
@@ -92,7 +92,7 @@
   "rnafusion": {
     "full_name": "nf-core/rnafusion",
     "html_url": "https://github.com/nf-core/rnafusion",
-    "commit": "36e05815b3c7ccf9e73cc2616655ee3bce9e298e",
+    "commit": "19f908fbcba636de3ca3a82ee73edc71a0437e40",
     "errors": 0,
     "warnings": 6,
     "parse_error": false,
@@ -102,7 +102,7 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "0afa63384c72130ac7ccbccbf6f76f284a4fd961",
+    "commit": "7bf2a9eb68bb69e1012e3b0ecf74666905626669",
     "errors": 0,
     "warnings": 12,
     "parse_error": false,
