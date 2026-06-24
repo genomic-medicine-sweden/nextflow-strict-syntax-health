@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.05.0-edge
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [prickly_stone] revision: 4ecff0f1ee
+Launching `./main.nf` [tiny_shannon] revision: 7e1ac7dc6d
 
 Typical pipeline command:
 
@@ -16,6 +16,16 @@ or `--helpFull`.
 Input/output options
   --outdir                         [string] The output directory where the results will be saved. You have to use absolute paths to storage on 
 Cloud infrastructure.  
+  --email                          [string] Email address for completion summary. 
+  --multiqc_title                  [string] MultiQC report title. Printed as page header, used for filename if not otherwise specified. 
+
+Metadata
+  --case_id                        [string] Case ID. 
+  --sex                            [string] Sex of the patient.  (accepted: female, male, unknown) 
+  --sample_id_tumor                [string] Sample id of the tumor sample. 
+  --sample_id_normal               [string] Sample id of the normal sample. 
+
+Input files
   --snv_vcf                        [string] Path to a VCF file containing somatic SNV/INDEL variants to be processed by the pipeline. The VCF 
 may include one or multiple samples. Typically, this is a single tumor sample for tumor-only 
 analyses, or both tumor and matched normal samples for tumor-normal analyses.  
@@ -26,9 +36,6 @@ analyses, or both tumor and matched normal samples for tumor-normal analyses.
   --bai_tumor                      [string] Path to BAM index file for the tumor sample. 
   --bam_normal                     [string] Path to alignment BAM file for the normal sample. 
   --bai_normal                     [string] Path to BAM index file for the normal sample. 
-  --sex                            [string] Sex of the patient.  (accepted: female, male, unknown) 
-  --email                          [string] Email address for completion summary. 
-  --multiqc_title                  [string] MultiQC report title. Printed as page header, used for filename if not otherwise specified. 
 
 Reference genome options
   --genome                         [string] Name of the genome reference.  (accepted: GRCh38, GRCh37) [default: GRCh38] 
