@@ -1,17 +1,10 @@
 # Nextflow lint results
 
-- Generated: 2026-06-24T00:33:23.411961199Z
+- Generated: 2026-06-25T00:38:51.986081520Z
 - Nextflow version: 26.05.0-edge
-- Summary: 7 warnings
+- Summary: 6 warnings
 
 ## :warning: Warnings
-
-- Warning: `main.nf:106:5`: Variable was declared but not used
-
-  ```nextflow
-      ch_svdb_dbs        = channel.empty()
-      ^^^^^^^^^^^
-  ```
 
 - Warning: `subworkflows/local/prepare_references/main.nf:32:5`: Emit name should be omitted when there is only one emit
 
