@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "9bf6a2a1d1e62f6fafc01e483dee19e0954f6206",
+    "commit": "c1cf5a62ac833faf4a15f074700837210fbf23c7",
     "errors": 0,
     "warnings": 7,
     "parse_error": false,
@@ -32,7 +32,7 @@
   "metaval": {
     "full_name": "genomic-medicine-sweden/metaval",
     "html_url": "https://github.com/genomic-medicine-sweden/metaval",
-    "commit": "232b2267a1dddcac3d39f7004ffb2fd683532db1",
+    "commit": "7603d38e75fe2443efa90a9f6140bfe3c0063a37",
     "errors": 0,
     "warnings": 6,
     "parse_error": false,
@@ -102,7 +102,7 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "4553aaf07ba9ec031ccdb4cf1bbeec3a92da72f7",
+    "commit": "cbb21fff48b6362a7d1fb5de4aa5eae98ca0c221",
     "errors": 0,
     "warnings": 13,
     "parse_error": false,
