@@ -1,7 +1,7 @@
 # Nextflow lint results
 
-- Generated: 2026-06-17T00:42:51.813121687Z
-- Nextflow version: 26.04.3
+- Generated: 2026-07-03T00:33:04.973511345Z
+- Nextflow version: 26.06.0-edge
 - Summary: 97 warnings
 
 ## :warning: Warnings
@@ -97,7 +97,7 @@
                                                                                                                                                                                                    ^^
   ```
 
-- Warning: `conf/modules.config:569:99`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules.config:629:99`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { !params.bracken_save_intermediatekraken2 && meta.tool == "bracken" ? null : it },

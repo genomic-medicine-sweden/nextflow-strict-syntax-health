@@ -102,9 +102,9 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "adfc25bcd8532d5c2123dca9c20d3ab5f135f842",
+    "commit": "4ff88ed06dbb90c656d681a10488520addebd47c",
     "errors": 0,
-    "warnings": 18,
+    "warnings": 17,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -112,7 +112,7 @@
   "taxprofiler": {
     "full_name": "nf-core/taxprofiler",
     "html_url": "https://github.com/nf-core/taxprofiler",
-    "commit": "4fd02bfbe8d7980159190b9ec1eda71f437f7e54",
+    "commit": "2b97f5810ac6424915c8d86a1067dd1366e78ea7",
     "errors": 0,
     "warnings": 97,
     "parse_error": false,
