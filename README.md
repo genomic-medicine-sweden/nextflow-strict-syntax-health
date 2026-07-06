@@ -12,7 +12,7 @@ The goal is for all genomic-medicine-sweden pipelines to run without errors usin
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-07-05 00:30:34 UTC
+- **Last updated:** 2026-07-06 00:30:44 UTC
 - **Nextflow version:** 26.06.0-edge
 
 ## Pipelines
