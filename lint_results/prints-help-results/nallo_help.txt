@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.06.0-edge
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [backstabbing_planck] revision: 2a6cd4e2b7
+Launching `./main.nf` [festering_curry] revision: a368cbf9bf
 
 
                                        _                              _ _      _
@@ -45,6 +45,7 @@ plot_chromograph_autozygosity are set to false.
   --skip_call_paralogs                         [boolean] Skip the calling of specific paralogous genes [default: false] 
   --skip_rank_variants                         [boolean] Skip ranking of short variants [default: false] 
   --skip_prepare_gens_input                    [boolean] Skip preparing input data for Gens [default: false] 
+  --skip_mitochondrial_calling                 [boolean] Skip mitochondrial variant calling [default: false] 
   --skip_sex_check                             [boolean] Skip sex check [default: false] 
 
 Input/output options

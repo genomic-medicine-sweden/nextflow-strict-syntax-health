@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-07-01T00:38:08.240191186Z
+- Generated: 2026-07-08T00:26:20.151082774Z
 - Nextflow version: 26.06.0-edge
 - Summary: 7 warnings
 
@@ -27,7 +27,7 @@
       ^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_nallo_pipeline/main.nf:326:5`: Emit name should be omitted when there is only one emit
+- Warning: `subworkflows/local/utils_nfcore_nallo_pipeline/main.nf:330:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
       samplesheet = ch_samplesheet
