@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.06.0-edge
 
 Downloading plugin nf-schema@2.7.2
-Launching `./main.nf` [desperate_yalow] revision: 6830e582d4
+Launching `./main.nf` [zen_aryabhata] revision: 6830e582d4
 
 
 ----------------------------------------------------
@@ -92,5 +92,5 @@ Generic options
     https://doi.org/10.1038/s41587-020-0439-x
 
 * Software dependencies
-    https://github.com/nf-core/taxprofiler/blob/master/CITATIONS.md
+    https://github.com/nf-core/taxprofiler/blob/main/CITATIONS.md
 
