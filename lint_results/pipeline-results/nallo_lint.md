@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-07-09T00:32:05.980908968Z
+- Generated: 2026-07-10T00:33:29.135194913Z
 - Nextflow version: 26.06.0-edge
 - Summary: 7 warnings
 
@@ -13,21 +13,21 @@
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/chromograph/main.nf:100:5`: Emit name should be omitted when there is only one emit
+- Warning: `subworkflows/local/chromograph/main.nf:99:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
       chromograph_plots = RUN_CHROMOGRAPH.out.plots // channel: [ val(meta), path(plot) ]
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/split_multisample_vcf/main.nf:30:5`: Emit name should be omitted when there is only one emit
+- Warning: `subworkflows/local/split_multisample_vcf/main.nf:29:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
       split_vcf = ch_split_vcf // channel: [ val(meta), path(vcf), val(variant_type) ]
       ^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_nallo_pipeline/main.nf:330:5`: Emit name should be omitted when there is only one emit
+- Warning: `subworkflows/local/utils_nfcore_nallo_pipeline/main.nf:324:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
       samplesheet = ch_samplesheet
