@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.06.0-edge
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [admiring_babbage] revision: a368cbf9bf
+Launching `./main.nf` [dreamy_perlman] revision: 814a937422
 
 
                                        _                              _ _      _
@@ -171,10 +171,9 @@ whatshap, hiphase) [default: longphase]
   --hifiasm_mode                               [string]  Run hifiasm in hifi-only or hifi-trio mode (`hifi-only`, `trio-binning`)  (accepted: hifi-only, 
 trio-binning) [default: trio-binning]  
   --hifiasm_preset                             [string]  Hifiasm preset, is set to `--ont` when `--preset ONT_R10` is active.  (accepted: , --ont) 
-  --run_methbat                                [boolean] Run methbat for methylation analysis, set to `true` by default when `--preset revio` is active. 
- 
-  --run_modkit                                 [boolean] Run modkit for methylation analysis, set to `true` by default when `--preset ONT_R10` is active. 
- 
+  --methylation_callers                        [string]  Which methylation callers to use. Several callers can be specified, separated by commas (e.g. 
+methbat,modkit). Defaults to `methbat` when `--preset revio` is active and `modkit` when `--preset 
+ONT_R10` is active. [default: methbat]  
   --methbat_male_label                         [string]  Label used for male samples in methbat profile. [default: MALE] 
   --methbat_female_label                       [string]  Label used for female samples in methbat profile. [default: FEMALE] 
   --modkit_modified_bases                      [string]  Modkit modified bases, separated by space. E.g. '5mC 5hmC' [default: 5mC] 
