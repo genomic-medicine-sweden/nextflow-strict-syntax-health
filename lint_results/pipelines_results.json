@@ -2,9 +2,9 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "83ab8f3e028387a6976c44540b2d897dbc3a13ca",
+    "commit": "cc6996ec363f3d606b93af463c79620f865cc838",
     "errors": 0,
-    "warnings": 7,
+    "warnings": 0,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -52,9 +52,9 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "e7c275f177396767d1ddd30c0f947ba149580bdc",
+    "commit": "b11cceb49583d35e34b24606982d98c52d4bf194",
     "errors": 0,
-    "warnings": 31,
+    "warnings": 28,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -102,9 +102,9 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "645e3318b30574874e67df311d7cf22b16cb6856",
+    "commit": "e5dd5bb7203ae46065e93d25f10cca2abdacdfec",
     "errors": 0,
-    "warnings": 19,
+    "warnings": 12,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
