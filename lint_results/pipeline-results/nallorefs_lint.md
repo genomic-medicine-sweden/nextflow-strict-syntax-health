@@ -1,17 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-07-18T00:26:03.341422166Z
+- Generated: 2026-07-21T00:28:02.120766936Z
 - Nextflow version: 26.07.0-edge
-- Summary: 1 error, 31 warnings
-
-## :x: Errors
-
-- Error: `modules/nf-core/bcftools/view/main.nf:60:9`: `index` is already declared
-
-  ```nextflow
-      def index = args.contains("--write-index=tbi") || args.contains("-W=tbi") ? "tbi" :
-          ^^^^^
-  ```
+- Summary: 31 warnings
 
 ## :warning: Warnings
 

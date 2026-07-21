@@ -52,7 +52,7 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "b11cceb49583d35e34b24606982d98c52d4bf194",
+    "commit": "ee80456391defe2ecab0df1d7058337207e6f2b2",
     "errors": 0,
     "warnings": 28,
     "parse_error": false,
@@ -72,11 +72,11 @@
   "nallorefs": {
     "full_name": "genomic-medicine-sweden/nallorefs",
     "html_url": "https://github.com/genomic-medicine-sweden/nallorefs",
-    "commit": "14256b062bf9515db1119e28b5b765b46f6820f0",
-    "errors": 1,
+    "commit": "5cd5ebd26e717ae37517a7ec0d37d3172c86773b",
+    "errors": 0,
     "warnings": 31,
     "parse_error": false,
-    "prints_help": null,
+    "prints_help": false,
     "has_versions_mix": true
   },
   "oncorefiner": {
