@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "2ccd1ee6000ae8111052f6eb6cee859ad0c45ff9",
+    "commit": "46d7995fb6c3bc0513684d3ba7eacb790871a234",
     "errors": 9,
     "warnings": 0,
     "parse_error": false,
@@ -32,11 +32,11 @@
   "metaval": {
     "full_name": "genomic-medicine-sweden/metaval",
     "html_url": "https://github.com/genomic-medicine-sweden/metaval",
-    "commit": "70d33c79d225eb2b21f67ea36be225c4143a9068",
+    "commit": "6a496036d9e6240e258748911844a1d1b6e40a2f",
     "errors": 0,
-    "warnings": 5,
+    "warnings": 0,
     "parse_error": false,
-    "prints_help": false,
+    "prints_help": true,
     "has_versions_mix": true
   },
   "TRANA": {
@@ -52,7 +52,7 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "0f0b31fca3e9f40db247419049b53c3323f398d8",
+    "commit": "e454e25c1dace08d4fcf5e37aa00ceac1f432aeb",
     "errors": 0,
     "warnings": 28,
     "parse_error": false,
