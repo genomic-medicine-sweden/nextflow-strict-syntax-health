@@ -1,11 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
-curl: (35) Recv failure: Connection reset by peer
 
  N E X T F L O W   ~  version 26.07.0-edge
 
 Downloading plugin nf-schema@2.7.2
-Launching `./main.nf` [marvelous_minsky] revision: 92dac02512
+Launching `./main.nf` [trusting_pareto] revision: 92dac02512
 
 
 ------------------------------------------------------
