@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "46d7995fb6c3bc0513684d3ba7eacb790871a234",
+    "commit": "ec4f56108b9f1f744bd490e2ef3f4ccc483dd9f9",
     "errors": 9,
     "warnings": 0,
     "parse_error": false,
@@ -12,11 +12,11 @@
   "tomte": {
     "full_name": "genomic-medicine-sweden/tomte",
     "html_url": "https://github.com/genomic-medicine-sweden/tomte",
-    "commit": "0e77bdf132875bc303c9432ff972dc8dcd0e3e5b",
-    "errors": 8,
-    "warnings": 148,
+    "commit": "db69f6887279cf5b5560fc2e030d8365a47824a6",
+    "errors": 0,
+    "warnings": 98,
     "parse_error": false,
-    "prints_help": null,
+    "prints_help": true,
     "has_versions_mix": true
   },
   "jasen": {
@@ -102,7 +102,7 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "8a709655c6bfcf598dd5e0fd8a9eefbae3921143",
+    "commit": "b75ae38dc96fbee6bf1b74e7749d7d0131ef485d",
     "errors": 0,
     "warnings": 9,
     "parse_error": false,
@@ -112,9 +112,9 @@
   "taxprofiler": {
     "full_name": "nf-core/taxprofiler",
     "html_url": "https://github.com/nf-core/taxprofiler",
-    "commit": "eccce25aaa861d144fbb54e8f96585baa2f33c2c",
+    "commit": "b9189df46e2901677cbc8f1dd3c37baf52324190",
     "errors": 0,
-    "warnings": 97,
+    "warnings": 100,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
