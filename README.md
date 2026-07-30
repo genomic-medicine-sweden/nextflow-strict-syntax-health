@@ -12,12 +12,12 @@ The goal is for all genomic-medicine-sweden pipelines to run without errors usin
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-07-29 00:28:17 UTC
+- **Last updated:** 2026-07-30 00:28:33 UTC
 - **Nextflow version:** 26.07.0-edge
 
 ## Pipelines
 
-- **Strict syntax:** 0 parse errors, 74 errors, 323 warnings across 12 pipelines
+- **Strict syntax:** 0 parse errors, 74 errors, 319 warnings across 12 pipelines
 - **Versions Mix:** 4/12 (33.3%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
 - **Zero issues:** 1 pipelines (8.3%)
 
@@ -42,9 +42,9 @@ The goal is for all genomic-medicine-sweden pipelines to run without errors usin
 | :x: [tomte](https://github.com/genomic-medicine-sweden/tomte)                     |     No      |      0 |       98 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/tomte_lint.md)      |    [View](lint_results/prints-help-results/tomte_help.txt)    |
 | :x: [nallorefs](https://github.com/genomic-medicine-sweden/nallorefs)             |     No      |      0 |       31 |     No      | :negative_squared_cross_mark: |    [View](lint_results/pipeline-results/nallorefs_lint.md)    |  [View](lint_results/prints-help-results/nallorefs_help.txt)  |
 | :x: [nf-autoseq](https://github.com/genomic-medicine-sweden/nf-autoseq)           |     No      |      0 |       28 |     Yes     | :negative_squared_cross_mark: |   [View](lint_results/pipeline-results/nf-autoseq_lint.md)    | [View](lint_results/prints-help-results/nf-autoseq_help.txt)  |
-| :x: [raredisease](https://github.com/nf-core/raredisease)                         |     No      |      0 |        9 |     Yes     |      :white_check_mark:       |   [View](lint_results/pipeline-results/raredisease_lint.md)   | [View](lint_results/prints-help-results/raredisease_help.txt) |
-| :x: [oncorefiner](https://github.com/clinical-genomics/oncorefiner)               |     No      |      0 |        6 |     Yes     |      :white_check_mark:       |   [View](lint_results/pipeline-results/oncorefiner_lint.md)   | [View](lint_results/prints-help-results/oncorefiner_help.txt) |
+| :x: [raredisease](https://github.com/nf-core/raredisease)                         |     No      |      0 |       10 |     Yes     |      :white_check_mark:       |   [View](lint_results/pipeline-results/raredisease_lint.md)   | [View](lint_results/prints-help-results/raredisease_help.txt) |
 | :x: [rnafusion](https://github.com/nf-core/rnafusion)                             |     No      |      0 |        6 |     No      | :negative_squared_cross_mark: |    [View](lint_results/pipeline-results/rnafusion_lint.md)    |  [View](lint_results/prints-help-results/rnafusion_help.txt)  |
+| :x: [oncorefiner](https://github.com/clinical-genomics/oncorefiner)               |     No      |      0 |        1 |     Yes     |      :white_check_mark:       |   [View](lint_results/pipeline-results/oncorefiner_lint.md)   | [View](lint_results/prints-help-results/oncorefiner_help.txt) |
 | :white_check_mark: [metaval](https://github.com/genomic-medicine-sweden/metaval)  |     No      |      0 |        0 |     Yes     | :negative_squared_cross_mark: |     [View](lint_results/pipeline-results/metaval_lint.md)     |   [View](lint_results/prints-help-results/metaval_help.txt)   |
 
 </details>
