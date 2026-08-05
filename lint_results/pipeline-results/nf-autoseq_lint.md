@@ -1,24 +1,10 @@
 # Nextflow lint results
 
-- Generated: 2026-08-04T00:29:06.617566258Z
+- Generated: 2026-08-05T00:28:52.294963928Z
 - Nextflow version: 26.07.0-edge
-- Summary: 28 warnings
+- Summary: 26 warnings
 
 ## :warning: Warnings
-
-- Warning: `modules/nf-core/cat/fastq/main.nf:22:60`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def readList = reads instanceof List ? reads.collect { it.toString() } : [reads.toString()]
-                                                             ^^
-  ```
-
-- Warning: `modules/nf-core/cat/fastq/main.nf:58:60`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def readList = reads instanceof List ? reads.collect { it.toString() } : [reads.toString()]
-                                                             ^^
-  ```
 
 - Warning: `modules/nf-core/fgbio/fastqtobam/main.nf:58:9`: Variable was declared but not used
 
@@ -167,7 +153,7 @@
                                  ^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_autoseq_pipeline/main.nf:118:21`: Variable was declared but not used
+- Warning: `subworkflows/local/utils_nfcore_autoseq_pipeline/main.nf:104:21`: Variable was declared but not used
 
   ```nextflow
                   def readgroup = "${meta.case_id}_${meta.sample_name}_${meta.lane}".toString()

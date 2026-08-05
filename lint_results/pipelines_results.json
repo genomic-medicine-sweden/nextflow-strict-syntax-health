@@ -52,9 +52,9 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "97038dca839fe2c02ff06c3d85a654f4f10f36e5",
+    "commit": "1b1e8ad63dea9cd4acb75d9b2cebfaf42232640b",
     "errors": 0,
-    "warnings": 28,
+    "warnings": 26,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -82,9 +82,9 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "ac1a8ed33e014d98ae039a1e83294a23ca9bfa61",
+    "commit": "bf02e364485cf69321d74594de4b0dcb45bcfea7",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 2,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -102,7 +102,7 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "99006f3373c78d3aac5525266bd7551b45012d4c",
+    "commit": "1be665303a37802bf0bfc0051f2eb236e08784e0",
     "errors": 0,
     "warnings": 11,
     "parse_error": false,

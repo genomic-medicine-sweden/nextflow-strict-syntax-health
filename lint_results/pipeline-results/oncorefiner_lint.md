@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-08-01T00:26:36.488408095Z
+- Generated: 2026-08-05T00:29:12.174763866Z
 - Nextflow version: 26.07.0-edge
-- Summary: 1 warning
+- Summary: 2 warnings
 
 ## :warning: Warnings
 
@@ -11,4 +11,11 @@
   ```nextflow
       ].findAll { key, value -> value != null }
                   ^^^
+  ```
+
+- Warning: `subworkflows/local/vcf_annotate_linx_fusions/main.nf:32:5`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+      ch_sv_vcf_tbi         // channel: [required]  [val(meta), path(vcf.tbi)]
+      ^^^^^^^^^^^^^
   ```

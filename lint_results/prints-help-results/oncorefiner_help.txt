@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.07.0-edge
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [wise_caravaggio] revision: 908e3fc61c
+Launching `./main.nf` [scruffy_wozniak] revision: 31911c6ead
 
 Typical pipeline command:
 
@@ -36,6 +36,9 @@ analyses, or both tumor and matched normal samples for tumor-normal analyses.
   --bai_tumor                      [string] Path to BAM index file for the tumor sample. 
   --bam_normal                     [string] Path to alignment BAM file for the normal sample. 
   --bai_normal                     [string] Path to BAM index file for the normal sample. 
+  --linx_fusion_tsv                [string] Path to fusion linx tsv file for the sample. 
+  --linx_breakends_tsv             [string] Path to breakend linx tsv file for the sample. 
+  --linx_sv_tsv                    [string] Path to sv linx tsv file for the sample. 
 
 Reference genome options
   --genome                         [string] Name of the genome reference.  (accepted: GRCh38, GRCh37) [default: GRCh38] 
