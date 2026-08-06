@@ -12,7 +12,7 @@
   "tomte": {
     "full_name": "genomic-medicine-sweden/tomte",
     "html_url": "https://github.com/genomic-medicine-sweden/tomte",
-    "commit": "db69f6887279cf5b5560fc2e030d8365a47824a6",
+    "commit": "e083a09d3a9f61a582c2b8fbea16a2cbb5ca6848",
     "errors": 0,
     "warnings": 98,
     "parse_error": false,
@@ -52,9 +52,9 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "1b1e8ad63dea9cd4acb75d9b2cebfaf42232640b",
+    "commit": "53195eceb0ee2d4b2d478f1f27a66e7466755415",
     "errors": 0,
-    "warnings": 26,
+    "warnings": 21,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -82,7 +82,7 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "bf02e364485cf69321d74594de4b0dcb45bcfea7",
+    "commit": "81d77f69cd24704414fdaeacf031b2ab3cee905d",
     "errors": 0,
     "warnings": 2,
     "parse_error": false,
@@ -102,7 +102,7 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "1be665303a37802bf0bfc0051f2eb236e08784e0",
+    "commit": "b2734100ecbbd1507f5f695f1ac22328c225b336",
     "errors": 0,
     "warnings": 11,
     "parse_error": false,

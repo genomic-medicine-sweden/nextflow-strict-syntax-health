@@ -1,24 +1,10 @@
 # Nextflow lint results
 
-- Generated: 2026-08-05T00:28:52.294963928Z
+- Generated: 2026-08-06T00:24:40.849718941Z
 - Nextflow version: 26.07.0-edge
-- Summary: 26 warnings
+- Summary: 21 warnings
 
 ## :warning: Warnings
-
-- Warning: `modules/nf-core/fgbio/fastqtobam/main.nf:58:9`: Variable was declared but not used
-
-  ```nextflow
-      def args = task.ext.args ?: ''
-          ^^^^
-  ```
-
-- Warning: `modules/nf-core/fgbio/zipperbams/main.nf:25:9`: Variable was declared but not used
-
-  ```nextflow
-      def args2 = task.ext.args2 ?: ''
-          ^^^^^
-  ```
 
 - Warning: `modules/nf-core/gatk4/filtermutectcalls/main.nf:29:117`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
@@ -165,25 +151,4 @@
   ```nextflow
       versions = Channel.empty()
                  ^^^^^^^
-  ```
-
-- Warning: `subworkflows/nf-core/fastq_create_umi_consensus_fgbio/main.nf:39:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
-  ```
-
-- Warning: `subworkflows/nf-core/fastq_create_umi_consensus_fgbio/main.nf:58:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      aligned_bam = Channel.empty()
-                    ^^^^^^^
-  ```
-
-- Warning: `subworkflows/nf-core/fastq_create_umi_consensus_fgbio/main.nf:108:21`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      consensus_bam = Channel.empty()
-                      ^^^^^^^
   ```

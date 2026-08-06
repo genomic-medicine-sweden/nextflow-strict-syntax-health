@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.07.0-edge
 
 Downloading plugin nf-schema@2.5.1
-Launching `./main.nf` [mad_brenner] revision: 7ea9ba84a2
+Launching `./main.nf` [ridiculous_lattes] revision: 7ea9ba84a2
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
