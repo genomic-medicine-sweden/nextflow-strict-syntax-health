@@ -1,12 +1,19 @@
 # Nextflow lint results
 
-- Generated: 2026-08-07T01:12:34.616497824Z
+- Generated: 2026-08-08T00:13:27.431111263Z
 - Nextflow version: 26.07.0-edge
-- Summary: 2 warnings
+- Summary: 3 warnings
 
 ## :warning: Warnings
 
-- Warning: `subworkflows/local/utils_nfcore_oncorefiner_pipeline/main.nf:277:17`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `main.nf:132:26`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+
+  ```nextflow
+      def ch_cadd_header = Channel.value(
+                           ^^^^^^^
+  ```
+
+- Warning: `subworkflows/local/utils_nfcore_oncorefiner_pipeline/main.nf:283:17`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
       ].findAll { key, value -> value != null }

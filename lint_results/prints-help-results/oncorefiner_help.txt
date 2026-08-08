@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.07.0-edge
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [sleepy_baekeland] revision: 31911c6ead
+Launching `./main.nf` [cheesy_almeida] revision: 325479994d
 
 Typical pipeline command:
 
@@ -64,7 +64,8 @@ line per resource.
   --extra_args_snv_research_filter [string]  Extra arguments for `PROCESS_SNVS:BCFTOOLS_VIEW_RESEARCH`. 
   --extra_args_snv_vep             [string]  Extra arguments for `PROCESS_SNVS:ENSEMBLVEP_VEP`. 
   --extra_args_sv_vep              [string]  Extra arguments for `PROCESS_SVS:ENSEMBLVEP_VEP`. 
-  --genmod_score_config            [string]  Path to genmod score configuration file (rank model). 
+  --genmod_score_config_snv        [string]  Path to genmod score configuration file for SNVs (rank model). 
+  --genmod_score_config_sv         [string]  Path to genmod score configuration file for SVs (rank model). 
 
 Generic options
   --multiqc_methods_description    [string]          Custom MultiQC yaml file containing HTML including a methods description. 
