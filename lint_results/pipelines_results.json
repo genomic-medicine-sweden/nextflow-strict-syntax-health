@@ -32,7 +32,7 @@
   "metaval": {
     "full_name": "genomic-medicine-sweden/metaval",
     "html_url": "https://github.com/genomic-medicine-sweden/metaval",
-    "commit": "fb264fd06543c0f04d98fc95aab8c2704fb8d799",
+    "commit": "a81676c01a61f79b352c34c4d1181180a1776f84",
     "errors": 0,
     "warnings": 1,
     "parse_error": false,
@@ -82,7 +82,7 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "793c37f38928fdc2a844ecb3fecd93aaf34c1063",
+    "commit": "4abfe71b0f53e79f87872a1b9867ea0a5336b89d",
     "errors": 0,
     "warnings": 3,
     "parse_error": false,
