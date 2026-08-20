@@ -52,7 +52,7 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "b3edb9bb691a322e7112fd74f1f3c2574c547002",
+    "commit": "aaf8e2c2a7c6f267360f7706d85a4c99be0f3ac5",
     "errors": 0,
     "warnings": 21,
     "parse_error": false,
@@ -82,7 +82,7 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "d5b5c482850750b025414120f91c9a955dc7ee50",
+    "commit": "56f5ff6df24c4c2c9e00b95bd09e6e20a76c7755",
     "errors": 0,
     "warnings": 3,
     "parse_error": false,
