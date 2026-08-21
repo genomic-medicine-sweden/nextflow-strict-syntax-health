@@ -1,10 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.07.0-edge
+ N E X T F L O W   ~  version 26.08.0-edge
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [hungry_magritte] revision: 325479994d
+Launching `./main.nf` [fervent_church] revision: f87f387959
 
 Typical pipeline command:
 
@@ -36,6 +36,8 @@ analyses, or both tumor and matched normal samples for tumor-normal analyses.
   --bai_tumor                      [string] Path to BAM index file for the tumor sample. 
   --bam_normal                     [string] Path to alignment BAM file for the normal sample. 
   --bai_normal                     [string] Path to BAM index file for the normal sample. 
+  --cnv_gene_tsv                   [string] Path to a file containing gene-level information of CNV calls. 
+  --cnv_segment_tsv                [string] Path to a file containing segment-level information of CNV calls. 
   --linx_fusion_tsv                [string] Path to fusion linx tsv file for the sample. 
   --linx_breakends_tsv             [string] Path to breakend linx tsv file for the sample. 
   --linx_sv_tsv                    [string] Path to sv linx tsv file for the sample. 

@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "c4460e2a6cd9358db413e0049a0f9b72ab15f310",
+    "commit": "bf83d7f8481db939241cc58e43ea7c653bcbb911",
     "errors": 9,
     "warnings": 0,
     "parse_error": false,
@@ -82,7 +82,7 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "56f5ff6df24c4c2c9e00b95bd09e6e20a76c7755",
+    "commit": "a5f51c5a58a17100933eefdeca9c5f3153d9e71f",
     "errors": 0,
     "warnings": 3,
     "parse_error": false,
@@ -102,7 +102,7 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "a8ca71bd7bbf9ed57566d2a9ccfb03c5b0ccb3ab",
+    "commit": "f8c4cc084e44cbc99334bc51938686156db0e860",
     "errors": 0,
     "warnings": 11,
     "parse_error": false,
