@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "47c80622501230031a8b689d160c797b2444e52b",
+    "commit": "d1009f2baba2f92639a5af4f5459571cbd96be63",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -12,7 +12,7 @@
   "tomte": {
     "full_name": "genomic-medicine-sweden/tomte",
     "html_url": "https://github.com/genomic-medicine-sweden/tomte",
-    "commit": "e083a09d3a9f61a582c2b8fbea16a2cbb5ca6848",
+    "commit": "86bd85f273b5b24744426b46679eb78d3792a83a",
     "errors": 0,
     "warnings": 98,
     "parse_error": false,
