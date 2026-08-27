@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.08.0-edge
 
 Downloading plugin nf-schema@2.5.1
-Launching `./main.nf` [magical_lamport] revision: bc7a8a4418
+Launching `./main.nf` [distraught_fibonacci] revision: 5114674d98
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.lenientMode'
@@ -31,11 +31,29 @@ Cloud infrastructure. [default: ./results]
 
 Reference genome options
   --genome                          [string] Name of iGenomes reference.  (accepted: GRCh37, GRCh38) [default: GRCh37] 
-  --ref_genomes_base                [string] The base path to the HMF genome reference files 
-  --ref_genome_fasta                [string] Path to reference genome FASTA. 
-  --ref_genome_fai                  [string] Path to reference genome FAI. 
-  --ref_genome_dict                 [string] Path to reference genome dict. 
+  --genome_fasta                    [string] Path to reference genome FASTA. 
+  --genome_fai                      [string] Path to reference genome FAI. 
+  --genome_dict                     [string] Path to reference genome dict. 
   --bwamem2_index                   [string] Path to reference genome bwa-mem2 index. 
+  --dbsnp_vcf                       [string] Path to dbSNP VCF file for variant annotation. 
+  --dbsnp_vcf_tbi                   [string] Path to dbSNP VCF tabix index file. 
+  --germline_resource               [string] Path to germline resource file. 
+  --germline_resource_tbi           [string] Path to germline resource tabix index file. 
+  --sage_known_hotspots_somatic     [string] Path to known somatic hotspots file for SAGE. 
+  --sage_highconf_regions           [string] Path to high confidence regions file for SAGE. 
+  --sage_pon                        [string] Path to Panel of Normals file for SAGE. 
+  --ensembl_vep_cache               [string] Path to Ensembl VEP cache directory. 
+  --hmf_ensembl_data                [string] Path to HMF Ensembl data resources directory. 
+  --curation_ann                    [string] Path to curation annotation file. 
+  --gridss_index                    [string] Path to GRIDSS genome index. 
+  --gridss_config                   [string] Path to GRIDSS configuration file. 
+  --gridss_pon_breakends            [string] Path to GRIDSS Panel of Normals breakends file. 
+  --gridss_pon_breakpoints          [string] Path to GRIDSS Panel of Normals breakpoints file. 
+  --gridss_known_fusions            [string] Path to known fusions file for GRIDSS. 
+  --gridss_repeatmasker_annotations [string] Path to RepeatMasker annotations for GRIDSS. 
+  --targets_bed                     [string] Path to the BED file containing target regions. 
+  --interval_list                   [string] Path to the slopped interval list file. 
+  --jumble_ref                      [string] Path to the reference RDS (R data object) for Jumble. 
 
 Other options
   --trim_fastq                      [boolean] Enable FASTQ trimming [default: true] 
@@ -47,34 +65,14 @@ Other options
   --min_reads                       [string]  Minimum number of reads required [default: 1 1 0] 
   --min_baseq                       [integer] Minimum base quality score [default: 30] 
   --max_base_error_rate             [number]  Maximum base error rate allowed [default: 0.0] 
-  --panel                           [string]  Target panel for the sequencing run [default: probio_comprehensive3] 
-  --targets_bed                     [string]  Path to the BED file containing target regions 
-  --interval_list_slopped20         [string]  Path to the slopped interval list file 
-  --jumble_ref                      [string]  Path to the reference RDS (R data object) for Jumble 
-  --sage_known_hotspots_somatic     [string]  Path to known somatic hotspots file for SAGE 
-  --sage_highconf_regions           [string]  Path to high confidence regions file for SAGE 
-  --sage_pon                        [string]  Path to Panel of Normals file for SAGE 
-  --ensembl_data_resources          [string]  Path to Ensembl data resources directory 
   --sage_min_tumor_vaf              [number]  [default: 0.0002] 
   --sage_hotspot_tumor_qual         [integer] [default: 150] 
   --sage_min_tumor_qual             [integer] [default: 250] 
   --sage_min_map_quality            [integer] [default: 20] 
   --ensemblvep_version              [integer] Version of Ensembl VEP to use [default: 115] 
-  --curation_ann                    [string]  Path to curation annotation file 
   --cancer_type                     [string]  Cancer project code for gene-specific annotation.  (accepted: PANCANCER, CBC, CCR, CEC, COV, 
 SARC) [default: PANCANCER]  
-  --genome_gridss_index             [string]  Path to GRIDSS genome index 
-  --gridss_config                   [string]  Path to GRIDSS configuration file 
-  --gridss_pon_breakends            [string]  Path to GRIDSS Panel of Normals breakends file 
-  --gridss_pon_breakpoints          [string]  Path to GRIDSS Panel of Normals breakpoints file 
-  --gridss_known_fusions            [string]  Path to known fusions file for GRIDSS 
-  --gridss_repeatmasker_annotations [string]  Path to RepeatMasker annotations for GRIDSS 
-  --germline_resource               [string]  Path to germline resource file 
-  --germline_resource_tbi           [string]  Path to germline resource tabix index file 
-  --ensembl_vep_cache               [string]  Path to Ensembl VEP cache directory 
   --vep_species                     [string]  Species name for Ensembl VEP annotation [default: homo_sapiens] 
-  --dbsnp_vcf                       [string]  Path to dbSNP VCF file for variant annotation 
-  --dbsnp_vcf_tbi                   [string]  Path to dbSNP VCF tabix index file 
   --maxnonclonal                    [number]  Maximum fraction of subclonal variants allowed; used by PureCN to filter solutions with high 
 subclonality [default: 0.2]  
   --minpurity                       [number]  Minimum tumour purity estimate accepted by PureCN; solutions below this threshold are discarded 
