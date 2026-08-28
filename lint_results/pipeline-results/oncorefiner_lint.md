@@ -1,12 +1,12 @@
 # Nextflow lint results
 
-- Generated: 2026-08-21T00:12:15.173572942Z
+- Generated: 2026-08-28T02:44:05.357395670Z
 - Nextflow version: 26.08.0-edge
 - Summary: 3 warnings
 
 ## :warning: Warnings
 
-- Warning: `main.nf:134:26`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `main.nf:137:26`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       def ch_cadd_header = Channel.value(
