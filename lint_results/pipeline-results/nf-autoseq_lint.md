@@ -1,38 +1,10 @@
 # Nextflow lint results
 
-- Generated: 2026-08-27T01:22:01.158111446Z
+- Generated: 2026-08-29T00:16:49.977119921Z
 - Nextflow version: 26.08.0-edge
-- Summary: 21 warnings
+- Summary: 18 warnings
 
 ## :warning: Warnings
-
-- Warning: `modules/nf-core/gatk4/filtermutectcalls/main.nf:29:117`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def orientationbias_command = orientationbias ? orientationbias.collect { "--orientation-bias-artifact-priors ${it}" }.join(' ') : ''
-                                                                                                                      ^^
-  ```
-
-- Warning: `modules/nf-core/gatk4/filtermutectcalls/main.nf:30:94`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def segmentation_command = segmentation ? segmentation.collect { "--tumor-segmentation ${it}" }.join(' ') : ''
-                                                                                               ^^
-  ```
-
-- Warning: `modules/nf-core/gatk4/filtermutectcalls/main.nf:32:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def table_command = table ? table.collect { "--contamination-table ${it}" }.join(' ') : ''
-                                                                           ^^
-  ```
-
-- Warning: `modules/nf-core/gatk4/learnreadorientationmodel/main.nf:23:48`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def input_list = f1r2.collect { "--input ${it}" }.join(' ')
-                                                 ^^
-  ```
 
 - Warning: `modules/nf-core/gatk4/markduplicates/main.nf:33:47`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
@@ -41,11 +13,25 @@
                                                 ^^
   ```
 
-- Warning: `modules/nf-core/gatk4/mutect2/main.nf:33:45`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `modules/nf-core/gridss/call/main.nf:46:9`: Variable was declared but not used
 
   ```nextflow
-      def inputs = input.collect { "--input ${it}" }.join(" ")
-                                              ^^
+      def args = task.ext.args ?: ''
+          ^^^^
+  ```
+
+- Warning: `modules/nf-core/gridss/preprocess/main.nf:23:9`: Variable was declared but not used
+
+  ```nextflow
+      def prefix = task.ext.prefix ?: "${meta.id}"
+          ^^^^^^
+  ```
+
+- Warning: `modules/nf-core/gridss/preprocess/main.nf:46:9`: Variable was declared but not used
+
+  ```nextflow
+      def args = task.ext.args ?: ''
+          ^^^^
   ```
 
 - Warning: `modules/nf-core/vt/normalize/main.nf:53:9`: Variable was declared but not used
@@ -97,28 +83,28 @@
                  ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/call_somatic_snvs/main.nf:74:29`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/call_somatic_snvs/main.nf:81:29`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           ch_sage_pon.collect{it[1]},
                               ^^
   ```
 
-- Warning: `subworkflows/local/call_somatic_snvs/main.nf:75:48`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/call_somatic_snvs/main.nf:82:48`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           ch_sage_known_hotspots_somatic.collect{it[1]},
                                                  ^^
   ```
 
-- Warning: `subworkflows/local/call_somatic_snvs/main.nf:76:42`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/call_somatic_snvs/main.nf:83:42`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           ch_sage_highconf_regions.collect{it[1]},
                                            ^^
   ```
 
-- Warning: `subworkflows/local/call_somatic_snvs/main.nf:77:43`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/call_somatic_snvs/main.nf:84:43`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           ch_ensembl_data_resources.collect{it[1]},
@@ -144,11 +130,4 @@
   ```nextflow
                   def readgroup = "${meta.case_id}_${meta.sample_name}_${meta.lane}".toString()
                       ^^^^^^^^^
-  ```
-
-- Warning: `subworkflows/nf-core/bam_tumor_normal_somatic_variant_calling_gatk/main.nf:23:16`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      versions = Channel.empty()
-                 ^^^^^^^
   ```

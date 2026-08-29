@@ -1,10 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.07.0-edge
+ N E X T F L O W   ~  version 26.08.0-edge
 
 Downloading plugin nf-schema@2.7.2
-Launching `./main.nf` [kickass_legentil] revision: 6830e582d4
+Launching `./main.nf` [distraught_nightingale] revision: 6830e582d4
 
 
 ----------------------------------------------------
@@ -30,21 +30,26 @@ Cloud infrastructure.
   --email                       [string] Email address for completion summary. 
   --multiqc_title               [string] MultiQC report title. Printed as page header, used for filename if not otherwise specified. 
 
+Negative control options
+  --skip_ntc                    [boolean] Skip analysis for negative controls from downstream analysis [default: true] 
+
 Verify identified species options
-  --perform_verify_species      [boolean]         Extract reads assigned to taxonomic IDs. 
-  --taxid_list                  [string]          A tab-separated separated file containing four columns: sample name, classifer, taxid and 
+  --perform_verify_species      [boolean]        Extract reads assigned to taxonomic IDs. 
+  --taxid_list                  [string]         A tab-separated separated file containing four columns: sample name, classifer, taxid and 
 corresponding species name.  
-  --extract_kraken2_reads       [boolean]         Extract reads classified by kraken2 according to taxonomic ID. 
-  --extract_centrifuge_reads    [boolean]         Extract reads classified by centrifuge according to taxonomic ID. 
-  --extract_diamond_reads       [boolean]         Extract reads classified by DIAMOND according to taxonomic ID. 
-  --phages_taxid                [string]          Path to a file containing a list of taxid taht should be excluded from downstream analysis 
-  --evalue_threshold            [number, integer] An expected value to report an alignment during BLAST 
-  --taxid2genome                [string]          Path to a file containing taxonomic IDs, organism name and corresponding genome paths. 
-  --perform_shortread_denovo    [boolean]         Turn on de novo assembly for short reads 
-  --perform_longread_denovo     [boolean]         Turn on de novo assembly for long reads 
-  --flye_mode                   [string]          It provides `Flye` assembly modes. Our ONT reads were pre-processed by Guppy, so `--nano-corr` is 
+  --extract_kraken2_reads       [boolean]        Extract reads classified by kraken2 according to taxonomic ID. 
+  --extract_centrifuge_reads    [boolean]        Extract reads classified by centrifuge according to taxonomic ID. 
+  --extract_diamond_reads       [boolean]        Extract reads classified by DIAMOND according to taxonomic ID. 
+  --phages_taxid                [string]         Path to a file containing a list of taxid that should be excluded from downstream analysis 
+  --evalue_threshold            [number]         An expected value to report an alignment during BLAST [default: 0.001] 
+  --taxid2genome                [string]         Path to a file containing taxonomic IDs, organism name and corresponding genome paths. 
+  --perform_shortread_denovo    [boolean]        Turn on de novo assembly for short reads 
+  --perform_longread_denovo     [boolean]        Turn on de novo assembly for long reads 
+  --flye_mode                   [string]         It provides `Flye` assembly modes. Our ONT reads were pre-processed by Guppy, so `--nano-corr` is 
 the appropriate mode to use, as it is designed for ONT reads that have been corrected with other 
 methods (with <3% error) [default: --nano-corr]  
+  --ticket_id                   [string, number] A ticket number to add to the metaval report. 
+  --perform_fastqc              [boolean]        Turn on FastQC to check the QC of reads with blast hits 
 
 Pathogen screening options
   --perform_screen_pathogens    [boolean] Screen viral pathogens for each sample 
@@ -56,29 +61,29 @@ pathogen genome.
   --longread_consensus_tool     [string]  Specify the tool used for consensus calling of long reads.  (accepted: medaka, samtools) 
 [default: medaka]  
   --perform_shortread_consensus [boolean] Call consensus for short reads mapped to a pathogen genome. 
-  --consensus_min_bases         [number]  The minimum number of bases used to filter consensus sequences. The default is 50. [default: 50] 
- 
+  --consensus_min_bases         [number]  The minimum number of bases used to filter consensus sequences. The default is 50. [default: 
+50.0]  
 
 General options
   --skip_blastn                 [boolean] Skip BLASTN of extracted reads. 
   --blastn_db                   [string]  Path to directory or tar.gz archive for pre-built BLAST database. 
-  --blast_header                [string]  A header file for BLASTN/BLASTX hits. 
   --skip_blastx                 [boolean] Skip DIAMOND/BLASTX of extracted reads. 
   --blastx_db                   [string]  Path to directory or tar.gz archive for pre-built DIAMOND/BLASTX database. 
   --blastn_min_qlen             [integer] The minimum query length used to filter the BLASTN results [default: 50] 
-  --blastx_min_qlen             [integer] The minimum query length (--min_qlen) used to filter the DIAMOND/BLASTX results [default: 50] 
+  --blastx_min_qlen             [integer] The minimum query length (--min-qlen) used to filter the DIAMOND/BLASTX results [default: 50] 
  
-  --blastn_min_pident           [number]  The minimum percentage of identical matches (--min_pident) used to filter BLASTN results 
-[default: 50]  
-  --blastx_min_pident           [number]  The minimum percentage of identical matches (--min_pident) used to filter DIAMOND/BLASTX results 
-[default: 50]  
-  --blastn_min_length           [integer] The minimum alignment length (--min_length) used to filter BLASTN results [default: 50] 
-  --blastx_min_length           [integer] The minimum alignment length (--min_length) used to filter DIAMOND/BLASTX results [default: 50] 
+  --blastn_min_pident           [number]  The minimum percentage of identical matches (--min-pident) used to filter BLASTN results 
+[default: 50.0]  
+  --blastx_min_pident           [number]  The minimum percentage of identical matches (--min-pident) used to filter DIAMOND/BLASTX results 
+[default: 50.0]  
+  --blastn_min_length           [integer] The minimum alignment length (--min-length) used to filter BLASTN results [default: 50] 
+  --blastx_min_length           [integer] The minimum alignment length (--min-length) used to filter DIAMOND/BLASTX results [default: 50] 
  
-  --blastn_max_evalue           [number]  The maximum e-value (--max_evalue) used to filter BLASTN results [default: 0.001] 
-  --blastx_max_evalue           [number]  The maximum e-value (--max_evalue) used to filter DIAMOND/BLASTX results [default: 0.001] 
+  --blastn_max_evalue           [number]  The maximum e-value (--max-evalue) used to filter BLASTN results [default: 0.001] 
+  --blastx_max_evalue           [number]  The maximum e-value (--max-evalue) used to filter DIAMOND/BLASTX results [default: 0.001] 
   --perform_mapping             [boolean] Turn on mapping 
-  --min_read_counts             [integer] Set the read count threshold for performing de novo assembly or consensus calling. 
+  --min_read_counts             [integer] Set the read count threshold for performing de novo assembly or consensus calling. [default: 
+100]  
 
 Generic options
   --multiqc_methods_description [string]          Custom MultiQC yaml file containing HTML including a methods description. 
