@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.08.0-edge
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [elated_mcclintock] revision: 8261c2a045
+Launching `./main.nf` [boring_kimura] revision: bfbde75d6a
 
 
                                        _                              _ _      _
@@ -97,7 +97,9 @@ Defaults to 5hmC and 5mC. See https://samtools.github.io/hts-specs/SAMtags.pdf f
   --cnv_expected_xx_cn                         [string]  A BED file containing expected copy number regions for XX samples. 
   --cnv_excluded_regions                       [string]  A BED file specifying regions to exclude with HiFiCNV or Sawfish, such as centromeres. 
   --genmod_reduced_penetrance                  [string]  A file with gene ids that have reduced penetrance. For use with genmod. 
-  --genmod_score_config_snvs                   [string]  A SNV rank model config file for genmod. 
+  --genmod_score_config_snvs                   [string]  A rank model config file for genmod, used for nuclear SNV scoring. 
+  --genmod_score_config_snvs_mito              [string]  A rank model config file for genmod, used for mitochondrial SNV scoring. Should reference only 
+fields produced by the MT VEP command.  
   --genmod_score_config_svs                    [string]  A SV rank model config file for genmod. 
   --somalier_sites                             [string]  A VCF of known polymorphic sites for somalier 
   --gens_baf_positions                         [string]  Tab-delimited file with variant positions used to calculate B-allele frequencies for Gens inputs. 
@@ -191,7 +193,7 @@ as an SV rather than a SNV/small indel. [default: 50]
 processing time. [default: 8]  
   --snv_calling_processes                      [integer] If snv_calling_processes is bigger than 1, short variant calling will be done in parallel to reduce 
 processing time. Must be `1` when `--snv_caller sentieon` is used. [default: 13]  
-  --vep_cache_version                          [integer] VEP cache version [default: 110] 
+  --vep_cache_version                          [integer] VEP cache version [default: 116] 
   --vep_mitochondrial_genome_distance          [integer] The distance parameter used in VEP for mitochondrial SNVs [default: 0] 
   --vep_nuclear_genome_distance                [integer] The distance parameter used in VEP for nuclear SNVs [default: 5000] 
   --vep_plugin_files                           [string]  Path to a CSV/TSV/JSON/YAML file with vep_files as header, and then paths to vep plugin files. Paths 
@@ -205,12 +207,18 @@ or `HGNC:4281`.
 'INFO/AQ>60'"  
   --filter_svs_expression                      [string]  An expression that is passed to bcftools view to filter SVs, e.g. --filter_svs_expression "-e 
 'INFO/AQ>60'"  
-  --extra_vep_options_snv                      [string]  Options appended to the VEP core command for SNV annotation (applied to both nuclear and 
-mitochondrial SNVs). The default enables standard enrichment annotations. To add plugins such as 
-CADD or SpliceAI, supply the default flags plus your additions. Plugin files must be included in 
-`vep_plugin_files`. [default: --buffer_size 20000 --appris --biotype --canonical --ccds 
---domains --exclude_predicted --force_overwrite --hgvs --humdiv --no_progress --numbers --polyphen p 
---protein --regulatory --sift p --symbol --tsl --uniprot --no_stats]  
+  --extra_vep_options_snv                      [string]  Options appended to the VEP core command for nuclear SNV annotation. The default enables standard 
+enrichment annotations. To add plugins such as CADD or SpliceAI, supply the default flags plus your 
+additions. Plugin files must be included in `vep_plugin_files`. [default: --buffer_size 20000 
+--appris --biotype --canonical --ccds --domains --exclude_predicted --force_overwrite --hgvs 
+--humdiv --no_progress --numbers --polyphen p --protein --regulatory --sift p --symbol --tsl 
+--uniprot --no_stats]  
+  --extra_vep_options_snv_mito                 [string]  Options appended to the VEP core command for mitochondrial SNV annotation. Nuclear-specific flags 
+(--sift, --polyphen, --humdiv) are excluded. To add MT-specific plugins such as gnomADMt, supply the 
+default flags plus your additions. Plugin files must be included in `vep_plugin_files`. 
+[default: --appris --biotype --buffer_size 20000 --canonical --ccds --domains 
+--exclude_predicted --force_overwrite --hgvs --no_progress --numbers --protein --regulatory --symbol 
+--tsl --uniprot --no_stats]  
   --extra_vep_options_sv                       [string]  Options appended to the VEP core command for SV annotation. The default enables standard enrichment 
 annotations. To add plugins, supply the default flags plus your additions. Plugin files must be 
 included in `vep_plugin_files`. [default: --appris --biotype --buffer_size 100 --canonical 
