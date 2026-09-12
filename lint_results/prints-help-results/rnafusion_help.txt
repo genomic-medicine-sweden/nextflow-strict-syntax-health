@@ -1,10 +1,11 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.05.0-edge
+ N E X T F L O W   ~  version 26.08.0-edge
 
-Launching `./main.nf` [cranky_meucci] revision: c5cdbe0640
+Downloading plugin nf-schema@2.7.2
+Launching `./main.nf` [special_monod] revision: c5cdbe0640
 
-Parameter `input` is required but was not specified on the command line, params file, or config
+Parameter `input` is required but no value was provided
 
 

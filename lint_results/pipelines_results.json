@@ -42,9 +42,9 @@
   "TRANA": {
     "full_name": "genomic-medicine-sweden/TRANA",
     "html_url": "https://github.com/genomic-medicine-sweden/TRANA",
-    "commit": "4c9f9e691c23f80776264fb94cfe50c283fa9d96",
+    "commit": "21fd2cce65f64c04f420d67138735934e1ec8633",
     "errors": 4,
-    "warnings": 17,
+    "warnings": 16,
     "parse_error": false,
     "prints_help": null,
     "has_versions_mix": true
@@ -92,9 +92,9 @@
   "rnafusion": {
     "full_name": "nf-core/rnafusion",
     "html_url": "https://github.com/nf-core/rnafusion",
-    "commit": "19f908fbcba636de3ca3a82ee73edc71a0437e40",
+    "commit": "717421477c9349b5b938a8908adffb24bba023a0",
     "errors": 0,
-    "warnings": 6,
+    "warnings": 0,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": true
