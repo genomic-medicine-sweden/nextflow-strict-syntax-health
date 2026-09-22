@@ -102,7 +102,7 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "b2784edd6f78fff17aa2eb758513547a65f61636",
+    "commit": "6de800bb9fdd96a48210452ff59623b5a298b38c",
     "errors": 0,
     "warnings": 12,
     "parse_error": false,
