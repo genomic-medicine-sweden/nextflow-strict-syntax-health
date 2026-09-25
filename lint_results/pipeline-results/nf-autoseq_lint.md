@@ -1,17 +1,10 @@
 # Nextflow lint results
 
-- Generated: 2026-09-24T00:17:00.221677593Z
+- Generated: 2026-09-25T00:17:18.642608127Z
 - Nextflow version: 26.09.0-edge
-- Summary: 18 warnings
+- Summary: 16 warnings
 
 ## :warning: Warnings
-
-- Warning: `modules/nf-core/gatk4/markduplicates/main.nf:33:47`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def input_list = bam.collect { "--INPUT ${it}" }.join(' ')
-                                                ^^
-  ```
 
 - Warning: `modules/nf-core/gridss/call/main.nf:46:9`: Variable was declared but not used
 
@@ -41,35 +34,28 @@
           ^^^^
   ```
 
-- Warning: `subworkflows/local/alignment/main.nf:18:20`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_versions  = Channel.empty()
-                     ^^^^^^^
-  ```
-
-- Warning: `subworkflows/local/alignment/main.nf:67:22`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/alignment/main.nf:62:22`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { meta, bam ->
                        ^^^
   ```
 
-- Warning: `subworkflows/local/alignment/main.nf:85:16`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/alignment/main.nf:80:16`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { id, meta, bam ->
                  ^^
   ```
 
-- Warning: `subworkflows/local/alignment/main.nf:92:33`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/alignment/main.nf:87:33`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           ch_genome_fasta.collect{it[1]},
                                   ^^
   ```
 
-- Warning: `subworkflows/local/alignment/main.nf:93:31`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/alignment/main.nf:88:31`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           ch_genome_fai.collect{it[1]}

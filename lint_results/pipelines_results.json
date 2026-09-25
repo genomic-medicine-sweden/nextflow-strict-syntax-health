@@ -52,9 +52,9 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "88dddf86d4dcea05b057503edb671ec2b0f3f5c4",
+    "commit": "aa0f1a83fe4d5806c46c1da540fc5e961539bb75",
     "errors": 0,
-    "warnings": 18,
+    "warnings": 16,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -92,7 +92,7 @@
   "rnafusion": {
     "full_name": "nf-core/rnafusion",
     "html_url": "https://github.com/nf-core/rnafusion",
-    "commit": "717421477c9349b5b938a8908adffb24bba023a0",
+    "commit": "8c11d2390e31b1e1b0e6db821a16877cd42e1de5",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -102,7 +102,7 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "0943510188a4a48d374d3d781e581c251caf72ba",
+    "commit": "58ce3fa32c31cc05845d759311ef0baff1b9b3fe",
     "errors": 0,
     "warnings": 12,
     "parse_error": false,
@@ -112,9 +112,9 @@
   "taxprofiler": {
     "full_name": "nf-core/taxprofiler",
     "html_url": "https://github.com/nf-core/taxprofiler",
-    "commit": "be96a8f348fc688b43b5d44997f3eddf085f526c",
+    "commit": "76097900a2287647985a35f397498967f5ab5eeb",
     "errors": 0,
-    "warnings": 54,
+    "warnings": 55,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
