@@ -2,9 +2,9 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "4e26096f7cb70acc9093ce0774998fba0d57f119",
+    "commit": "9270146c6a1d1782ec5e6324ddf240bac6cf64d4",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 1,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
