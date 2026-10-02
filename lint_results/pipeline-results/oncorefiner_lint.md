@@ -1,7 +1,7 @@
 # Nextflow lint results
 
-- Generated: 2026-09-19T00:17:53.546551357Z
-- Nextflow version: 26.08.0-edge
+- Generated: 2026-10-02T00:18:55.145993372Z
+- Nextflow version: 26.09.1-edge
 - Summary: 4 warnings
 
 ## :warning: Warnings
@@ -20,7 +20,7 @@
       ^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_oncorefiner_pipeline/main.nf:298:17`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/utils_nfcore_oncorefiner_pipeline/main.nf:299:17`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
       ].findAll { key, value -> value != null }

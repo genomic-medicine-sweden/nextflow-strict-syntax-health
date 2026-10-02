@@ -82,11 +82,11 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "d876cc0b576892210bc52c1486c3eec3d3aaa1de",
+    "commit": "5f17d4aa8fcac436a9372a6915416f156437edff",
     "errors": 0,
     "warnings": 4,
     "parse_error": false,
-    "prints_help": false,
+    "prints_help": true,
     "has_versions_mix": false
   },
   "rnafusion": {
@@ -102,11 +102,11 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "6bc345389b3f17149db7c8a47384212c93291e7d",
+    "commit": "15bc2f315ecd2d9018cbdb0d3f37e4793ecb074a",
     "errors": 0,
     "warnings": 13,
     "parse_error": false,
-    "prints_help": true,
+    "prints_help": false,
     "has_versions_mix": false
   },
   "taxprofiler": {
