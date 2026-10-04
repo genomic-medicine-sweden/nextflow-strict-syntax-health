@@ -32,7 +32,7 @@
   "metaval": {
     "full_name": "genomic-medicine-sweden/metaval",
     "html_url": "https://github.com/genomic-medicine-sweden/metaval",
-    "commit": "7873523940ca3354ecff674e6273b06503e5c959",
+    "commit": "d3d0049370c77d792a783259ffa7af27a5b46946",
     "errors": 0,
     "warnings": 1,
     "parse_error": false,
@@ -52,7 +52,7 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "0eb4c4ccda2a90cca0a80ce714f8b420a18f9aad",
+    "commit": "bd20024fd8891c8accd229ce340a32fdad16b6e4",
     "errors": 0,
     "warnings": 16,
     "parse_error": false,
@@ -102,17 +102,17 @@
   "raredisease": {
     "full_name": "nf-core/raredisease",
     "html_url": "https://github.com/nf-core/raredisease",
-    "commit": "15bc2f315ecd2d9018cbdb0d3f37e4793ecb074a",
+    "commit": "c191256e4ce2414d9e95513b5643d850b95003da",
     "errors": 0,
     "warnings": 13,
     "parse_error": false,
-    "prints_help": false,
+    "prints_help": true,
     "has_versions_mix": false
   },
   "taxprofiler": {
     "full_name": "nf-core/taxprofiler",
     "html_url": "https://github.com/nf-core/taxprofiler",
-    "commit": "76097900a2287647985a35f397498967f5ab5eeb",
+    "commit": "3b8595987edec10bd4aff0d9dcecfb93c850871e",
     "errors": 0,
     "warnings": 55,
     "parse_error": false,

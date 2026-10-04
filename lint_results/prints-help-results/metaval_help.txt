@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.09.1-edge
 
 Downloading plugin nf-schema@2.7.2
-Launching `./main.nf` [wise_noether] revision: 6830e582d4
+Launching `./main.nf` [silly_gautier] revision: 6830e582d4
 
 
 ----------------------------------------------------
@@ -50,6 +50,9 @@ the appropriate mode to use, as it is designed for ONT reads that have been corr
 methods (with <3% error) [default: --nano-corr]  
   --ticket_id                   [string, number] A ticket number to add to the metaval report. 
   --perform_fastqc              [boolean]        Turn on FastQC to check the QC of reads with blast hits 
+  --subset_read_threshold       [integer]        Read count threshold for subsetting reads before BLAST. If the number of reads assigned to a taxid 
+is higher than this threshold, only the first reads are used. The default is 10. [default: 10] 
+ 
 
 Pathogen screening options
   --perform_screen_pathogens    [boolean] Screen viral pathogens for each sample 
