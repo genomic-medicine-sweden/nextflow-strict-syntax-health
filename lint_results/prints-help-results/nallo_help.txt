@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.09.1-edge
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [wise_pike] revision: fc9b047acb
+Launching `./main.nf` [fervent_montalcini] revision: fc9b047acb
 
 
                                        _                              _ _      _
@@ -188,6 +188,36 @@ ONT_R10` is active. [default: methbat]
   --mitorsaw_minimum_read_count                [integer] Minimum read count to consider a heteroplasmic variant. [default: 3] 
   --mitochondrial_sv_min_size                  [integer] Minimum allele length difference (abs(strlen(REF)-strlen(ALT))) to classify a mitochondrial variant 
 as an SV rather than a SNV/small indel. [default: 50]  
+  --svdb_merge_by_caller_overlap               [number]  Minimum reciprocal overlap (`svdb --overlap`) for deletions and duplications when merging the SVs of 
+one caller across the samples of a family. [default: 0.5]  
+  --svdb_merge_by_caller_bnd_distance          [integer] Maximum distance in bp between breakpoints (`svdb --bnd_distance`) of translocations and inversions 
+when merging the SVs of one caller across the samples of a family. [default: 1000]  
+  --svdb_merge_by_caller_ins_distance          [integer] Maximum distance in bp between insertion positions (`svdb --ins_distance`) when merging the SVs of 
+one caller across the samples of a family. [default: 100]  
+  --svdb_merge_by_caller_ins_svlen_ratio       [number]  Minimum ratio of the smaller to the larger insertion length (`svdb --ins_svlen_ratio`) when merging 
+the SVs of one caller across the samples of a family. [default: 0.5]  
+  --svdb_merge_by_caller_ins_seq_similarity    [number]  Minimum sequence similarity of insertions (`svdb --ins_seq_similarity`) when merging the SVs of one 
+caller across the samples of a family; 0 disables the sequence comparison. [default: 0]  
+  --svdb_merge_by_family_overlap               [number]  Minimum reciprocal overlap (`svdb --overlap`) for deletions and duplications when merging the SVs of 
+different callers into one family VCF. [default: 0.7]  
+  --svdb_merge_by_family_bnd_distance          [integer] Maximum distance in bp between breakpoints (`svdb --bnd_distance`) of translocations and inversions 
+when merging the SVs of different callers into one family VCF. [default: 2000]  
+  --svdb_merge_by_family_ins_distance          [integer] Maximum distance in bp between insertion positions (`svdb --ins_distance`) when merging the SVs of 
+different callers into one family VCF. [default: 100]  
+  --svdb_merge_by_family_ins_svlen_ratio       [number]  Minimum ratio of the smaller to the larger insertion length (`svdb --ins_svlen_ratio`) when merging 
+the SVs of different callers into one family VCF. [default: 0.5]  
+  --svdb_merge_by_family_ins_seq_similarity    [number]  Minimum sequence similarity of insertions (`svdb --ins_seq_similarity`) when merging the SVs of 
+different callers into one family VCF; 0 disables the sequence comparison. [default: 0]  
+  --svdb_query_overlap                         [number]  Minimum reciprocal overlap (`svdb --overlap`) for deletions and duplications when annotating SVs 
+against the databases in `--svdb_sv_databases`. [default: 0.7]  
+  --svdb_query_bnd_distance                    [integer] Maximum distance in bp between breakpoints (`svdb --bnd_distance`) of translocations and inversions 
+when annotating SVs against the databases in `--svdb_sv_databases`. [default: 1000]  
+  --svdb_query_ins_distance                    [integer] Maximum distance in bp between insertion positions (`svdb --ins_distance`) when annotating SVs 
+against the databases in `--svdb_sv_databases`. [default: 100]  
+  --svdb_query_ins_svlen_ratio                 [number]  Minimum ratio of the smaller to the larger insertion length (`svdb --ins_svlen_ratio`) when 
+annotating SVs against the databases in `--svdb_sv_databases`. [default: 0.5]  
+  --svdb_query_ins_seq_similarity              [number]  Minimum sequence similarity of insertions (`svdb --ins_seq_similarity`) when annotating SVs against 
+the databases in `--svdb_sv_databases`; 0 disables the sequence comparison. [default: 0]  
   --alignment_processes                        [integer] If alignment_processes is bigger than 1, input files will be split and aligned in parallel to reduce 
 processing time. [default: 8]  
   --snv_calling_processes                      [integer] If snv_calling_processes is bigger than 1, short variant calling will be done in parallel to reduce 
