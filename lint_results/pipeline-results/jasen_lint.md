@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-05-19T00:36:08.490926809Z
-- Nextflow version: 26.04.1
-- Summary: 60 errors, 23 warnings
+- Generated: 2026-10-08T00:18:28.712449137Z
+- Nextflow version: 26.09.2-edge
+- Summary: 71 errors, 26 warnings
 
 ## :x: Errors
 
@@ -272,11 +272,11 @@
           ^^^^^^^^^^^^^^
   ```
 
-- Error: `modules/nf-core/mlst/main.nf:1:1`: Invalid process definition -- check for missing or out-of-order section labels
+- Error: `modules/nf-core/mlst/main.nf:14:11`: Unexpected input: ':'
 
   ```nextflow
-  process mlst {
-  ^
+      output:
+            ^
   ```
 
 - Error: `modules/nf-core/samtools/main.nf:24:29`: `sample_id` is not defined
@@ -314,42 +314,119 @@
                                    ^^^^^^
   ```
 
-- Error: `nextflow.config:22:34`: `workDir` is not defined
+- Error: `nextflow.config:23:34`: `workDir` is not defined
 
   ```nextflow
       workDir                 = "${workDir}"
                                    ^^^^^^^
   ```
 
-- Error: `nextflow.config:321:1`: Variable declarations cannot be mixed with config statements
+- Error: `nextflow.config:39:34`: `assets_dir` is not defined
+
+  ```nextflow
+      amrfinder_db            = "${assets_dir}/amrfinder_db/latest"
+                                   ^^^^^^^^^^
+  ```
+
+- Error: `nextflow.config:40:34`: `assets_dir` is not defined
+
+  ```nextflow
+      emmtyper_db             = "${assets_dir}/emmtyper_db"
+                                   ^^^^^^^^^^
+  ```
+
+- Error: `nextflow.config:41:34`: `assets_dir` is not defined
+
+  ```nextflow
+      gambit_db               = "${assets_dir}/gambit_db"
+                                   ^^^^^^^^^^
+  ```
+
+- Error: `nextflow.config:42:34`: `assets_dir` is not defined
+
+  ```nextflow
+      hostile_dir             = "${assets_dir}/hostile_db"
+                                   ^^^^^^^^^^
+  ```
+
+- Error: `nextflow.config:44:34`: `assets_dir` is not defined
+
+  ```nextflow
+      mlst_blast_db           = "${assets_dir}/mlstdb/blast"
+                                   ^^^^^^^^^^
+  ```
+
+- Error: `nextflow.config:45:34`: `assets_dir` is not defined
+
+  ```nextflow
+      plasmidfinder_db        = "${assets_dir}/plasmidfinder_db"
+                                   ^^^^^^^^^^
+  ```
+
+- Error: `nextflow.config:46:34`: `assets_dir` is not defined
+
+  ```nextflow
+      pointfinder_db          = "${assets_dir}/pointfinder_db"
+                                   ^^^^^^^^^^
+  ```
+
+- Error: `nextflow.config:47:34`: `assets_dir` is not defined
+
+  ```nextflow
+      pubmlst_db              = "${assets_dir}/mlstdb/pubmlst"
+                                   ^^^^^^^^^^
+  ```
+
+- Error: `nextflow.config:48:34`: `assets_dir` is not defined
+
+  ```nextflow
+      resfinder_db            = "${assets_dir}/resfinder_db"
+                                   ^^^^^^^^^^
+  ```
+
+- Error: `nextflow.config:49:34`: `assets_dir` is not defined
+
+  ```nextflow
+      serotypefinder_db       = "${assets_dir}/serotypefinder_db"
+                                   ^^^^^^^^^^
+  ```
+
+- Error: `nextflow.config:51:34`: `assets_dir` is not defined
+
+  ```nextflow
+      virulencefinder_db      = "${assets_dir}/virulencefinder_db"
+                                   ^^^^^^^^^^
+  ```
+
+- Error: `nextflow.config:331:1`: Variable declarations cannot be mixed with config statements
 
   ```nextflow
   def trace_timestamp = new java.util.Date().format('yyyy-MM-dd_HH-mm-ss')
   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:324:60`: `trace_timestamp` is not defined
+- Error: `nextflow.config:334:60`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/execution_timeline_${trace_timestamp}.html"
                                                              ^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:329:58`: `trace_timestamp` is not defined
+- Error: `nextflow.config:339:58`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/execution_report_${trace_timestamp}.html"
                                                            ^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:334:57`: `trace_timestamp` is not defined
+- Error: `nextflow.config:344:57`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/execution_trace_${trace_timestamp}.txt"
                                                           ^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:339:54`: `trace_timestamp` is not defined
+- Error: `nextflow.config:349:54`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/pipeline_dag_${trace_timestamp}.html"
@@ -398,28 +475,28 @@
       ^^^^^^^^^^^^^^
   ```
 
-- Error: `workflows/bacterial_general.nf:14:1`: Invalid workflow definition -- check for missing or out-of-order section labels
+- Error: `workflows/bacterial_general.nf:56:9`: Unexpected input: ':'
 
   ```nextflow
-  workflow CALL_BACTERIAL_GENERAL {
-  ^
+      main:
+          ^
   ```
 
-- Error: `workflows/bacterial_general.nf:159:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
+- Error: `workflows/bacterial_general.nf:162:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
 
   ```nextflow
   workflow.onComplete {
   ^
   ```
 
-- Error: `workflows/mycobacterium_tuberculosis.nf:14:1`: Invalid workflow definition -- check for missing or out-of-order section labels
+- Error: `workflows/mycobacterium_tuberculosis.nf:54:9`: Unexpected input: ':'
 
   ```nextflow
-  workflow CALL_MYCOBACTERIUM_TUBERCULOSIS {
-  ^
+      main:
+          ^
   ```
 
-- Error: `workflows/mycobacterium_tuberculosis.nf:146:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
+- Error: `workflows/mycobacterium_tuberculosis.nf:157:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
 
   ```nextflow
   workflow.onComplete {
@@ -427,6 +504,13 @@
   ```
 
 ## :warning: Warnings
+
+- Warning: `modules/local/jasentool/main.nf:199:64`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+
+  ```nextflow
+      def version_args = [input_files].flatten().collect { "-i ${it}" }.join(' ')
+                                                                 ^^
+  ```
 
 - Warning: `modules/local/meta/main.nf:16:60`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
@@ -463,25 +547,39 @@
       ^^^^^^^
   ```
 
-- Warning: `subworkflows/postprocessing.nf:29:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/postprocessing.nf:31:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_versions = Channel.empty()
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/postprocessing.nf:58:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/postprocessing.nf:61:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { it[0] }
                  ^^
   ```
 
-- Warning: `subworkflows/postprocessing.nf:60:46`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/postprocessing.nf:63:17`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
-          .combine(format_jasen.out.json.map { it[0] }.collect())
-                                               ^^
+          .map { [it] }
+                  ^^
+  ```
+
+- Warning: `subworkflows/postprocessing.nf:64:45`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+
+  ```nextflow
+          .combine(create_yaml.out.yaml.map { it[0] }.toList().map { [it] })
+                                              ^^
+  ```
+
+- Warning: `subworkflows/postprocessing.nf:64:69`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+
+  ```nextflow
+          .combine(create_yaml.out.yaml.map { it[0] }.toList().map { [it] })
+                                                                      ^^
   ```
 
 - Warning: `subworkflows/preprocessing.nf:25:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
@@ -547,7 +645,7 @@
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/quality_control.nf:34:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/quality_control.nf:35:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_versions = Channel.empty()
