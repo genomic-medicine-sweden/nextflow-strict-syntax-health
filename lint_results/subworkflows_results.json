@@ -3,7 +3,7 @@
   "vcf_annotate_score_genmod": {
     "html_url": "https://github.com/genomic-medicine-sweden/nf-core-modules/tree/main/subworkflows/genomic-medicine-sweden/vcf_annotate_score_genmod",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 5,
     "parse_error": false
   }
 }
