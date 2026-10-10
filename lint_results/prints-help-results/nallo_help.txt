@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.09.2-edge
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [marvelous_lamport] revision: fc9b047acb
+Launching `./main.nf` [prickly_galileo] revision: b1123d1a55
 
 
                                        _                              _ _      _
@@ -290,7 +290,11 @@ subworkflow. [default: 0.0001]
   --tiddit_bin_size                            [integer] Bin size to use for TIDDIT coverage wig generation in the chromograph subworkflow. [default: 
 500]  
   --sentieon_model_bundle                      [string]  The location of the DNAscope model bundle. Model bundle files can be found in the sentieon-models 
-Github repository.  
+Github repository. Some model bundles require a matching population VCF.  
+  --sentieon_population_vcf                    [string]  Population VCF containing annotations for DNAModelApply. Required for some DNAscope model bundles; 
+the population VCF must match --sentieon_model_bundle.  
+  --sentieon_population_tbi                    [string]  Tabix index for --sentieon_population_vcf. Provide the matching .tbi file alongside the population 
+VCF.  
   --sentieon_tech                              [string]  Sequencing technology used to generate the reads. Supported arguments are ONT or HiFi.  
 (accepted: HiFi, ONT) [default: HiFi]  
   --sentieon_male_haploid_bed                  [string]  Interval in the reference to restrict haploid variant calling for males, in BED file format. 
