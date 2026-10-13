@@ -1,10 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.09.2-edge
+ N E X T F L O W   ~  version 26.10.0
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [prickly_galileo] revision: b1123d1a55
+Launching `./main.nf` [elegant_perlman] revision: 9db357f89f
 
 
                                        _                              _ _      _
@@ -323,6 +323,6 @@ SUBREAD) [default: CCS]
   --assembly_aligner                           [string]  Which aligner to use for assembly alignment. Supported arguments are mm2plus or minimap2.  
 (accepted: mm2plus, minimap2) [default: minimap2]  
   --methbat_map                                [string]  Mapping file that can be used to filter and annotate the methbat output based on regions. 
- !! Hiding 30 param(s), use the `--showHidden` parameter to show them !!
+ !! Hiding 31 param(s), use the `--showHidden` parameter to show them !!
 ------------------------------------------------------
 

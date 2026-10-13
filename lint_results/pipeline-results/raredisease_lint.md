@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-10-10T00:20:01.067666339Z
-- Nextflow version: 26.09.2-edge
-- Summary: 145 warnings
+- Generated: 2026-10-13T00:21:06.420075568Z
+- Nextflow version: 26.10.0
+- Summary: 144 warnings
 
 ## :warning: Warnings
 
@@ -991,13 +991,6 @@
   ```nextflow
       ch_target_bed
       ^^^^^^^^^^^^^
-  ```
-
-- Warning: `workflows/raredisease.nf:1088:9`: Variable was declared but not used
-
-  ```nextflow
-          ch_somalier_publish = VCF_EXTRACT_RELATE_SOMALIER.out.publish
-          ^^^^^^^^^^^^^^^^^^^
   ```
 
 - Warning: `workflows/raredisease.nf:1171:5`: Variable was declared but not used

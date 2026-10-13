@@ -1,10 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.09.1-edge
+ N E X T F L O W   ~  version 26.10.0
 
 Downloading plugin nf-schema@2.7.2
-Launching `./main.nf` [silly_gautier] revision: 6830e582d4
+Launching `./main.nf` [maniac_golick] revision: 6830e582d4
 
 
 ----------------------------------------------------
@@ -14,7 +14,7 @@ Launching `./main.nf` [silly_gautier] revision: 6830e582d4
 | |_| | |  | |___) |_____| | | | | |  __/ || (_| |\ V / (_| | |
  \____|_|  |_|____/      |_| |_| |_|\___| \__\__,_| \_/ \__,_|_|
 
-  genomic-medicine-sweden/metaval 1.0dev
+  genomic-medicine-sweden/metaval 1.0.0
 ----------------------------------------------------
 Typical pipeline command:
 
