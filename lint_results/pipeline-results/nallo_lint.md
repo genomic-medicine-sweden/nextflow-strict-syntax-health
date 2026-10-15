@@ -1,10 +1,17 @@
 # Nextflow lint results
 
-- Generated: 2026-10-14T00:15:58.021153794Z
+- Generated: 2026-10-15T00:16:22.827310622Z
 - Nextflow version: 26.10.0
-- Summary: 109 warnings
+- Summary: 110 warnings
 
 ## :warning: Warnings
+
+- Warning: `modules/local/collapse_mitochondrial_gt/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
 
 - Warning: `modules/local/create_pedigree_file/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
