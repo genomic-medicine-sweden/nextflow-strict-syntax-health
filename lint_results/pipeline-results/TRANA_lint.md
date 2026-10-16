@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-09-12T00:16:34.977249040Z
-- Nextflow version: 26.08.0-edge
-- Summary: 4 errors, 16 warnings
+- Generated: 2026-10-16T00:19:28.843147752Z
+- Nextflow version: 26.10.2
+- Summary: 4 errors, 32 warnings
 
 ## :x: Errors
 
@@ -43,11 +43,123 @@
                       ^^
   ```
 
+- Warning: `modules/local/assignment_heatmap/main.nf:28:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/local/ctrl_comparison/main.nf:30:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/local/emu/abundance/main.nf:45:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/local/emu/combine_outputs/main.nf:43:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/local/translate_taxids/main.nf:30:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/custom/dumpsoftwareversions/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/cutadapt/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/falco/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/fastqc/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/filtlong/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/krona/ktimporttaxonomy/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/multiqc/main.nf:23:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/nanoplot/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/porechop/abi/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
 - Warning: `modules/nf-core/porechop/abi/main.nf:44:9`: Variable was declared but not used
 
   ```nextflow
       def adapters_list = custom_adapters ? "--custom_adapters ${custom_adapters}" : ""
           ^^^^^^^^^^^^^
+  ```
+
+- Warning: `modules/nf-core/porechop/porechop/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/seqtk/sample/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
   ```
 
 - Warning: `subworkflows/local/utils_nfcore_trana_pipeline/main.nf:37:5`: Parameter was not used -- prefix with `_` to suppress warning
@@ -120,28 +232,28 @@
                                                     ^^
   ```
 
-- Warning: `workflows/trana.nf:166:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/trana.nf:172:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { it[1] }  // Extract only the file path from the tuple (meta, path)
                  ^^
   ```
 
-- Warning: `workflows/trana.nf:182:20`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/trana.nf:188:20`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               .map { meta, path -> path }
                      ^^^^
   ```
 
-- Warning: `workflows/trana.nf:239:19`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/trana.nf:245:19`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               meta, reads -> meta
                     ^^^^^
   ```
 
-- Warning: `workflows/trana.nf:248:19`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/trana.nf:254:19`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               meta, assignment_heatmap -> [ meta, file(outdir).toAbsolutePath().toString() ]
