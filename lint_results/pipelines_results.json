@@ -52,7 +52,7 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "bc226c0b35cea67ec62f3e576144b72c21294408",
+    "commit": "3bc040bbc773a362a370998af3494bf4d9deb9f5",
     "errors": 0,
     "warnings": 58,
     "parse_error": false,
