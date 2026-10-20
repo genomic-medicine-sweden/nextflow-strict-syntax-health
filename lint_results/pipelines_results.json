@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "20c8c88f02e8e13a75ee0a278626ac47817bbab7",
+    "commit": "7bd0bc70ed9abd23dbacadb39eda36e4cc27cefb",
     "errors": 0,
     "warnings": 110,
     "parse_error": false,
@@ -32,7 +32,7 @@
   "metaval": {
     "full_name": "genomic-medicine-sweden/metaval",
     "html_url": "https://github.com/genomic-medicine-sweden/metaval",
-    "commit": "d4e1f3dd5c544b3a9fa422d4df65d2c80c05e8b2",
+    "commit": "a0c67cf9dc81722331fd6a1ec7dba206ec86317c",
     "errors": 0,
     "warnings": 39,
     "parse_error": false,

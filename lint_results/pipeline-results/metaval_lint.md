@@ -1,12 +1,12 @@
 # Nextflow lint results
 
-- Generated: 2026-10-16T00:19:05.509224632Z
+- Generated: 2026-10-20T00:17:03.911109015Z
 - Nextflow version: 26.10.2
 - Summary: 39 warnings
 
 ## :warning: Warnings
 
-- Warning: `modules/local/coverage_plot/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/coverage_plot/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
