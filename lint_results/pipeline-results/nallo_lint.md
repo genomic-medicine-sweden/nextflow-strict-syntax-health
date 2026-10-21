@@ -1,7 +1,7 @@
 # Nextflow lint results
 
-- Generated: 2026-10-20T00:16:33.118045406Z
-- Nextflow version: 26.10.2
+- Generated: 2026-10-21T00:16:24.454687497Z
+- Nextflow version: 26.10.3
 - Summary: 110 warnings
 
 ## :warning: Warnings
@@ -769,9 +769,9 @@
       ^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_nallo_pipeline/main.nf:758:317`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/utils_nfcore_nallo_pipeline/main.nf:760:317`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
-  def validateWorkflowCompatibility(val_str_caller, val_skip_repeat_annotation, val_snv_caller, val_snv_calling_processes, val_skip_sv_calling, val_sv_callers_to_run, val_skip_snv_calling, val_cnv_expected_xy_cn, val_cnv_expected_xx_cn, val_cnv_excluded_regions, val_skip_phasing, val_phaser, val_sv_callers_to_merge, val_skip_portello) {
+  def validateWorkflowCompatibility(val_str_caller, val_skip_repeat_annotation, val_snv_caller, val_snv_calling_processes, val_skip_sv_calling, val_sv_callers_to_run, val_skip_snv_calling, val_cnv_expected_xy_cn, val_cnv_expected_xx_cn, val_cnv_excluded_regions, val_skip_phasing, val_phaser, val_sv_callers_to_merge, val_skip_portello, val_create_hificnv_maf_track, val_create_sawfish_maf_track) {
                                                                                                                                                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^
   ```

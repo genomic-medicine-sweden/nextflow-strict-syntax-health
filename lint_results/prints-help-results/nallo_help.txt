@@ -1,10 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.10.2
+ N E X T F L O W   ~  version 26.10.3
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [condescending_bhaskara] revision: 469674eb12
+Launching `./main.nf` [pensive_bassi] revision: 1676e8dbff
 
 
                                        _                              _ _      _
@@ -128,8 +128,8 @@ file if you have incomplete or targeted data.
   --alignment_output_format                    [string]  Output format for alignment files. Either `bam` or `cram`  (accepted: bam, cram) [default: bam] 
  
   --create_maf_track                           [boolean] Whether to create a MAF track from SNV calls when calling SVs with HiFiCNV or Sawfish. Requires SNV 
-calling to finish before calling SVs, so deactivating this can speed up the pipeline. Defaults to 
-`true` [default: true]  
+calling to finish before calling SVs, so deactivating this can speed up the pipeline. Set to `false` 
+to run HiFiCNV or Sawfish with `--skip_snv_calling`. Defaults to `true` [default: true]  
 
 Reference genome options
   --fasta                                      [string] Reference genome 
