@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-10-21T00:16:57.339042938Z
+- Generated: 2026-10-22T00:13:38.671512066Z
 - Nextflow version: 26.10.3
-- Summary: 58 warnings
+- Summary: 54 warnings
 
 ## :warning: Warnings
 
@@ -333,34 +333,6 @@
   ```nextflow
       when:
       ^^^^
-  ```
-
-- Warning: `subworkflows/local/alignment/main.nf:62:22`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-          .map { meta, bam ->
-                       ^^^
-  ```
-
-- Warning: `subworkflows/local/alignment/main.nf:80:16`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-          .map { id, meta, bam ->
-                 ^^
-  ```
-
-- Warning: `subworkflows/local/alignment/main.nf:87:33`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-          ch_genome_fasta.collect{it[1]},
-                                  ^^
-  ```
-
-- Warning: `subworkflows/local/alignment/main.nf:88:31`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-          ch_genome_fai.collect{it[1]}
-                                ^^
   ```
 
 - Warning: `subworkflows/local/call_somatic_snvs/main.nf:33:16`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
