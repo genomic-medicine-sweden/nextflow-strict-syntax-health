@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-10-16T00:19:28.843147752Z
-- Nextflow version: 26.10.2
-- Summary: 4 errors, 32 warnings
+- Generated: 2026-10-23T00:18:17.012443696Z
+- Nextflow version: 26.10.3
+- Summary: 4 errors, 34 warnings
 
 ## :x: Errors
 
@@ -36,7 +36,7 @@
 
 ## :warning: Warnings
 
-- Warning: `conf/modules.config:113:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules.config:94:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           ].findAll { it }.join(' ').trim() } // Remove empty strings and join arguments
@@ -78,6 +78,13 @@
       ^^^^
   ```
 
+- Warning: `modules/nf-core/cat/fastq/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
 - Warning: `modules/nf-core/custom/dumpsoftwareversions/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
@@ -86,13 +93,6 @@
   ```
 
 - Warning: `modules/nf-core/cutadapt/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
-
-  ```nextflow
-      when:
-      ^^^^
-  ```
-
-- Warning: `modules/nf-core/falco/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
@@ -148,13 +148,6 @@
           ^^^^^^^^^^^^^
   ```
 
-- Warning: `modules/nf-core/porechop/porechop/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
-
-  ```nextflow
-      when:
-      ^^^^
-  ```
-
 - Warning: `modules/nf-core/seqtk/sample/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
@@ -162,25 +155,39 @@
       ^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_trana_pipeline/main.nf:37:5`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/utils_nfcore_trana_pipeline/main.nf:35:5`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
       monochrome_logs         // boolean: Do not use coloured log outputs
       ^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_trana_pipeline/main.nf:77:34`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/utils_nfcore_trana_pipeline/main.nf:75:34`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
       checkPathParamList.findAll { it }.each { path ->
                                    ^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_trana_pipeline/main.nf:119:42`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/utils_nfcore_trana_pipeline/main.nf:87:9`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
-          .map { validateInputSamplesheet( it ) }
-                                           ^^
+          Channel
+          ^^^^^^^
+  ```
+
+- Warning: `subworkflows/local/utils_nfcore_trana_pipeline/main.nf:94:9`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+
+  ```nextflow
+          Channel
+          ^^^^^^^
+  ```
+
+- Warning: `subworkflows/local/utils_nfcore_trana_pipeline/main.nf:122:46`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+
+  ```nextflow
+              .map { validateInputSamplesheet( it ) }
+                                               ^^
   ```
 
 - Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
@@ -190,70 +197,77 @@
                                                                                                    ^^^^^^^
   ```
 
-- Warning: `workflows/trana.nf:53:68`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/trana.nf:52:68`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
       ch_multiqc_files = ch_multiqc_files.mix(FASTQC.out.zip.collect{it[1]}.ifEmpty([]))
                                                                      ^^
   ```
 
-- Warning: `workflows/trana.nf:62:57`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/trana.nf:61:57`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               NANOPLOT_UNPROCESSED_READS.out.txt.collect{ it[1] }
                                                           ^^
   ```
 
-- Warning: `workflows/trana.nf:76:47`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/trana.nf:75:47`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
                   PORECHOP_ABI.out.log.collect{ it[1] }
                                                 ^^
   ```
 
-- Warning: `workflows/trana.nf:100:43`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/trana.nf:99:43`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
                   FILTLONG.out.log.collect{ it[1] }
                                             ^^
   ```
 
-- Warning: `workflows/trana.nf:114:43`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/trana.nf:113:43`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
                   CUTADAPT.out.log.collect{ it[1] }
                                             ^^
   ```
 
-- Warning: `workflows/trana.nf:137:51`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/trana.nf:136:51`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           NANOPLOT_PROCESSED_READS.out.txt.collect{ it[1] }
                                                     ^^
   ```
 
-- Warning: `workflows/trana.nf:172:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/trana.nf:171:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { it[1] }  // Extract only the file path from the tuple (meta, path)
                  ^^
   ```
 
-- Warning: `workflows/trana.nf:188:20`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/trana.nf:187:20`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               .map { meta, path -> path }
                      ^^^^
   ```
 
-- Warning: `workflows/trana.nf:245:19`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/trana.nf:244:19`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               meta, reads -> meta
                     ^^^^^
   ```
 
-- Warning: `workflows/trana.nf:254:19`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/trana.nf:250:19`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+              meta, reads -> meta.id
+                    ^^^^^
+  ```
+
+- Warning: `workflows/trana.nf:259:19`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               meta, assignment_heatmap -> [ meta, file(outdir).toAbsolutePath().toString() ]

@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-10-22T00:13:38.671512066Z
+- Generated: 2026-10-23T00:18:26.515662712Z
 - Nextflow version: 26.10.3
-- Summary: 54 warnings
+- Summary: 53 warnings
 
 ## :warning: Warnings
 
@@ -368,13 +368,6 @@
   ```nextflow
           ch_ensembl_data_resources.collect{it[1]},
                                             ^^
-  ```
-
-- Warning: `subworkflows/local/qc_alignment/main.nf:29:32`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-          .map { meta, bam, bai, meta2, interval_list ->
-                                 ^^^^^
   ```
 
 - Warning: `subworkflows/local/utils_nfcore_autoseq_pipeline/main.nf:104:21`: Variable was declared but not used
