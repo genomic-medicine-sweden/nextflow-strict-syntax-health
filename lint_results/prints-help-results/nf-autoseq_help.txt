@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.10.3
 
 Downloading plugin nf-schema@2.5.1
-Launching `./main.nf` [happy_miescher] revision: 4fe1374e05
+Launching `./main.nf` [grave_varahamihira] revision: f6b61c17cb
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.lenientMode'
