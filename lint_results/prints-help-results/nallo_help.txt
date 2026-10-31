@@ -5,7 +5,7 @@ Nextflow 26.10.4 is available - Please consider updating your version to it
  N E X T F L O W   ~  version 26.10.3
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [drunk_pasteur] revision: 4561670e41
+Launching `./main.nf` [stoic_franklin] revision: e0b36ce1c2
 
 
                                        _                              _ _      _
@@ -330,6 +330,9 @@ SUBREAD) [default: CCS]
   --assembly_aligner                           [string]  Which aligner to use for assembly alignment. Supported arguments are mm2plus or minimap2.  
 (accepted: mm2plus, minimap2) [default: minimap2]  
   --methbat_map                                [string]  Mapping file that can be used to filter and annotate the methbat output based on regions. 
+  --kivvi_preset                               [string]  Preset to use for Kivvi. Supported arguments are d4z4 or kiv2.  (accepted: d4z4, kiv2) [default: 
+d4z4]  
+  --skip_kivvi                                 [boolean] Whether to skip running Kivvi. [default: false] 
   --paraphase_config                           [string]  Configuration file for Paraphase. 
  !! Hiding 31 param(s), use the `--showHidden` parameter to show them !!
 ------------------------------------------------------
