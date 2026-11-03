@@ -92,7 +92,7 @@
   "rnafusion": {
     "full_name": "nf-core/rnafusion",
     "html_url": "https://github.com/nf-core/rnafusion",
-    "commit": "d43e81ab076c2f8c760f7d3e883df1602a859cd7",
+    "commit": "4c4e76793a7a2768f83bafe63ece972528cb1760",
     "errors": 0,
     "warnings": 44,
     "parse_error": false,
@@ -112,9 +112,9 @@
   "taxprofiler": {
     "full_name": "nf-core/taxprofiler",
     "html_url": "https://github.com/nf-core/taxprofiler",
-    "commit": "d36c9f8853f118cc1c6fbdd8fbf35854a71af516",
+    "commit": "d3c24febf32f19d7eaae6fea269fe66f9f9e9c88",
     "errors": 0,
-    "warnings": 122,
+    "warnings": 125,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
