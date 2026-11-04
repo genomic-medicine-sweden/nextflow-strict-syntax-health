@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-10-31T00:11:48.033111839Z
+- Generated: 2026-11-04T00:12:16.583254799Z
 - Nextflow version: 26.10.3
 - Summary: 111 warnings
 
@@ -601,14 +601,14 @@
       ^^^^
   ```
 
-- Warning: `modules/nf-core/sawfish/discover/main.nf:39:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/sawfish/discover/main.nf:42:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/nf-core/sawfish/jointcall/main.nf:30:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/sawfish/jointcall/main.nf:33:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
