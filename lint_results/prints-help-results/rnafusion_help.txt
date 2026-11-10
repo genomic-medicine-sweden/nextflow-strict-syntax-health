@@ -5,8 +5,8 @@ Nextflow 26.10.5 is available - Please consider updating your version to it
  N E X T F L O W   ~  version 26.10.3
 
 Downloading plugin nf-schema@2.7.3
-Launching `./main.nf` [fabulous_wescoff] revision: dd75a3aebc
+Launching `./main.nf` [modest_jennings] revision: f3317f9250
 
-Parameter `input` is required but no value was provided
+Parameter `outdir` is required but no value was provided
 
 

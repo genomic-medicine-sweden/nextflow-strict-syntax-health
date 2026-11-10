@@ -4,8 +4,7 @@ Nextflow 26.10.5 is available - Please consider updating your version to it
 
  N E X T F L O W   ~  version 26.10.3
 
-Downloading plugin nf-schema@2.7.3
-Launching `./main.nf` [hungry_ritchie] revision: 92dac02512
+Launching `./main.nf` [cheesy_mandelbrot] revision: 92dac02512
 
 
 ------------------------------------------------------
@@ -25,303 +24,188 @@ or `--helpFull`.
 
 Input/output options
   --input                                                [string]  Path to comma-separated file containing information about the samples and libraries/runs. 
-(This parameter has sub-parameters. Use '--help input' to see all sub-parameters) 
   --databases                                            [string]  Path to comma-separated file containing information about databases and profiling parameters for 
-each taxonomic profiler (This parameter has sub-parameters. Use '--help databases' to see 
-all sub-parameters) 
-  --save_untarred_databases                              [boolean] Specify to save decompressed user-supplied TAR archives of databases (This parameter has 
-sub-parameters. Use '--help save_untarred_databases' to see all sub-parameters) 
+each taxonomic profiler  
+  --save_untarred_databases                              [boolean] Specify to save decompressed user-supplied TAR archives of databases 
   --outdir                                               [string]  The output directory where the results will be saved. You have to use absolute paths to storage on 
-Cloud infrastructure. (This parameter has sub-parameters. Use '--help outdir' to see all 
-sub-parameters) 
-  --email                                                [string]  Email address for completion summary. (This parameter has sub-parameters. Use '--help email' 
-to see all sub-parameters) 
+Cloud infrastructure.  
+  --email                                                [string]  Email address for completion summary. 
   --multiqc_title                                        [string]  MultiQC report title. Printed as page header, used for filename if not otherwise specified. 
-(This parameter has sub-parameters. Use '--help multiqc_title' to see all sub-parameters) 
 
 Preprocessing general QC options
-  --skip_preprocessing_qc                                [boolean] Specify to skip sequencing quality control of raw sequencing reads (This parameter has 
-sub-parameters. Use '--help skip_preprocessing_qc' to see all sub-parameters) 
+  --skip_preprocessing_qc                                [boolean] Specify to skip sequencing quality control of raw sequencing reads 
   --preprocessing_qc_tool                                [string]  Specify the tool used for quality control of raw sequencing reads  (accepted: fastqc, falco) 
-[default: fastqc] (This parameter has sub-parameters. Use '--help preprocessing_qc_tool' to see 
-all sub-parameters) 
+[default: fastqc]  
   --save_preprocessed_reads                              [boolean] Save reads from samples that went through the adapter clipping, pair-merging, and length filtering 
-steps for both short and long reads (This parameter has sub-parameters. Use '--help 
-save_preprocessed_reads' to see all sub-parameters) 
+steps for both short and long reads  
   --save_analysis_ready_fastqs                           [boolean] Save only the final reads from all read processing steps (that are sent to classification/profiling) 
-in results directory. (This parameter has sub-parameters. Use '--help 
-save_analysis_ready_fastqs' to see all sub-parameters) 
+in results directory.  
 
 Preprocessing short-read QC options
   --perform_shortread_qc                                 [boolean] Turns on short read quality control steps (adapter clipping, complexity filtering etc.) 
-(This parameter has sub-parameters. Use '--help perform_shortread_qc' to see all 
-sub-parameters) 
   --shortread_qc_tool                                    [string]  Specify which tool to use for short-read QC  (accepted: fastp, adapterremoval) [default: fastp] 
-(This parameter has sub-parameters. Use '--help shortread_qc_tool' to see all sub-parameters) 
-  --shortread_qc_skipadaptertrim                         [boolean] Skip adapter trimming (This parameter has sub-parameters. Use '--help 
-shortread_qc_skipadaptertrim' to see all sub-parameters) 
-  --shortread_qc_adapter1                                [string]  Specify adapter 1 nucleotide sequence (This parameter has sub-parameters. Use '--help 
-shortread_qc_adapter1' to see all sub-parameters) 
-  --shortread_qc_adapter2                                [string]  Specify adapter 2 nucleotide sequence (This parameter has sub-parameters. Use '--help 
-shortread_qc_adapter2' to see all sub-parameters) 
+ 
+  --shortread_qc_skipadaptertrim                         [boolean] Skip adapter trimming 
+  --shortread_qc_adapter1                                [string]  Specify adapter 1 nucleotide sequence 
+  --shortread_qc_adapter2                                [string]  Specify adapter 2 nucleotide sequence 
   --shortread_qc_adapterlist                             [string]  Specify a list of all possible adapters to trim. Overrides --shortread_qc_adapter1/2. Formats: .txt 
-(AdapterRemoval) or .fasta. (fastp). (This parameter has sub-parameters. Use '--help 
-shortread_qc_adapterlist' to see all sub-parameters) 
-  --shortread_qc_mergepairs                              [boolean] Turn on merging of read pairs for paired-end data (This parameter has sub-parameters. Use 
-'--help shortread_qc_mergepairs' to see all sub-parameters) 
-  --shortread_qc_includeunmerged                         [boolean] Include unmerged reads from paired-end merging in the downstream analysis (This parameter 
-has sub-parameters. Use '--help shortread_qc_includeunmerged' to see all sub-parameters) 
-  --shortread_qc_minlength                               [integer] Specify the minimum length of reads to be retained [default: 15] (This parameter has 
-sub-parameters. Use '--help shortread_qc_minlength' to see all sub-parameters) 
-  --shortread_qc_dedup                                   [boolean] Perform deduplication of the input reads (fastp only) (This parameter has sub-parameters. 
-Use '--help shortread_qc_dedup' to see all sub-parameters) 
-  --perform_shortread_complexityfilter                   [boolean] Turns on nucleotide sequence complexity filtering (This parameter has sub-parameters. Use 
-'--help perform_shortread_complexityfilter' to see all sub-parameters) 
+(AdapterRemoval) or .fasta. (fastp).  
+  --shortread_qc_mergepairs                              [boolean] Turn on merging of read pairs for paired-end data 
+  --shortread_qc_includeunmerged                         [boolean] Include unmerged reads from paired-end merging in the downstream analysis 
+  --shortread_qc_minlength                               [integer] Specify the minimum length of reads to be retained [default: 15] 
+  --shortread_qc_dedup                                   [boolean] Perform deduplication of the input reads (fastp only) 
+  --perform_shortread_complexityfilter                   [boolean] Turns on nucleotide sequence complexity filtering 
   --shortread_complexityfilter_tool                      [string]  Specify which tool to use for complexity filtering  (accepted: bbduk, prinseqplusplus, fastp) 
-[default: bbduk] (This parameter has sub-parameters. Use '--help 
-shortread_complexityfilter_tool' to see all sub-parameters) 
-  --shortread_complexityfilter_entropy                   [number]  Specify the minimum sequence entropy level for complexity filtering [default: 0.3] (This 
-parameter has sub-parameters. Use '--help shortread_complexityfilter_entropy' to see all 
-sub-parameters) 
-  --shortread_complexityfilter_bbduk_windowsize          [integer] Specify the window size for BBDuk complexity filtering [default: 50] (This parameter has 
-sub-parameters. Use '--help shortread_complexityfilter_bbduk_windowsize' to see all sub-parameters) 
-  --shortread_complexityfilter_bbduk_mask                [boolean] Turn on masking rather than discarding of low complexity reads for BBduk (This parameter has 
-sub-parameters. Use '--help shortread_complexityfilter_bbduk_mask' to see all sub-parameters) 
-  --shortread_complexityfilter_fastp_threshold           [integer] Specify the minimum complexity filter threshold of fastp [default: 30] (This parameter has 
-sub-parameters. Use '--help shortread_complexityfilter_fastp_threshold' to see all sub-parameters) 
+[default: bbduk]  
+  --shortread_complexityfilter_entropy                   [number]  Specify the minimum sequence entropy level for complexity filtering [default: 0.3] 
+  --shortread_complexityfilter_bbduk_windowsize          [integer] Specify the window size for BBDuk complexity filtering [default: 50] 
+  --shortread_complexityfilter_bbduk_mask                [boolean] Turn on masking rather than discarding of low complexity reads for BBduk 
+  --shortread_complexityfilter_fastp_threshold           [integer] Specify the minimum complexity filter threshold of fastp [default: 30] 
   --shortread_complexityfilter_prinseqplusplus_mode      [string]  Specify the complexity filter mode for PRINSEQ++  (accepted: entropy, dust) [default: entropy] 
-(This parameter has sub-parameters. Use '--help shortread_complexityfilter_prinseqplusplus_mode' 
-to see all sub-parameters) 
-  --shortread_complexityfilter_prinseqplusplus_dustscore [number]  Specify the minimum dust score for PRINTSEQ++ complexity filtering [default: 0.5] (This 
-parameter has sub-parameters. Use '--help shortread_complexityfilter_prinseqplusplus_dustscore' to 
-see all sub-parameters) 
-  --save_complexityfiltered_reads                        [boolean] Save reads from samples that went through the complexity filtering step (This parameter has 
-sub-parameters. Use '--help save_complexityfiltered_reads' to see all sub-parameters) 
+ 
+  --shortread_complexityfilter_prinseqplusplus_dustscore [number]  Specify the minimum dust score for PRINTSEQ++ complexity filtering [default: 0.5] 
+  --save_complexityfiltered_reads                        [boolean] Save reads from samples that went through the complexity filtering step 
 
 Preprocessing long-read QC options
-  --perform_longread_qc                                  [boolean] Turns on long read quality control steps (adapter clipping, length filtering etc.) (This 
-parameter has sub-parameters. Use '--help perform_longread_qc' to see all sub-parameters) 
+  --perform_longread_qc                                  [boolean] Turns on long read quality control steps (adapter clipping, length filtering etc.) 
   --longread_adapterremoval_tool                         [string]  Specify which tool to use for adapter trimming.  (accepted: porechop, porechop_abi) [default: 
-porechop_abi] (This parameter has sub-parameters. Use '--help longread_adapterremoval_tool' to 
-see all sub-parameters) 
+porechop_abi]  
   --longread_qc_predictadapters                          [boolean] This option allows inference of adapters directly from the reads instead of relying on a static 
-database. (This parameter has sub-parameters. Use '--help longread_qc_predictadapters' to 
-see all sub-parameters) 
+database.  
   --longread_qc_adapterlist                              [string]  Path to a custom adapter text file, if you want to manually specify a list of adapters to remove. 
-(This parameter has sub-parameters. Use '--help longread_qc_adapterlist' to see all 
-sub-parameters) 
-  --longread_qc_skipadaptertrim                          [boolean] Skip long-read trimming (This parameter has sub-parameters. Use '--help 
-longread_qc_skipadaptertrim' to see all sub-parameters) 
+ 
+  --longread_qc_skipadaptertrim                          [boolean] Skip long-read trimming 
   --longread_filter_tool                                 [string]  Specify which tool to use for long reads filtering  (accepted: filtlong, nanoq) [default: nanoq] 
-(This parameter has sub-parameters. Use '--help longread_filter_tool' to see all sub-parameters) 
-  --longread_qc_skipqualityfilter                        [boolean] Skip long-read length and quality filtering (This parameter has sub-parameters. Use '--help 
-longread_qc_skipqualityfilter' to see all sub-parameters) 
-  --longread_qc_qualityfilter_minlength                  [integer] Specify the minimum length of reads to be retained [default: 1000] (This parameter has 
-sub-parameters. Use '--help longread_qc_qualityfilter_minlength' to see all sub-parameters) 
-  --longread_qc_qualityfilter_keeppercent                [integer] Specify the percent of high-quality bases to be retained [default: 90] (This parameter has 
-sub-parameters. Use '--help longread_qc_qualityfilter_keeppercent' to see all sub-parameters) 
+ 
+  --longread_qc_skipqualityfilter                        [boolean] Skip long-read length and quality filtering 
+  --longread_qc_qualityfilter_minlength                  [integer] Specify the minimum length of reads to be retained [default: 1000] 
+  --longread_qc_qualityfilter_keeppercent                [integer] Specify the percent of high-quality bases to be retained [default: 90] 
   --longread_qc_qualityfilter_targetbases                [integer] Filtlong only: specify the number of high-quality bases in the library to be retained [default: 
-500000000] (This parameter has sub-parameters. Use '--help 
-longread_qc_qualityfilter_targetbases' to see all sub-parameters) 
-  --longread_qc_qualityfilter_minquality                 [integer] Nanoq only: specify the minimum average read quality filter (Q) [default: 7] (This parameter 
-has sub-parameters. Use '--help longread_qc_qualityfilter_minquality' to see all sub-parameters) 
+500000000]  
+  --longread_qc_qualityfilter_minquality                 [integer] Nanoq only: specify the minimum average read quality filter (Q) [default: 7] 
 
 Redundancy Estimation
   --perform_shortread_redundancyestimation               [boolean] Turn on short-read metagenome sequencing redundancy estimation with nonpareil. Warning: only use for 
-shallow short-read sequencing datasets. (This parameter has sub-parameters. Use '--help 
-perform_shortread_redundancyestimation' to see all sub-parameters) 
+shallow short-read sequencing datasets.  
   --shortread_redundancyestimation_mode                  [string]  Specify mode for identifying redundant reads  (accepted: kmer, alignment) [default: kmer] 
-(This parameter has sub-parameters. Use '--help shortread_redundancyestimation_mode' to see all 
-sub-parameters) 
 
 Preprocessing host removal options
-  --perform_shortread_hostremoval                        [boolean] Turn on short-read host removal (This parameter has sub-parameters. Use '--help 
-perform_shortread_hostremoval' to see all sub-parameters) 
+  --perform_shortread_hostremoval                        [boolean] Turn on short-read host removal 
   --shortread_hostremoval_tool                           [string]  Specify which tool to use for short read host removal  (accepted: bowtie2, hostile, deacon) 
-[default: deacon] (This parameter has sub-parameters. Use '--help shortread_hostremoval_tool' to 
-see all sub-parameters) 
-  --perform_longread_hostremoval                         [boolean] Turn on long-read host removal (This parameter has sub-parameters. Use '--help 
-perform_longread_hostremoval' to see all sub-parameters) 
+[default: deacon]  
+  --perform_longread_hostremoval                         [boolean] Turn on long-read host removal 
   --longread_hostremoval_tool                            [string]  Specify which tool to use for long read host removal  (accepted: minimap2, hostile, deacon) 
-[default: deacon] (This parameter has sub-parameters. Use '--help longread_hostremoval_tool' to 
-see all sub-parameters) 
+[default: deacon]  
   --hostremoval_reference                                [string]  Specify path to the reference genome FASTA for Deacon or Bowtie2 of host reads to remove. 
-(This parameter has sub-parameters. Use '--help hostremoval_reference' to see all 
-sub-parameters) 
-  --hostremoval_hostile_referencename                    [string]  Specify the name of the hostile index supplied, or for Hostile to download (This parameter 
-has sub-parameters. Use '--help hostremoval_hostile_referencename' to see all sub-parameters) 
+  --hostremoval_hostile_referencename                    [string]  Specify the name of the hostile index supplied, or for Hostile to download 
   --shortread_hostremoval_index                          [string]  Specify path to the directory containing pre-made Deacon, Bowtie2 or Hostile indexes of the host 
-removal reference (This parameter has sub-parameters. Use '--help 
-shortread_hostremoval_index' to see all sub-parameters) 
-  --longread_hostremoval_index                           [string]  Specify path to a pre-made Minimap2 index file (.mmi) of the host removal reference (This 
-parameter has sub-parameters. Use '--help longread_hostremoval_index' to see all sub-parameters) 
-  --save_hostremoval_index                               [boolean] Save mapping index of input reference when not already supplied by user (This parameter has 
-sub-parameters. Use '--help save_hostremoval_index' to see all sub-parameters) 
-  --save_hostremoval_bam                                 [boolean] Saved mapped and unmapped reads in BAM format from host removal (This parameter has 
-sub-parameters. Use '--help save_hostremoval_bam' to see all sub-parameters) 
-  --save_hostremoval_unmapped                            [boolean] Save reads from samples that went through the host-removal step (This parameter has 
-sub-parameters. Use '--help save_hostremoval_unmapped' to see all sub-parameters) 
+removal reference  
+  --longread_hostremoval_index                           [string]  Specify path to a pre-made Minimap2 index file (.mmi) of the host removal reference 
+  --save_hostremoval_index                               [boolean] Save mapping index of input reference when not already supplied by user 
+  --save_hostremoval_bam                                 [boolean] Saved mapped and unmapped reads in BAM format from host removal 
+  --save_hostremoval_unmapped                            [boolean] Save reads from samples that went through the host-removal step 
 
 Preprocessing run merging options
-  --perform_runmerging                                   [boolean] Turn on run merging (This parameter has sub-parameters. Use '--help perform_runmerging' to 
-see all sub-parameters) 
-  --save_runmerged_reads                                 [boolean] Save reads from samples that went through the run-merging step (This parameter has 
-sub-parameters. Use '--help save_runmerged_reads' to see all sub-parameters) 
+  --perform_runmerging                                   [boolean] Turn on run merging 
+  --save_runmerged_reads                                 [boolean] Save reads from samples that went through the run-merging step 
 
 Profiling options
   --run_centrifuge                                       [boolean] Turn on profiling with Centrifuge. Requires database to be present CSV file passed to --databases 
-(This parameter has sub-parameters. Use '--help run_centrifuge' to see all sub-parameters) 
-  --centrifuge_save_reads                                [boolean] Turn on saving of Centrifuge-aligned reads (This parameter has sub-parameters. Use '--help 
-centrifuge_save_reads' to see all sub-parameters) 
+ 
+  --centrifuge_save_reads                                [boolean] Turn on saving of Centrifuge-aligned reads 
   --run_centrifuger                                      [boolean] Turn on profiling with Centrifuger. Requires database to be present CSV file passed to --databases 
-(This parameter has sub-parameters. Use '--help run_centrifuger' to see all sub-parameters) 
-  --centrifuger_save_reads                               [boolean] Turn on saving of Centrifuger-aligned reads (This parameter has sub-parameters. Use '--help 
-centrifuger_save_reads' to see all sub-parameters) 
+ 
+  --centrifuger_save_reads                               [boolean] Turn on saving of Centrifuger-aligned reads 
   --run_diamond                                          [boolean] Turn on profiling with DIAMOND. For unmerged paired-read libraries, only read1 will be used Requires 
-database to be present CSV file passed to --databases (This parameter has sub-parameters. 
-Use '--help run_diamond' to see all sub-parameters) 
+database to be present CSV file passed to --databases  
   --diamond_output_format                                [string]  Specify output format from DIAMOND profiling.  (accepted: blast, xml, txt, daa, sam, tsv, paf) 
-[default: tsv] (This parameter has sub-parameters. Use '--help diamond_output_format' to see all 
-sub-parameters) 
+[default: tsv]  
   --diamond_save_reads                                   [boolean] Turn on saving of DIAMOND-aligned reads. Will override --diamond_output_format and no taxon tables 
-will be generated (This parameter has sub-parameters. Use '--help diamond_save_reads' to see 
-all sub-parameters) 
+will be generated  
   --run_kaiju                                            [boolean] Turn on profiling with Kaiju. Requires database to be present CSV file passed to --databases 
-(This parameter has sub-parameters. Use '--help run_kaiju' to see all sub-parameters) 
+ 
   --kaiju_expand_viruses                                 [boolean] Turn on expanding of virus hits to individual viruses rather than aggregating at a taxonomic level. 
-(This parameter has sub-parameters. Use '--help kaiju_expand_viruses' to see all 
-sub-parameters) 
+ 
   --kaiju_taxon_rank                                     [string]  Specify taxonomic rank to be displayed in Kaiju taxon table  (accepted: phylum, class, order, 
-family, genus, species) [default: species] (This parameter has sub-parameters. Use '--help 
-kaiju_taxon_rank' to see all sub-parameters) 
+family, genus, species) [default: species]  
   --run_kraken2                                          [boolean] Turn on profiling with Kraken2. Requires database to be present CSV file passed to --databases 
-(This parameter has sub-parameters. Use '--help run_kraken2' to see all sub-parameters) 
-  --kraken2_save_reads                                   [boolean] Turn on saving of Kraken2-aligned reads (This parameter has sub-parameters. Use '--help 
-kraken2_save_reads' to see all sub-parameters) 
-  --kraken2_save_readclassifications                     [boolean] Turn on saving of Kraken2 per-read taxonomic assignment file (This parameter has 
-sub-parameters. Use '--help kraken2_save_readclassifications' to see all sub-parameters) 
+ 
+  --kraken2_save_reads                                   [boolean] Turn on saving of Kraken2-aligned reads 
+  --kraken2_save_readclassifications                     [boolean] Turn on saving of Kraken2 per-read taxonomic assignment file 
   --kraken2_save_minimizers                              [boolean] Turn on saving minimizer information in the kraken2 report thus increasing to an eight column 
-layout. (This parameter has sub-parameters. Use '--help kraken2_save_minimizers' to see all 
-sub-parameters) 
+layout.  
   --run_krakenuniq                                       [boolean] Turn on profiling with KrakenUniq. Requires one or more KrakenUniq databases to be present in the 
-CSV file passed to --databases. (This parameter has sub-parameters. Use '--help 
-run_krakenuniq' to see all sub-parameters) 
-  --krakenuniq_save_reads                                [boolean] Turn on saving of KrakenUniq (un-)classified reads as FASTA. (This parameter has 
-sub-parameters. Use '--help krakenuniq_save_reads' to see all sub-parameters) 
+CSV file passed to --databases.  
+  --krakenuniq_save_reads                                [boolean] Turn on saving of KrakenUniq (un-)classified reads as FASTA. 
   --krakenuniq_ram_chunk_size                            [string]  Specify a RAM chunk size for all KrakenUniq databases when loading into memory when you want to load 
-via chunks. Specify in `--databases` for per-database values. (This parameter has 
-sub-parameters. Use '--help krakenuniq_ram_chunk_size' to see all sub-parameters) 
-  --krakenuniq_save_readclassifications                  [boolean] Turn on saving of KrakenUniq per-read taxonomic assignment file. (This parameter has 
-sub-parameters. Use '--help krakenuniq_save_readclassifications' to see all sub-parameters) 
-  --krakenuniq_batch_size                                [integer] Specify the number of samples for each KrakenUniq run. [default: 20] (This parameter has 
-sub-parameters. Use '--help krakenuniq_batch_size' to see all sub-parameters) 
-  --run_bracken                                          [boolean] Turn on Bracken (and the required Kraken2 prerequisite step). (This parameter has 
-sub-parameters. Use '--help run_bracken' to see all sub-parameters) 
+via chunks. Specify in `--databases` for per-database values.  
+  --krakenuniq_save_readclassifications                  [boolean] Turn on saving of KrakenUniq per-read taxonomic assignment file. 
+  --krakenuniq_batch_size                                [integer] Specify the number of samples for each KrakenUniq run. [default: 20] 
+  --run_bracken                                          [boolean] Turn on Bracken (and the required Kraken2 prerequisite step). 
   --bracken_save_intermediatekraken2                     [boolean] Turn on the saving of the intermediate Kraken2 files used as input to Bracken itself into Kraken2 
-results folder (This parameter has sub-parameters. Use '--help 
-bracken_save_intermediatekraken2' to see all sub-parameters) 
+results folder  
   --run_malt                                             [boolean] Turn on profiling with MALT. Requires database to be present CSV file passed to --databases 
-(This parameter has sub-parameters. Use '--help run_malt' to see all sub-parameters) 
   --malt_mode                                            [string]  Specify which MALT alignment mode to use  (accepted: Unknown, BlastN, BlastP, BlastX, 
-Classifier) [default: BlastN] (This parameter has sub-parameters. Use '--help malt_mode' to see 
-all sub-parameters) 
-  --malt_save_reads                                      [boolean] Turn on saving of MALT-aligned reads (This parameter has sub-parameters. Use '--help 
-malt_save_reads' to see all sub-parameters) 
-  --malt_generate_megansummary                           [boolean] Turn on generation of MEGAN summary file from MALT results (This parameter has 
-sub-parameters. Use '--help malt_generate_megansummary' to see all sub-parameters) 
+Classifier) [default: BlastN]  
+  --malt_save_reads                                      [boolean] Turn on saving of MALT-aligned reads 
+  --malt_generate_megansummary                           [boolean] Turn on generation of MEGAN summary file from MALT results 
   --run_metaphlan                                        [boolean] Turn on profiling with MetaPhlAn. Requires database to be present CSV file passed to --databases 
-(This parameter has sub-parameters. Use '--help run_metaphlan' to see all sub-parameters) 
-  --metaphlan_save_samfiles                              [boolean] Turn on saving of MetaPhlAn reads aligned against marker genes in SAM format (This parameter 
-has sub-parameters. Use '--help metaphlan_save_samfiles' to see all sub-parameters) 
+ 
+  --metaphlan_save_samfiles                              [boolean] Turn on saving of MetaPhlAn reads aligned against marker genes in SAM format 
   --run_motus                                            [boolean] Turn on profiling with mOTUs. Requires database to be present CSV file passed to --databases 
-(This parameter has sub-parameters. Use '--help run_motus' to see all sub-parameters) 
-  --motus_use_relative_abundance                         [boolean] Turn on printing relative abundance instead of counts. (This parameter has sub-parameters. 
-Use '--help motus_use_relative_abundance' to see all sub-parameters) 
-  --motus_remove_ncbi_ids                                [boolean] Turn on removing NCBI taxonomic IDs. (This parameter has sub-parameters. Use '--help 
-motus_remove_ncbi_ids' to see all sub-parameters) 
-  --motus_save_mgc_read_counts                           [boolean] Turn on saving the mgc reads count. (This parameter has sub-parameters. Use '--help 
-motus_save_mgc_read_counts' to see all sub-parameters) 
-  --motus_longprep_splittinglength                       [integer] Splitting length for the long reads. [default: 300] (This parameter has sub-parameters. Use 
-'--help motus_longprep_splittinglength' to see all sub-parameters) 
-  --motus_longprep_minlen                                [integer] Minimum read length, shorter are discarded. [default: 50] (This parameter has 
-sub-parameters. Use '--help motus_longprep_minlen' to see all sub-parameters) 
-  --motus_save_split_longreads                           [boolean] Turn on saving the output of synthetic long-reads (This parameter has sub-parameters. Use 
-'--help motus_save_split_longreads' to see all sub-parameters) 
-  --run_kmcp                                             [boolean] Turn on classification with KMCP. (This parameter has sub-parameters. Use '--help run_kmcp' 
-to see all sub-parameters) 
-  --kmcp_save_search                                     [boolean] Turn on saving the output of KMCP search (This parameter has sub-parameters. Use '--help 
-kmcp_save_search' to see all sub-parameters) 
+ 
+  --motus_use_relative_abundance                         [boolean] Turn on printing relative abundance instead of counts. 
+  --motus_remove_ncbi_ids                                [boolean] Turn on removing NCBI taxonomic IDs. 
+  --motus_save_mgc_read_counts                           [boolean] Turn on saving the mgc reads count. 
+  --motus_longprep_splittinglength                       [integer] Splitting length for the long reads. [default: 300] 
+  --motus_longprep_minlen                                [integer] Minimum read length, shorter are discarded. [default: 50] 
+  --motus_save_split_longreads                           [boolean] Turn on saving the output of synthetic long-reads 
+  --run_kmcp                                             [boolean] Turn on classification with KMCP. 
+  --kmcp_save_search                                     [boolean] Turn on saving the output of KMCP search 
   --run_ganon                                            [boolean] Turn on profiling with ganon. Requires database to be present CSV file passed to --databases. 
-(This parameter has sub-parameters. Use '--help run_ganon' to see all sub-parameters) 
-  --ganon_save_readclassifications                       [boolean] Turn on saving of ganon per-read taxonomic assignment file(s). (This parameter has 
-sub-parameters. Use '--help ganon_save_readclassifications' to see all sub-parameters) 
+ 
+  --ganon_save_readclassifications                       [boolean] Turn on saving of ganon per-read taxonomic assignment file(s). 
   --ganon_report_type                                    [string]  Specify the type of ganon report to save.  (accepted: abundance, reads, matches, dist, corr) 
-[default: reads] (This parameter has sub-parameters. Use '--help ganon_report_type' to see all 
-sub-parameters) 
-  --ganon_report_rank                                    [string]  Specify the taxonomic report the ganon report file should display. [default: default] (This 
-parameter has sub-parameters. Use '--help ganon_report_rank' to see all sub-parameters) 
+[default: reads]  
+  --ganon_report_rank                                    [string]  Specify the taxonomic report the ganon report file should display. [default: default] 
   --ganon_report_toppercentile                           [integer] Specify a percentile within which hits will be reported in ganon report output.. [default: 0] 
-(This parameter has sub-parameters. Use '--help ganon_report_toppercentile' to see all 
-sub-parameters) 
+ 
   --ganon_report_mincount                                [integer] Specify a minimum number of reads a hit must have to be retained in the ganon report. [default: 
-0] (This parameter has sub-parameters. Use '--help ganon_report_mincount' to see all 
-sub-parameters) 
+0]  
   --ganon_report_maxcount                                [integer] Specify a maximum number of reads a hit must have to be retained in the ganon report. [default: 
-0] (This parameter has sub-parameters. Use '--help ganon_report_maxcount' to see all 
-sub-parameters) 
+0]  
   --run_sylph                                            [boolean] Turn on profiling with sylph. Requires database to be present CSV file passed to --databases 
-(This parameter has sub-parameters. Use '--help run_sylph' to see all sub-parameters) 
-  --sylph_taxonomy                                       [string]  Specify path to sylph taxonomy to add taxonomic path to each hit. (This parameter has 
-sub-parameters. Use '--help sylph_taxonomy' to see all sub-parameters) 
+ 
+  --sylph_taxonomy                                       [string]  Specify path to sylph taxonomy to add taxonomic path to each hit. 
   --sylph_data_type                                      [string]  Specifies which abundance metric to use  (accepted: relative_abundance, sequence_abundance, ANI) 
-[default: relative_abundance] (This parameter has sub-parameters. Use '--help sylph_data_type' 
-to see all sub-parameters) 
+[default: relative_abundance]  
   --run_melon                                            [boolean] Turn on profiling with Melon. Requires a database to be present in the CSV file passed to 
-`--databases`. (This parameter has sub-parameters. Use '--help run_melon' to see all 
-sub-parameters) 
-  --melon_k2_db                                          [string]  Specify kraken2 database for prefiltering of non-prokaryotic reads with melon. (This 
-parameter has sub-parameters. Use '--help melon_k2_db' to see all sub-parameters) 
+`--databases`.  
+  --melon_k2_db                                          [string]  Specify kraken2 database for prefiltering of non-prokaryotic reads with melon. 
   --run_metacache                                        [boolean] Turn on profiling with metacache. Requires database to be present CSV file passed to --databases 
-(This parameter has sub-parameters. Use '--help run_metacache' to see all sub-parameters) 
-  --metacache_abundances                                 [boolean] Print all mapping information in separate columns (rank, taxon name, taxon ids). (This 
-parameter has sub-parameters. Use '--help metacache_abundances' to see all sub-parameters) 
+ 
+  --metacache_abundances                                 [boolean] Print all mapping information in separate columns (rank, taxon name, taxon ids). 
 
 Postprocessing and visualisation options
-  --run_profile_standardisation                          [boolean] Turn on standardisation of taxon tables across profilers (This parameter has sub-parameters. 
-Use '--help run_profile_standardisation' to see all sub-parameters) 
-  --standardisation_motus_generatebiom                   [boolean] Turn on generation of BIOM output (currently only applies to mOTUs) (This parameter has 
-sub-parameters. Use '--help standardisation_motus_generatebiom' to see all sub-parameters) 
-  --run_krona                                            [boolean] Turn on generation of Krona plots for supported profilers (This parameter has 
-sub-parameters. Use '--help run_krona' to see all sub-parameters) 
-  --krona_taxonomy_directory                             [string]  Specify path to krona taxonomy directories (required for MALT krona plots) (This parameter 
-has sub-parameters. Use '--help krona_taxonomy_directory' to see all sub-parameters) 
-  --standardisation_taxpasta_format                      [string]  The desired output format.  (accepted: tsv, csv, arrow, parquet, biom) [default: tsv] (This 
-parameter has sub-parameters. Use '--help standardisation_taxpasta_format' to see all 
-sub-parameters) 
-  --taxpasta_taxonomy_dir                                [string]  The path to a directory containing taxdump files. (This parameter has sub-parameters. Use 
-'--help taxpasta_taxonomy_dir' to see all sub-parameters) 
-  --taxpasta_add_name                                    [boolean] Add the taxon name to the output. Requires --taxpasta_taxonomy_dir. (This parameter has 
-sub-parameters. Use '--help taxpasta_add_name' to see all sub-parameters) 
-  --taxpasta_add_rank                                    [boolean] Add the taxon rank to the output. Requires --taxpasta_taxonomy_dir. (This parameter has 
-sub-parameters. Use '--help taxpasta_add_rank' to see all sub-parameters) 
-  --taxpasta_add_lineage                                 [boolean] Add the taxon's entire name lineage to the output. Requires --taxpasta_taxonomy_dir. (This 
-parameter has sub-parameters. Use '--help taxpasta_add_lineage' to see all sub-parameters) 
-  --taxpasta_add_idlineage                               [boolean] Add the taxon's entire ID lineage to the output. Requires --taxpasta_taxonomy_dir. (This 
-parameter has sub-parameters. Use '--help taxpasta_add_idlineage' to see all sub-parameters) 
-  --taxpasta_add_ranklineage                             [boolean] Add the taxon's entire rank lineage to the output. Requires --taxpasta_taxonomy_dir. (This 
-parameter has sub-parameters. Use '--help taxpasta_add_ranklineage' to see all sub-parameters) 
-  --taxpasta_ignore_errors                               [boolean] Ignore individual profiles that cause errors. (This parameter has sub-parameters. Use 
-'--help taxpasta_ignore_errors' to see all sub-parameters) 
+  --run_profile_standardisation                          [boolean] Turn on standardisation of taxon tables across profilers 
+  --standardisation_motus_generatebiom                   [boolean] Turn on generation of BIOM output (currently only applies to mOTUs) 
+  --run_krona                                            [boolean] Turn on generation of Krona plots for supported profilers 
+  --krona_taxonomy_directory                             [string]  Specify path to krona taxonomy directories (required for MALT krona plots) 
+  --standardisation_taxpasta_format                      [string]  The desired output format.  (accepted: tsv, csv, arrow, parquet, biom) [default: tsv] 
+  --taxpasta_taxonomy_dir                                [string]  The path to a directory containing taxdump files. 
+  --taxpasta_add_name                                    [boolean] Add the taxon name to the output. Requires --taxpasta_taxonomy_dir. 
+  --taxpasta_add_rank                                    [boolean] Add the taxon rank to the output. Requires --taxpasta_taxonomy_dir. 
+  --taxpasta_add_lineage                                 [boolean] Add the taxon's entire name lineage to the output. Requires --taxpasta_taxonomy_dir. 
+  --taxpasta_add_idlineage                               [boolean] Add the taxon's entire ID lineage to the output. Requires --taxpasta_taxonomy_dir. 
+  --taxpasta_add_ranklineage                             [boolean] Add the taxon's entire rank lineage to the output. Requires --taxpasta_taxonomy_dir. 
+  --taxpasta_ignore_errors                               [boolean] Ignore individual profiles that cause errors. 
 
 Generic options
-  --multiqc_methods_description                          [string]          Custom MultiQC yaml file containing HTML including a methods description. (This parameter 
-has sub-parameters. Use '--help multiqc_methods_description' to see all sub-parameters) 
-  --help                                                 [boolean, string] Display the help message. (This parameter has sub-parameters. Use '--help help' to see all 
-sub-parameters) 
-  --help_full                                            [boolean]         Display the full detailed help message. (This parameter has sub-parameters. Use '--help 
-help_full' to see all sub-parameters) 
+  --multiqc_methods_description                          [string]          Custom MultiQC yaml file containing HTML including a methods description. 
+  --help                                                 [boolean, string] Display the help message. 
+  --help_full                                            [boolean]         Display the full detailed help message. 
   --show_hidden                                          [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
-(This parameter has sub-parameters. Use '--help show_hidden' to see all sub-parameters) 
+ 
  !! Hiding 17 param(s), use the `--showHidden` parameter to show them !!
 ------------------------------------------------------
 

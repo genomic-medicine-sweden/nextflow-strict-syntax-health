@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "c03d92f6a2e5c9544b2db8f131f0ce690c47cd57",
+    "commit": "c401738f75a265fe4e0e962d43e6bcb296cd5215",
     "errors": 0,
     "warnings": 111,
     "parse_error": false,
@@ -32,7 +32,7 @@
   "metaval": {
     "full_name": "genomic-medicine-sweden/metaval",
     "html_url": "https://github.com/genomic-medicine-sweden/metaval",
-    "commit": "7271fd8e3447a3a7f9ed66894c0b6a1e8eb1631c",
+    "commit": "9075d6c2b55fe311a5753dc95daf09a490b67c85",
     "errors": 0,
     "warnings": 39,
     "parse_error": false,
@@ -52,7 +52,7 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "b2ebd0dfb1f421815ba377df9441cd409adebab5",
+    "commit": "2557065d4ac9945a38b1b6c2afa530f62321a594",
     "errors": 0,
     "warnings": 53,
     "parse_error": false,
@@ -92,9 +92,9 @@
   "rnafusion": {
     "full_name": "nf-core/rnafusion",
     "html_url": "https://github.com/nf-core/rnafusion",
-    "commit": "4c4e76793a7a2768f83bafe63ece972528cb1760",
+    "commit": "7f49d94584b7f264f6852b4fcc28a942547a7936",
     "errors": 0,
-    "warnings": 44,
+    "warnings": 43,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": true
@@ -112,7 +112,7 @@
   "taxprofiler": {
     "full_name": "nf-core/taxprofiler",
     "html_url": "https://github.com/nf-core/taxprofiler",
-    "commit": "30909979b043d1e6f6375e0d512c7cac0bff2d97",
+    "commit": "9b9ebb7b9401408a94000184b5723d2ec09a0bde",
     "errors": 0,
     "warnings": 125,
     "parse_error": false,
