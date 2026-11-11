@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "c401738f75a265fe4e0e962d43e6bcb296cd5215",
+    "commit": "c3e1c11c8e1c8e889862f9aa49095182a59f504a",
     "errors": 0,
     "warnings": 111,
     "parse_error": false,
@@ -22,9 +22,9 @@
   "jasen": {
     "full_name": "genomic-medicine-sweden/jasen",
     "html_url": "https://github.com/genomic-medicine-sweden/jasen",
-    "commit": "68756c71ebc418c8207cc22a071969b4740888c8",
+    "commit": "013288072e9514763d6ef59bf76a127de18346de",
     "errors": 71,
-    "warnings": 26,
+    "warnings": 68,
     "parse_error": false,
     "prints_help": null,
     "has_versions_mix": true
@@ -52,7 +52,7 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "2557065d4ac9945a38b1b6c2afa530f62321a594",
+    "commit": "e0631550d9652be7e8b760adf688194bd2661c36",
     "errors": 0,
     "warnings": 53,
     "parse_error": false,
@@ -72,9 +72,9 @@
   "nallorefs": {
     "full_name": "genomic-medicine-sweden/nallorefs",
     "html_url": "https://github.com/genomic-medicine-sweden/nallorefs",
-    "commit": "5cd5ebd26e717ae37517a7ec0d37d3172c86773b",
+    "commit": "343e71a0e777505049770b89aa8ef46e9d3acf26",
     "errors": 0,
-    "warnings": 31,
+    "warnings": 49,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": true
@@ -92,9 +92,9 @@
   "rnafusion": {
     "full_name": "nf-core/rnafusion",
     "html_url": "https://github.com/nf-core/rnafusion",
-    "commit": "7f49d94584b7f264f6852b4fcc28a942547a7936",
+    "commit": "78eca0402c9ee89bc6288e2d1695ad5cb731e065",
     "errors": 0,
-    "warnings": 43,
+    "warnings": 44,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": true

@@ -1,10 +1,17 @@
 # Nextflow lint results
 
-- Generated: 2026-07-21T00:28:02.120766936Z
-- Nextflow version: 26.07.0-edge
-- Summary: 31 warnings
+- Generated: 2026-11-11T00:12:39.567509529Z
+- Nextflow version: 26.10.3
+- Summary: 49 warnings
 
 ## :warning: Warnings
+
+- Warning: `modules/local/cadd2vcf.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
 
 - Warning: `modules/local/cadd2vcf.nf:22:9`: Variable was declared but not used
 
@@ -20,11 +27,32 @@
           ^^^^
   ```
 
+- Warning: `modules/local/cat_bgzip_tabix_dbnsfp.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/local/downloadgnomad.nf:20:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
 - Warning: `modules/local/downloadgnomad.nf:50:9`: Variable was declared but not used
 
   ```nextflow
       def args = task.ext.args ?: ''
           ^^^^
+  ```
+
+- Warning: `modules/local/echtvar/encode/main.nf:15:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
   ```
 
 - Warning: `modules/local/echtvar/encode/main.nf:19:9`: Variable was declared but not used
@@ -34,11 +62,25 @@
           ^^^^
   ```
 
+- Warning: `modules/local/extract_header_dbnsfp.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
 - Warning: `modules/local/extract_header_dbnsfp.nf:48:9`: Variable was declared but not used
 
   ```nextflow
       def args = task.ext.args ?: ''
           ^^^^
+  ```
+
+- Warning: `modules/local/gunzip_remove_header_sort_dbnsfp.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
   ```
 
 - Warning: `modules/local/gunzip_remove_header_sort_dbnsfp.nf:66:9`: Variable was declared but not used
@@ -48,11 +90,95 @@
           ^^^^
   ```
 
+- Warning: `modules/local/vcfexpress/filter/main.nf:15:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/local/wget/main.nf:16:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/bcftools/annotate/main.nf:21:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/bcftools/concat/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/bcftools/query/main.nf:20:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/bcftools/view/main.nf:21:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/gunzip/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
 - Warning: `modules/nf-core/gunzip/main.nf:43:9`: Variable was declared but not used
 
   ```nextflow
       def args = task.ext.args ?: ''
           ^^^^
+  ```
+
+- Warning: `modules/nf-core/md5sum/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/samtools/faidx/main.nf:21:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/tabix/tabix/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/untar/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/unzip/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
   ```
 
 - Warning: `modules/nf-core/unzip/main.nf:36:9`: Variable was declared but not used
