@@ -5,7 +5,7 @@ Nextflow 26.10.5 is available - Please consider updating your version to it
  N E X T F L O W   ~  version 26.10.3
 
 Downloading plugin nf-schema@2.3.0
-Launching `./main.nf` [lethal_noether] revision: 2a5ae14c0e
+Launching `./main.nf` [golden_wing] revision: 2a5ae14c0e
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
@@ -17,10 +17,10 @@ Input/output options
   input              : /home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/nallorefs/assets/samplesheet.csv
 
 Generic options
-  trace_report_suffix: 2026-11-11_00-12-41
+  trace_report_suffix: 2026-11-12_00-13-04
 
 Core Nextflow options
-  runName            : lethal_noether
+  runName            : golden_wing
   launchDir          : /home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/nallorefs
   workDir            : /home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/nallorefs/work
   projectDir         : /home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/nallorefs

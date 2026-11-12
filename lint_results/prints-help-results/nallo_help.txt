@@ -5,7 +5,7 @@ Nextflow 26.10.5 is available - Please consider updating your version to it
  N E X T F L O W   ~  version 26.10.3
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [serene_planck] revision: e0b36ce1c2
+Launching `./main.nf` [gloomy_newton] revision: 1d223c1f41
 
 
                                        _                              _ _      _
@@ -334,6 +334,8 @@ SUBREAD) [default: CCS]
 d4z4]  
   --skip_kivvi                                 [boolean] Whether to skip running Kivvi. [default: false] 
   --paraphase_config                           [string]  Configuration file for Paraphase. 
+  --trgt_spanning_repeats_output_format        [string]  Output format for TRGT spanning repeats. Supported arguments are BAM or CRAM.  (accepted: bam, 
+cram) [default: bam]  
  !! Hiding 31 param(s), use the `--showHidden` parameter to show them !!
 ------------------------------------------------------
 
