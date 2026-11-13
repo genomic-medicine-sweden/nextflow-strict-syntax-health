@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-11-12T00:13:02.749556724Z
+- Generated: 2026-11-13T00:12:37.452195771Z
 - Nextflow version: 26.10.3
 - Summary: 49 warnings
 
@@ -265,84 +265,84 @@
       ^^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/nallorefs.nf:109:30`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/nallorefs.nf:111:30`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_gnomad_snvs_per_chr = Channel.fromList(chromosomes)
                                ^^^^^^^
   ```
 
-- Warning: `workflows/nallorefs.nf:120:67`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/nallorefs.nf:122:67`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_echtvar_local_databases = params.local_echtvar_databases ? Channel.fromList(samplesheetToList(params.local_echtvar_databases, 'assets/schema_local_echtvar_databases.json'))
                                                                     ^^^^^^^
   ```
 
-- Warning: `workflows/nallorefs.nf:122:64`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/nallorefs.nf:124:64`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
               [ meta + [ 'id': file(vcf).name ], vcf, json ] } : Channel.empty()
                                                                  ^^^^^^^
   ```
 
-- Warning: `workflows/nallorefs.nf:129:36`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/nallorefs.nf:131:36`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_versions                  = Channel.empty()
                                      ^^^^^^^
   ```
 
-- Warning: `workflows/nallorefs.nf:130:36`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/nallorefs.nf:132:36`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_general_files_to_download = Channel.empty()
                                      ^^^^^^^
   ```
 
-- Warning: `workflows/nallorefs.nf:131:36`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/nallorefs.nf:133:36`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_echtvar_encode_files      = Channel.empty()
                                      ^^^^^^^
   ```
 
-- Warning: `workflows/nallorefs.nf:231:54`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/nallorefs.nf:235:54`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               ch_echtvar_encode_files.map { meta, vcf, json -> [ meta, vcf ] },
                                                        ^^^^
   ```
 
-- Warning: `workflows/nallorefs.nf:266:27`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/nallorefs.nf:270:27`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
                   .filter { meta, file ->
                             ^^^^
   ```
 
-- Warning: `workflows/nallorefs.nf:275:27`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/nallorefs.nf:279:27`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
                   .filter { meta, file ->
                             ^^^^
   ```
 
-- Warning: `workflows/nallorefs.nf:434:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/nallorefs.nf:438:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       Channel.of(path)
       ^^^^^^^
   ```
 
-- Warning: `workflows/nallorefs.nf:439:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/nallorefs.nf:443:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       Channel.fromPath(path)
       ^^^^^^^
   ```
 
-- Warning: `workflows/nallorefs.nf:445:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/nallorefs.nf:449:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       Channel.of(path)

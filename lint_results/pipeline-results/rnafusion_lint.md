@@ -1,17 +1,10 @@
 # Nextflow lint results
 
-- Generated: 2026-11-12T00:13:24.302765482Z
+- Generated: 2026-11-13T00:13:34.554784224Z
 - Nextflow version: 26.10.3
-- Summary: 44 warnings
+- Summary: 43 warnings
 
 ## :warning: Warnings
-
-- Warning: `modules/local/vcf_collect/main.nf:20:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
-
-  ```nextflow
-      when:
-      ^^^^
-  ```
 
 - Warning: `modules/nf-core/agat/convertgff2bed/main.nf:20:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 

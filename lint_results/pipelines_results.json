@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "019658753aebf1adbf202ec307e24bc517d8d87c",
+    "commit": "39d05fc58c6892f7d1c5e09a5f47f83b5275fc28",
     "errors": 0,
     "warnings": 111,
     "parse_error": false,
@@ -22,7 +22,7 @@
   "jasen": {
     "full_name": "genomic-medicine-sweden/jasen",
     "html_url": "https://github.com/genomic-medicine-sweden/jasen",
-    "commit": "013288072e9514763d6ef59bf76a127de18346de",
+    "commit": "1f74ae377f8b79696a35045c744f437db7b473fb",
     "errors": 71,
     "warnings": 68,
     "parse_error": false,
@@ -52,7 +52,7 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "97bc46a5453cd738e68041e3ea1e171b53afaed2",
+    "commit": "2ee5299bee5278b24ef2b2eaee629314c7b71709",
     "errors": 0,
     "warnings": 53,
     "parse_error": false,
@@ -72,7 +72,7 @@
   "nallorefs": {
     "full_name": "genomic-medicine-sweden/nallorefs",
     "html_url": "https://github.com/genomic-medicine-sweden/nallorefs",
-    "commit": "a394269b7ac20af82cb25697ffc96e55e0d2f983",
+    "commit": "37db781c0a8107c63a9f70ee9637a7f46863848d",
     "errors": 0,
     "warnings": 49,
     "parse_error": false,
@@ -82,9 +82,9 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "5f17d4aa8fcac436a9372a6915416f156437edff",
+    "commit": "fd3dcb83e6dbb99f51ac2a848922a2c8c88249f8",
     "errors": 0,
-    "warnings": 4,
+    "warnings": 27,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -92,9 +92,9 @@
   "rnafusion": {
     "full_name": "nf-core/rnafusion",
     "html_url": "https://github.com/nf-core/rnafusion",
-    "commit": "70998bc008a5bad6bf4302d6fb4fa948b72d7eaf",
+    "commit": "331a881b8d8028fe0ba00c005fcf9f6b80133864",
     "errors": 0,
-    "warnings": 44,
+    "warnings": 43,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": true

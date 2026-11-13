@@ -5,7 +5,7 @@ Nextflow 26.10.5 is available - Please consider updating your version to it
  N E X T F L O W   ~  version 26.10.3
 
 Downloading plugin nf-schema@2.7.0
-Launching `./main.nf` [gloomy_newton] revision: 1d223c1f41
+Launching `./main.nf` [pensive_aryabhata] revision: 1d223c1f41
 
 
                                        _                              _ _      _
