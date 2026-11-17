@@ -2,7 +2,7 @@
   "nallo": {
     "full_name": "genomic-medicine-sweden/nallo",
     "html_url": "https://github.com/genomic-medicine-sweden/nallo",
-    "commit": "39d05fc58c6892f7d1c5e09a5f47f83b5275fc28",
+    "commit": "de4370616e0fc49cbf6ad1c13a09102e648515d9",
     "errors": 0,
     "warnings": 111,
     "parse_error": false,
@@ -52,9 +52,9 @@
   "nf-autoseq": {
     "full_name": "genomic-medicine-sweden/nf-autoseq",
     "html_url": "https://github.com/genomic-medicine-sweden/nf-autoseq",
-    "commit": "2ee5299bee5278b24ef2b2eaee629314c7b71709",
+    "commit": "4175036638c125a5f47eb4c0227494ca09bc5714",
     "errors": 0,
-    "warnings": 53,
+    "warnings": 52,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -82,7 +82,7 @@
   "oncorefiner": {
     "full_name": "clinical-genomics/oncorefiner",
     "html_url": "https://github.com/clinical-genomics/oncorefiner",
-    "commit": "dda5829aee04204ce03f262a6ff4813e3a198a4f",
+    "commit": "ef1599247ce511614902d8ea78db0af1c04a67f8",
     "errors": 0,
     "warnings": 27,
     "parse_error": false,

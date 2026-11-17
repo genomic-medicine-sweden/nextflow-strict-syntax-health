@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-11-13T00:12:19.250263654Z
+- Generated: 2026-11-17T00:12:08.167802996Z
 - Nextflow version: 26.10.3
-- Summary: 53 warnings
+- Summary: 52 warnings
 
 ## :warning: Warnings
 
@@ -209,25 +209,18 @@
       ^^^^
   ```
 
-- Warning: `modules/nf-core/gridss/assemble/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/gridss/assemble/main.nf:22:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/nf-core/gridss/call/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/gridss/call/main.nf:22:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
-  ```
-
-- Warning: `modules/nf-core/gridss/call/main.nf:46:9`: Variable was declared but not used
-
-  ```nextflow
-      def args = task.ext.args ?: ''
-          ^^^^
   ```
 
 - Warning: `modules/nf-core/gridss/extractoverlappingfragments/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime

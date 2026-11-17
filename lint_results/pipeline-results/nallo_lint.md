@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-11-13T00:11:37.406246031Z
+- Generated: 2026-11-17T00:11:32.812167922Z
 - Nextflow version: 26.10.3
 - Summary: 111 warnings
 
@@ -475,7 +475,7 @@
       ^^^^
   ```
 
-- Warning: `modules/nf-core/paraphase/main.nf:26:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/paraphase/main.nf:29:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
