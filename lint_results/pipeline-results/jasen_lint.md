@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-11-13T00:12:07.654227559Z
-- Nextflow version: 26.10.3
-- Summary: 71 errors, 68 warnings
+- Generated: 2026-11-18T00:12:06.371768055Z
+- Nextflow version: 26.11.0-edge
+- Summary: 69 errors, 60 warnings
 
 ## :x: Errors
 
@@ -83,28 +83,35 @@
                                            ^^^^^^^
   ```
 
-- Error: `main.nf:5:1`: Included name 'CALL_MYCOBACTERIUM_TUBERCULOSIS' is not defined in module '/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/jasen/workflows/mycobacterium_tuberculosis.nf'
+- Error: `main.nf:5:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
+
+  ```nextflow
+  if (!nextflow.version.matches('>=25.04.0')) {
+  ^
+  ```
+
+- Error: `main.nf:9:1`: Included name 'CALL_MYCOBACTERIUM_TUBERCULOSIS' is not defined in module '/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/jasen/workflows/mycobacterium_tuberculosis.nf'
 
   ```nextflow
   include { CALL_MYCOBACTERIUM_TUBERCULOSIS   } from './workflows/mycobacterium_tuberculosis.nf'
   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Error: `main.nf:6:1`: Included name 'CALL_BACTERIAL_GENERAL' is not defined in module '/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/jasen/workflows/bacterial_general.nf'
+- Error: `main.nf:10:1`: Included name 'CALL_BACTERIAL_GENERAL' is not defined in module '/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/pipelines/jasen/workflows/bacterial_general.nf'
 
   ```nextflow
   include { CALL_BACTERIAL_GENERAL            } from './workflows/bacterial_general.nf'
   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Error: `main.nf:10:9`: `CALL_MYCOBACTERIUM_TUBERCULOSIS` is not defined
+- Error: `main.nf:14:9`: `CALL_MYCOBACTERIUM_TUBERCULOSIS` is not defined
 
   ```nextflow
           CALL_MYCOBACTERIUM_TUBERCULOSIS()
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Error: `main.nf:12:9`: `CALL_BACTERIAL_GENERAL` is not defined
+- Error: `main.nf:16:9`: `CALL_BACTERIAL_GENERAL` is not defined
 
   ```nextflow
           CALL_BACTERIAL_GENERAL()
@@ -279,32 +286,18 @@
             ^
   ```
 
-- Error: `modules/nf-core/samtools/main.nf:24:29`: `sample_id` is not defined
-
-  ```nextflow
-      cat <<-END_VERSIONS > ${sample_id}_${task.process}_versions.yml
-                              ^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/samtools/main.nf:34:13`: `sample_id` is not defined
+- Error: `modules/nf-core/samtools/main.nf:27:13`: `sample_id` is not defined
 
   ```nextflow
       touch ${sample_id}.bam
               ^^^^^^^^^
   ```
 
-- Error: `modules/nf-core/samtools/main.nf:35:13`: `sample_id` is not defined
+- Error: `modules/nf-core/samtools/main.nf:28:13`: `sample_id` is not defined
 
   ```nextflow
       touch ${sample_id}.cram
               ^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/samtools/main.nf:37:29`: `sample_id` is not defined
-
-  ```nextflow
-      cat <<-END_VERSIONS > ${sample_id}_${task.process}_versions.yml
-                              ^^^^^^^^^
   ```
 
 - Error: `nextflow.config:16:34`: `outdir` is not defined
@@ -398,42 +391,42 @@
                                    ^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:331:1`: Variable declarations cannot be mixed with config statements
+- Error: `nextflow.config:334:1`: Variable declarations cannot be mixed with config statements
 
   ```nextflow
   def trace_timestamp = new java.util.Date().format('yyyy-MM-dd_HH-mm-ss')
   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:334:60`: `trace_timestamp` is not defined
+- Error: `nextflow.config:337:60`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/execution_timeline_${trace_timestamp}.html"
                                                              ^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:339:58`: `trace_timestamp` is not defined
+- Error: `nextflow.config:342:58`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/execution_report_${trace_timestamp}.html"
                                                            ^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:344:57`: `trace_timestamp` is not defined
+- Error: `nextflow.config:347:57`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/execution_trace_${trace_timestamp}.txt"
                                                           ^^^^^^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:349:54`: `trace_timestamp` is not defined
+- Error: `nextflow.config:352:54`: `trace_timestamp` is not defined
 
   ```nextflow
       file        = "${params.tracedir}/pipeline_dag_${trace_timestamp}.html"
                                                        ^^^^^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/preprocessing.nf:45:42`: `target_sample_size` is not defined
+- Error: `subworkflows/preprocessing.nf:58:42`: `target_sample_size` is not defined
 
   ```nextflow
           seqtk_sample( ch_depleted_reads, target_sample_size ).reads.set{ ch_depleted_sampled_reads }
@@ -447,56 +440,49 @@
   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Error: `subworkflows/typing.nf:44:9`: `mlst` is not defined
+- Error: `subworkflows/typing.nf:42:9`: `mlst` is not defined
 
   ```nextflow
           mlst(ch_assembly, mlst_scheme, pubmlst_db, mlst_blast_db)
           ^^^^
   ```
 
-- Error: `subworkflows/typing.nf:45:9`: `mlst` is not defined
+- Error: `subworkflows/typing.nf:43:9`: `mlst` is not defined
 
   ```nextflow
           mlst.out.json.set{ ch_mlst }
           ^^^^
   ```
 
-- Error: `subworkflows/typing.nf:46:39`: `mlst` is not defined
-
-  ```nextflow
-          ch_versions = ch_versions.mix(mlst.out.versions)
-                                        ^^^^
-  ```
-
-- Error: `subworkflows/typing.nf:188:5`: Workflow emit `serotypefinder` is already declared
+- Error: `subworkflows/typing.nf:168:5`: Workflow emit `serotypefinder` is already declared
 
   ```nextflow
       serotypefinder  = ch_serotypefinder_meta              // channel: [ val(meta), path(json) ]
       ^^^^^^^^^^^^^^
   ```
 
-- Error: `workflows/bacterial_general.nf:56:9`: Unexpected input: ':'
+- Error: `workflows/bacterial_general.nf:53:9`: Unexpected input: ':'
 
   ```nextflow
       main:
           ^
   ```
 
-- Error: `workflows/bacterial_general.nf:162:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
+- Error: `workflows/bacterial_general.nf:144:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
 
   ```nextflow
   workflow.onComplete {
   ^
   ```
 
-- Error: `workflows/mycobacterium_tuberculosis.nf:54:9`: Unexpected input: ':'
+- Error: `workflows/mycobacterium_tuberculosis.nf:53:9`: Unexpected input: ':'
 
   ```nextflow
       main:
           ^
   ```
 
-- Error: `workflows/mycobacterium_tuberculosis.nf:158:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
+- Error: `workflows/mycobacterium_tuberculosis.nf:141:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
 
   ```nextflow
   workflow.onComplete {
@@ -504,6 +490,13 @@
   ```
 
 ## :warning: Warnings
+
+- Warning: `methods/get_sample_data.nf:27:57`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+
+  ```nextflow
+      def lines = file(samplesheet).readLines().findAll { it.trim() }
+                                                          ^^
+  ```
 
 - Warning: `modules/local/chewbbaca/split/main.nf:12:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
@@ -519,18 +512,11 @@
       ^^^^
   ```
 
-- Warning: `modules/local/jasentool/main.nf:182:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/jasentool/main.nf:157:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
-  ```
-
-- Warning: `modules/local/jasentool/main.nf:207:64`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def version_args = [input_files].flatten().collect { "-i ${it}" }.join(' ')
-                                                                 ^^
   ```
 
 - Warning: `modules/local/mask/main.nf:11:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
@@ -575,7 +561,7 @@
       ^^^^
   ```
 
-- Warning: `modules/nf-core/bwa/main.nf:58:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/bwa/main.nf:45:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
@@ -659,7 +645,7 @@
       ^^^^
   ```
 
-- Warning: `modules/nf-core/kraken/main.nf:92:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/kraken/main.nf:78:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
@@ -680,7 +666,7 @@
       ^^^^
   ```
 
-- Warning: `modules/nf-core/minimap2/main.nf:57:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/minimap2/main.nf:43:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
@@ -701,14 +687,14 @@
       ^^^^
   ```
 
-- Warning: `modules/nf-core/plasmidfinder/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/plasmidfinder/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/nf-core/resfinder/main.nf:20:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/resfinder/main.nf:22:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
@@ -722,28 +708,28 @@
       ^^^^
   ```
 
-- Warning: `modules/nf-core/samtools/main.nf:57:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/samtools/main.nf:43:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/nf-core/samtools/main.nf:98:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/samtools/main.nf:70:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/nf-core/samtools/main.nf:216:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/samtools/main.nf:146:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/nf-core/samtools/main.nf:259:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/samtools/main.nf:175:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
@@ -764,7 +750,7 @@
       ^^^^
   ```
 
-- Warning: `modules/nf-core/serotypefinder/main.nf:15:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/serotypefinder/main.nf:16:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
@@ -820,98 +806,84 @@
       ^^^^
   ```
 
-- Warning: `modules/nf-core/virulencefinder/main.nf:15:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/virulencefinder/main.nf:16:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `subworkflows/assembly.nf:17:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
-  ```
-
-- Warning: `subworkflows/assembly.nf:26:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/assembly.nf:24:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       Channel.empty()
       ^^^^^^^
   ```
 
-- Warning: `subworkflows/postprocessing.nf:31:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/postprocessing.nf:27:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
+      Channel.topic('versions')
+      ^^^^^^^
   ```
 
-- Warning: `subworkflows/postprocessing.nf:61:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/postprocessing.nf:33:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+
+  ```nextflow
+          .map { it.join('\n') + '\n' }
+                 ^^
+  ```
+
+- Warning: `subworkflows/postprocessing.nf:37:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { it[0] }
                  ^^
   ```
 
-- Warning: `subworkflows/postprocessing.nf:63:17`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/postprocessing.nf:67:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+
+  ```nextflow
+          .map { it[0] }
+                 ^^
+  ```
+
+- Warning: `subworkflows/postprocessing.nf:69:17`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { [it] }
                   ^^
   ```
 
-- Warning: `subworkflows/postprocessing.nf:64:45`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/postprocessing.nf:70:45`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .combine(create_yaml.out.yaml.map { it[0] }.toList().map { [it] })
                                               ^^
   ```
 
-- Warning: `subworkflows/postprocessing.nf:64:69`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/postprocessing.nf:70:69`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .combine(create_yaml.out.yaml.map { it[0] }.toList().map { [it] })
                                                                       ^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:25:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/preprocessing.nf:31:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
-  ```
-
-- Warning: `subworkflows/preprocessing.nf:29:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      Channel.fromPath(input_samples)
+      Channel.fromList(samplesheetToList(input_samples, "${projectDir}/assets/schema_input.json"))
       ^^^^^^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:31:15`: Variable was declared but not used
-
-  ```nextflow
-          .tap{ ch_raw_input }
-                ^^^^^^^^^^^^
-  ```
-
-- Warning: `subworkflows/preprocessing.nf:64:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      Channel.fromPath(input_samples).splitCsv(header:true)
-      ^^^^^^^
-  ```
-
-- Warning: `subworkflows/preprocessing.nf:67:19`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/preprocessing.nf:77:19`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ id, sequencing_run, lims_id, sample_name -> [ id, lims_id, sample_name ]}
                     ^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/preprocessing.nf:71:30`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/preprocessing.nf:81:30`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
       ch_reads.map{ sample_id, reads -> [ sample_id, [] ] }.set{ ch_sample_id }
@@ -932,51 +904,9 @@
       ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/profiling.nf:21:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
-  ```
-
-- Warning: `subworkflows/quality_control.nf:35:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
-  ```
-
-- Warning: `subworkflows/relatedness.nf:15:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
-  ```
-
-- Warning: `subworkflows/screening.nf:24:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
-  ```
-
 - Warning: `subworkflows/typing.nf:32:5`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
       species
       ^^^^^^^
-  ```
-
-- Warning: `subworkflows/typing.nf:40:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
-  ```
-
-- Warning: `subworkflows/variant_calling.nf:19:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
   ```

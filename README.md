@@ -12,13 +12,13 @@ The goal is for all genomic-medicine-sweden pipelines to run without errors usin
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-11-17 00:13:09 UTC
-- **Nextflow version:** 26.10.3
+- **Last updated:** 2026-11-18 00:12:52 UTC
+- **Nextflow version:** 26.11.0-edge
 
 ## Pipelines
 
-- **Strict syntax:** 0 parse errors, 76 errors, 842 warnings across 12 pipelines
-- **Versions Mix:** 4/12 (33.3%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
+- **Strict syntax:** 0 parse errors, 74 errors, 834 warnings across 12 pipelines
+- **Versions Mix:** 5/12 (41.7%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
 - **Zero issues:** 0 pipelines (0.0%)
 
 |                    Errors                    |                     Warnings                     |
@@ -34,7 +34,7 @@ The goal is for all genomic-medicine-sweden pipelines to run without errors usin
 
 | Pipeline                                                                          | Parse Error | Errors | Warnings | Prints Help |         Versions Mix          |                          Lint Output                          |                          Help Output                          |
 | --------------------------------------------------------------------------------- | :---------: | -----: | -------: | :---------: | :---------------------------: | :-----------------------------------------------------------: | :-----------------------------------------------------------: |
-| :x: [jasen](https://github.com/genomic-medicine-sweden/jasen)                     |     No      |     71 |       68 |      -      | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/jasen_lint.md)      |                               -                               |
+| :x: [jasen](https://github.com/genomic-medicine-sweden/jasen)                     |     No      |     69 |       60 |      -      |      :white_check_mark:       |      [View](lint_results/pipeline-results/jasen_lint.md)      |                               -                               |
 | :x: [TRANA](https://github.com/genomic-medicine-sweden/TRANA)                     |     No      |      4 |       34 |      -      | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/TRANA_lint.md)      |                               -                               |
 | :x: [rarediseaserefs](https://github.com/genomic-medicine-sweden/rarediseaserefs) |     No      |      1 |        5 |      -      |      :white_check_mark:       | [View](lint_results/pipeline-results/rarediseaserefs_lint.md) |                               -                               |
 | :x: [tomte](https://github.com/genomic-medicine-sweden/tomte)                     |     No      |      0 |      156 |     No      | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/tomte_lint.md)      |    [View](lint_results/prints-help-results/tomte_help.txt)    |
