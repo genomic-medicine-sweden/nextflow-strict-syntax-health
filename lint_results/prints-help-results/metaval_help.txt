@@ -1,11 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
-Nextflow 26.10.6 is available - Please consider updating your version to it
 
- N E X T F L O W   ~  version 26.10.3
+ N E X T F L O W   ~  version 26.11.0-edge
 
 Downloading plugin nf-schema@2.7.2
-Launching `./main.nf` [nauseous_cuvier] revision: 6830e582d4
+Launching `./main.nf` [cheesy_agnesi] revision: 6830e582d4
 
 
 ----------------------------------------------------
@@ -86,8 +85,8 @@ General options
   --blastn_max_evalue           [number]  The maximum e-value (--max-evalue) used to filter BLASTN results [default: 0.001] 
   --blastx_max_evalue           [number]  The maximum e-value (--max-evalue) used to filter DIAMOND/BLASTX results [default: 0.001] 
   --perform_mapping             [boolean] Turn on mapping 
-  --min_read_counts             [integer] Set the read count threshold for performing de novo assembly or consensus calling. [default: 
-100]  
+  --min_read_counts             [integer] Set the read count threshold for performing de novo assembly in species verifying workflow or 
+consensus calling in pathogen screening workflow. [default: 100]  
 
 Generic options
   --multiqc_methods_description [string]          Custom MultiQC yaml file containing HTML including a methods description. 
