@@ -1,7 +1,7 @@
 # Nextflow lint results
 
-- Generated: 2026-11-17T00:12:08.167802996Z
-- Nextflow version: 26.10.3
+- Generated: 2026-11-24T00:10:05.568225855Z
+- Nextflow version: 26.11.0-edge
 - Summary: 52 warnings
 
 ## :warning: Warnings
@@ -363,7 +363,7 @@
                                             ^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_autoseq_pipeline/main.nf:104:21`: Variable was declared but not used
+- Warning: `subworkflows/local/utils_nfcore_autoseq_pipeline/main.nf:107:21`: Variable was declared but not used
 
   ```nextflow
                   def readgroup = "${meta.case_id}_${meta.sample_name}_${meta.lane}".toString()
