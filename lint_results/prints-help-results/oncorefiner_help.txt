@@ -1,13 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
-/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/nextflow-src/build/releases/nextflow: line 44: [[: 09: value too great for base (error token is "09")
-/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/nextflow-src/build/releases/nextflow: line 45: [[: 09: value too great for base (error token is "09")
-Nextflow 26.09.2-edge is available - Please consider updating your version to it
 
  N E X T F L O W   ~  version 26.11.0-edge
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [angry_turing] revision: f392241992
+Launching `./main.nf` [scruffy_torvalds] revision: 07513c1194
 
 Typical pipeline command:
 
