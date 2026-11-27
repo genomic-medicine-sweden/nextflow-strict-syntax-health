@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-11-26T00:10:25.311939035Z
+- Generated: 2026-11-27T00:09:14.676182901Z
 - Nextflow version: 26.11.0-edge
-- Summary: 51 warnings
+- Summary: 49 warnings
 
 ## :warning: Warnings
 
@@ -223,32 +223,18 @@
       ^^^^
   ```
 
-- Warning: `modules/nf-core/gridss/extractoverlappingfragments/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/gridss/extractoverlappingfragments/main.nf:21:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/nf-core/gridss/preprocess/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/gridss/preprocess/main.nf:21:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
-  ```
-
-- Warning: `modules/nf-core/gridss/preprocess/main.nf:23:9`: Variable was declared but not used
-
-  ```nextflow
-      def prefix = task.ext.prefix ?: "${meta.id}"
-          ^^^^^^
-  ```
-
-- Warning: `modules/nf-core/gridss/preprocess/main.nf:46:9`: Variable was declared but not used
-
-  ```nextflow
-      def args = task.ext.args ?: ''
-          ^^^^
   ```
 
 - Warning: `modules/nf-core/multiqc/main.nf:20:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
