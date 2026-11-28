@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-11-27T00:09:14.676182901Z
+- Generated: 2026-11-28T00:09:45.187829553Z
 - Nextflow version: 26.11.0-edge
-- Summary: 49 warnings
+- Summary: 44 warnings
 
 ## :warning: Warnings
 
@@ -312,39 +312,4 @@
   ```nextflow
       when:
       ^^^^
-  ```
-
-- Warning: `subworkflows/local/call_somatic_snvs/main.nf:33:16`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      versions = Channel.empty()
-                 ^^^^^^^
-  ```
-
-- Warning: `subworkflows/local/call_somatic_snvs/main.nf:81:29`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-          ch_sage_pon.collect{it[1]},
-                              ^^
-  ```
-
-- Warning: `subworkflows/local/call_somatic_snvs/main.nf:82:48`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-          ch_sage_known_hotspots_somatic.collect{it[1]},
-                                                 ^^
-  ```
-
-- Warning: `subworkflows/local/call_somatic_snvs/main.nf:83:42`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-          ch_sage_highconf_regions.collect{it[1]},
-                                           ^^
-  ```
-
-- Warning: `subworkflows/local/call_somatic_snvs/main.nf:84:43`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-          ch_ensembl_data_resources.collect{it[1]},
-                                            ^^
   ```

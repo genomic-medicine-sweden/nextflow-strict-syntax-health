@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-11-12T00:13:59.869768060Z
-- Nextflow version: 26.10.3
-- Summary: 133 warnings
+- Generated: 2026-11-28T00:10:09.591612563Z
+- Nextflow version: 26.11.0-edge
+- Summary: 134 warnings
 
 ## :warning: Warnings
 
@@ -49,6 +49,13 @@
   ```
 
 - Warning: `modules/local/get_chrom_sizes/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/local/keep_proband_variants/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
